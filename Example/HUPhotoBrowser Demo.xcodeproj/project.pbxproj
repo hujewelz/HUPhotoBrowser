@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		040623A31C7E9989005653C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623A21C7E9989005653C1 /* main.m */; };
+		040623A61C7E9989005653C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623A51C7E9989005653C1 /* AppDelegate.m */; };
+		040623A91C7E9989005653C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623A81C7E9989005653C1 /* ViewController.m */; };
+		040623AC1C7E9989005653C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040623AA1C7E9989005653C1 /* Main.storyboard */; };
+		040623AE1C7E9989005653C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040623AD1C7E9989005653C1 /* Images.xcassets */; };
+		040623B11C7E9989005653C1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040623AF1C7E9989005653C1 /* LaunchScreen.xib */; };
+		040623BD1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623BC1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m */; };
+		040623EE1C7E9B8F005653C1 /* HUPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623C91C7E9B8F005653C1 /* HUPhotoBrowser.m */; };
+		040623EF1C7E9B8F005653C1 /* HUPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623CB1C7E9B8F005653C1 /* HUPhotoBrowserCell.m */; };
+		040624021C7E9BB6005653C1 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624011C7E9BB6005653C1 /* PhotoCell.m */; };
+		040624071C7E9C83005653C1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 040624031C7E9C83005653C1 /* 1.jpg */; };
+		040624081C7E9C83005653C1 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 040624041C7E9C83005653C1 /* 2.jpg */; };
+		040624091C7E9C83005653C1 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 040624051C7E9C83005653C1 /* 3.jpg */; };
+		0406240A1C7E9C83005653C1 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 040624061C7E9C83005653C1 /* 4.png */; };
+		0406240C1C7E9F0E005653C1 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406240B1C7E9F0E005653C1 /* 5.jpg */; };
+		0406241C1C7ECDC7005653C1 /* HUWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624171C7ECDC7005653C1 /* HUWebImageDownloader.m */; };
+		0406241D1C7ECDC7005653C1 /* NSString+HUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624191C7ECDC7005653C1 /* NSString+HUExtension.m */; };
+		0406241E1C7ECDC7005653C1 /* UIImage+HUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406241B1C7ECDC7005653C1 /* UIImage+HUExtension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		040623B71C7E9989005653C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 040623951C7E9989005653C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0406239C1C7E9989005653C1;
+			remoteInfo = "HUPhotoBrowser Demo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0406239D1C7E9989005653C1 /* HUPhotoBrowser Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HUPhotoBrowser Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		040623A11C7E9989005653C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		040623A21C7E9989005653C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		040623A41C7E9989005653C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		040623A51C7E9989005653C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		040623A71C7E9989005653C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		040623A81C7E9989005653C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		040623AB1C7E9989005653C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		040623AD1C7E9989005653C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		040623B01C7E9989005653C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		040623B61C7E9989005653C1 /* HUPhotoBrowser DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HUPhotoBrowser DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		040623BB1C7E9989005653C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		040623BC1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUPhotoBrowser_DemoTests.m; sourceTree = "<group>"; };
+		040623C71C7E9B8F005653C1 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		040623C81C7E9B8F005653C1 /* HUPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoBrowser.h; sourceTree = "<group>"; };
+		040623C91C7E9B8F005653C1 /* HUPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoBrowser.m; sourceTree = "<group>"; };
+		040623CA1C7E9B8F005653C1 /* HUPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoBrowserCell.h; sourceTree = "<group>"; };
+		040623CB1C7E9B8F005653C1 /* HUPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoBrowserCell.m; sourceTree = "<group>"; };
+		040624001C7E9BB6005653C1 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		040624011C7E9BB6005653C1 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		040624031C7E9C83005653C1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		040624041C7E9C83005653C1 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		040624051C7E9C83005653C1 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		040624061C7E9C83005653C1 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		0406240B1C7E9F0E005653C1 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		040624161C7ECDC7005653C1 /* HUWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUWebImageDownloader.h; sourceTree = "<group>"; };
+		040624171C7ECDC7005653C1 /* HUWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUWebImageDownloader.m; sourceTree = "<group>"; };
+		040624181C7ECDC7005653C1 /* NSString+HUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HUExtension.h"; sourceTree = "<group>"; };
+		040624191C7ECDC7005653C1 /* NSString+HUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HUExtension.m"; sourceTree = "<group>"; };
+		0406241A1C7ECDC7005653C1 /* UIImage+HUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HUExtension.h"; sourceTree = "<group>"; };
+		0406241B1C7ECDC7005653C1 /* UIImage+HUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HUExtension.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0406239A1C7E9989005653C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		040623B31C7E9989005653C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		040623941C7E9989005653C1 = {
+			isa = PBXGroup;
+			children = (
+				0406239F1C7E9989005653C1 /* HUPhotoBrowser Demo */,
+				040623B91C7E9989005653C1 /* HUPhotoBrowser DemoTests */,
+				0406239E1C7E9989005653C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0406239E1C7E9989005653C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0406239D1C7E9989005653C1 /* HUPhotoBrowser Demo.app */,
+				040623B61C7E9989005653C1 /* HUPhotoBrowser DemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0406239F1C7E9989005653C1 /* HUPhotoBrowser Demo */ = {
+			isa = PBXGroup;
+			children = (
+				040623A41C7E9989005653C1 /* AppDelegate.h */,
+				040623A51C7E9989005653C1 /* AppDelegate.m */,
+				040623A71C7E9989005653C1 /* ViewController.h */,
+				040623A81C7E9989005653C1 /* ViewController.m */,
+				040624001C7E9BB6005653C1 /* PhotoCell.h */,
+				040624011C7E9BB6005653C1 /* PhotoCell.m */,
+				040623AA1C7E9989005653C1 /* Main.storyboard */,
+				040623AD1C7E9989005653C1 /* Images.xcassets */,
+				040623AF1C7E9989005653C1 /* LaunchScreen.xib */,
+				040623A01C7E9989005653C1 /* Supporting Files */,
+			);
+			path = "HUPhotoBrowser Demo";
+			sourceTree = "<group>";
+		};
+		040623A01C7E9989005653C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				040624031C7E9C83005653C1 /* 1.jpg */,
+				040624041C7E9C83005653C1 /* 2.jpg */,
+				040624051C7E9C83005653C1 /* 3.jpg */,
+				040624061C7E9C83005653C1 /* 4.png */,
+				0406240B1C7E9F0E005653C1 /* 5.jpg */,
+				040623C61C7E9B8F005653C1 /* HUPhotoBrowser */,
+				040623A11C7E9989005653C1 /* Info.plist */,
+				040623A21C7E9989005653C1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		040623B91C7E9989005653C1 /* HUPhotoBrowser DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				040623BC1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m */,
+				040623BA1C7E9989005653C1 /* Supporting Files */,
+			);
+			path = "HUPhotoBrowser DemoTests";
+			sourceTree = "<group>";
+		};
+		040623BA1C7E9989005653C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				040623BB1C7E9989005653C1 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		040623C61C7E9B8F005653C1 /* HUPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				040624161C7ECDC7005653C1 /* HUWebImageDownloader.h */,
+				040624171C7ECDC7005653C1 /* HUWebImageDownloader.m */,
+				040624181C7ECDC7005653C1 /* NSString+HUExtension.h */,
+				040624191C7ECDC7005653C1 /* NSString+HUExtension.m */,
+				0406241A1C7ECDC7005653C1 /* UIImage+HUExtension.h */,
+				0406241B1C7ECDC7005653C1 /* UIImage+HUExtension.m */,
+				040623C81C7E9B8F005653C1 /* HUPhotoBrowser.h */,
+				040623C91C7E9B8F005653C1 /* HUPhotoBrowser.m */,
+				040623CA1C7E9B8F005653C1 /* HUPhotoBrowserCell.h */,
+				040623CB1C7E9B8F005653C1 /* HUPhotoBrowserCell.m */,
+				040623C71C7E9B8F005653C1 /* const.h */,
+			);
+			path = HUPhotoBrowser;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0406239C1C7E9989005653C1 /* HUPhotoBrowser Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 040623C01C7E9989005653C1 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser Demo" */;
+			buildPhases = (
+				040623991C7E9989005653C1 /* Sources */,
+				0406239A1C7E9989005653C1 /* Frameworks */,
+				0406239B1C7E9989005653C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HUPhotoBrowser Demo";
+			productName = "HUPhotoBrowser Demo";
+			productReference = 0406239D1C7E9989005653C1 /* HUPhotoBrowser Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		040623B51C7E9989005653C1 /* HUPhotoBrowser DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 040623C31C7E9989005653C1 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser DemoTests" */;
+			buildPhases = (
+				040623B21C7E9989005653C1 /* Sources */,
+				040623B31C7E9989005653C1 /* Frameworks */,
+				040623B41C7E9989005653C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				040623B81C7E9989005653C1 /* PBXTargetDependency */,
+			);
+			name = "HUPhotoBrowser DemoTests";
+			productName = "HUPhotoBrowser DemoTests";
+			productReference = 040623B61C7E9989005653C1 /* HUPhotoBrowser DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		040623951C7E9989005653C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = hujewelz;
+				TargetAttributes = {
+					0406239C1C7E9989005653C1 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					040623B51C7E9989005653C1 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 0406239C1C7E9989005653C1;
+					};
+				};
+			};
+			buildConfigurationList = 040623981C7E9989005653C1 /* Build configuration list for PBXProject "HUPhotoBrowser Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 040623941C7E9989005653C1;
+			productRefGroup = 0406239E1C7E9989005653C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0406239C1C7E9989005653C1 /* HUPhotoBrowser Demo */,
+				040623B51C7E9989005653C1 /* HUPhotoBrowser DemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0406239B1C7E9989005653C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040623AC1C7E9989005653C1 /* Main.storyboard in Resources */,
+				040624071C7E9C83005653C1 /* 1.jpg in Resources */,
+				040624081C7E9C83005653C1 /* 2.jpg in Resources */,
+				040624091C7E9C83005653C1 /* 3.jpg in Resources */,
+				0406240A1C7E9C83005653C1 /* 4.png in Resources */,
+				040623B11C7E9989005653C1 /* LaunchScreen.xib in Resources */,
+				040623AE1C7E9989005653C1 /* Images.xcassets in Resources */,
+				0406240C1C7E9F0E005653C1 /* 5.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		040623B41C7E9989005653C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		040623991C7E9989005653C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040624021C7E9BB6005653C1 /* PhotoCell.m in Sources */,
+				040623A91C7E9989005653C1 /* ViewController.m in Sources */,
+				040623EF1C7E9B8F005653C1 /* HUPhotoBrowserCell.m in Sources */,
+				0406241E1C7ECDC7005653C1 /* UIImage+HUExtension.m in Sources */,
+				040623A61C7E9989005653C1 /* AppDelegate.m in Sources */,
+				040623EE1C7E9B8F005653C1 /* HUPhotoBrowser.m in Sources */,
+				040623A31C7E9989005653C1 /* main.m in Sources */,
+				0406241C1C7ECDC7005653C1 /* HUWebImageDownloader.m in Sources */,
+				0406241D1C7ECDC7005653C1 /* NSString+HUExtension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		040623B21C7E9989005653C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				040623BD1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		040623B81C7E9989005653C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0406239C1C7E9989005653C1 /* HUPhotoBrowser Demo */;
+			targetProxy = 040623B71C7E9989005653C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		040623AA1C7E9989005653C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040623AB1C7E9989005653C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		040623AF1C7E9989005653C1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				040623B01C7E9989005653C1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		040623BE1C7E9989005653C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		040623BF1C7E9989005653C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		040623C11C7E9989005653C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "HUPhotoBrowser Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		040623C21C7E9989005653C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "HUPhotoBrowser Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		040623C41C7E9989005653C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HUPhotoBrowser DemoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HUPhotoBrowser Demo.app/HUPhotoBrowser Demo";
+			};
+			name = Debug;
+		};
+		040623C51C7E9989005653C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HUPhotoBrowser DemoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HUPhotoBrowser Demo.app/HUPhotoBrowser Demo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		040623981C7E9989005653C1 /* Build configuration list for PBXProject "HUPhotoBrowser Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040623BE1C7E9989005653C1 /* Debug */,
+				040623BF1C7E9989005653C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		040623C01C7E9989005653C1 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040623C11C7E9989005653C1 /* Debug */,
+				040623C21C7E9989005653C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		040623C31C7E9989005653C1 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				040623C41C7E9989005653C1 /* Debug */,
+				040623C51C7E9989005653C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 040623951C7E9989005653C1 /* Project object */;
+}
