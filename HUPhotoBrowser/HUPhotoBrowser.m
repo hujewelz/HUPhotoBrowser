@@ -13,6 +13,7 @@
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;
     NSInteger _currentPage;
+    NSIndexPath *_zoomingIndexPath;
 }
 
 @property (nonatomic, weak) UIImageView *imageView;
@@ -44,19 +45,6 @@
     return browser;
 }
 
-+ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index {
-    return [self showFromImageView:imageView withURLStrings:URLStrings placeholderImage:image atIndex:index dismiss:nil];
-}
-
-+ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings atIndex:(NSInteger)index dismiss:(DismissBlock)block {
-    
-    return [self showFromImageView:imageView withURLStrings:URLStrings placeholderImage:nil atIndex:index dismiss:block];
-}
-
-+ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings atIndex:(NSInteger)index {
-
-    return [self showFromImageView:imageView withURLStrings:URLStrings atIndex:index];
-}
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
     HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:kScreenRect];
@@ -72,6 +60,17 @@
     
     return browser;
 }
+
++ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings atIndex:(NSInteger)index {
+
+    return [self showFromImageView:imageView withURLStrings:URLStrings placeholderImage:nil atIndex:index dismiss:nil];
+}
+
++ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index {
+    return [self showFromImageView:imageView withImages:images placeholderImage:nil atIndex:index dismiss:nil];
+}
+
+#pragma mark - private 
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -90,7 +89,9 @@
         _collectionView = collectionView;
         [self addSubview:collectionView];
         
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadForScreenRotate) name:UIDeviceOrientationDidChangeNotification object:nil];
+         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoCellDidZooming:) name:kPhotoCellDidZommingNotification object:nil];
         
     }
     return self;
@@ -128,18 +129,10 @@
         
         
         if (ratio > kScreenRatio) {
-           // CGFloat width = MIN(image.size.width, kScreenWidth);
-            
-//            endFrame.size.width = width;
-//            endFrame.size.height = width / ratio;
             endFrame.size.height = kScreenWidth / ratio;
             
-           
         } else {
-//            CGFloat height =  MIN(image.size.height, kScreenHeight);
-//            
-//            endFrame.size.width = height * ratio;
-//            endFrame.size.height = height;
+        
             endFrame.size.height = kScreenHeight * ratio;
         }
         endFrame.origin.x = (kScreenWidth - endFrame.size.width) / 2;
@@ -148,6 +141,8 @@
     }
 
     _endTempFrame = endFrame;
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithFrame:startFrame];
     tempImageView.image = self.imageView.image;
@@ -171,6 +166,7 @@
 }
 
 - (void)dismiss {
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
     if (self.dismissDlock) {
         HUPhotoBrowserCell *cell = (HUPhotoBrowserCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_currentPage inSection:0]];
@@ -208,6 +204,8 @@
    
 }
 
+#pragma mark - UICollectionViewDataSource
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSInteger count = 0;
     if (self.URLStrings) {
@@ -221,8 +219,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HUPhotoBrowserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPhotoBrowserCellID forIndexPath:indexPath];
-    
+    cell.indexPath = indexPath;
     cell.placeholderImage = self.placeholderImage;
+    [cell resetZoomingScale];
+    
     if (self.URLStrings) {
         [cell configureCellWithURLStrings:self.URLStrings[indexPath.row]];
     }
@@ -239,6 +239,11 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = scrollView.contentOffset.x/kScreenWidth + 0.5;
+
+    if (_zoomingIndexPath) {
+       [self.collectionView reloadItemsAtIndexPaths:@[_zoomingIndexPath]];
+        _zoomingIndexPath = nil;
+    }
     
 }
 
@@ -250,5 +255,9 @@
     _collectionView.contentOffset = CGPointMake(kScreenWidth * _currentPage,0);
 }
 
+- (void)photoCellDidZooming:(NSNotification *)nofit {
+    NSIndexPath *indexPath = nofit.object;
+    _zoomingIndexPath = indexPath;
+}
 
 @end

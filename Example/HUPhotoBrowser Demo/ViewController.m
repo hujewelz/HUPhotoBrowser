@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "PhotoCell.h"
 #import "HUPhotoBrowser.h"
-#import "HUWebImageDownloader.h"
+#import "UIImageView+HUWebImage.h"
 
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
@@ -54,11 +54,11 @@
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
     
 //    cell.imageView.image = self.images[indexPath.row];
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
-    
-    [[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]] completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-        cell.imageView.image = image;
-    }];
+
+    [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+//    [[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]] completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
+//        cell.imageView.image = image;
+//    }];
     
     return cell;
 }

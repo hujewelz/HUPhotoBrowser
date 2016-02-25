@@ -34,7 +34,7 @@
     scrollView.backgroundColor = [UIColor blackColor];
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.maximumZoomScale = 2;
+    scrollView.maximumZoomScale = 4;
     scrollView.minimumZoomScale = 0.5;
     scrollView.delegate = self;
 
@@ -49,6 +49,14 @@
     
 }
 
+- (void)resetZoomingScale {
+    
+    if (self.scrollView.zoomScale !=1) {
+         self.scrollView.zoomScale = 1;
+    }
+   
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -60,7 +68,9 @@
     return self.imageView;
 }
 
-
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPhotoCellDidZommingNotification object:_indexPath];
+}
 
 - (void)configureCellWithURLStrings:(NSString *)URLStrings {
     self.imageView.image = self.placeholderImage;

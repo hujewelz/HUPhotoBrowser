@@ -9,12 +9,18 @@
 #import <UIKit/UIKit.h>
 
 #define kPhotoBrowserCellID @"HUPhotoBrowserCell"
+static NSString *const kPhotoCellDidZommingNotification = @"kPhotoCellDidZommingNotification";
 
 @interface HUPhotoBrowserCell : UICollectionViewCell
 
 @property (nonatomic, weak) UIImageView *imageView;
 
 @property (nonatomic, strong) UIImage *placeholderImage;
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
+
+- (void)resetZoomingScale;
+
 
 - (void)configureCellWithURLStrings:(NSString *)URLStrings;
 
