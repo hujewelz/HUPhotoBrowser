@@ -12,7 +12,10 @@
 
 static NSString *const kDefaultDiskCachePath = @"com.huwebimagedownloader";
 
-inline NSUInteger HUCacheCostForImage(UIImage *image);
+
+FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
+    return image.size.width * image.size.height *image.scale * image.scale;
+}
 
 @interface HUWebImageDownloader ()
 
@@ -35,6 +38,8 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
     self = [super init];
     if (self) {
         _webImageCache = [[NSCache alloc] init];
+        _shouldCacheImagesInMemory = YES;
+        [self createDefaultCachePath];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemory) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
@@ -42,6 +47,22 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+}
+
++ (NSString *)cacheKeyForURL:(NSURL *)url {
+   return [[HUWebImageDownloader sharedImageDownloader] cacheKeyForURL:url];
+}
+
++ (UIImage *)imageFromDiskCacheForKey:(NSString *)key {
+    return [[HUWebImageDownloader sharedImageDownloader] imageFromDiskCacheForKey:key];
+}
+
++ (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
+    return [[HUWebImageDownloader sharedImageDownloader] imageFromMemoryCacheForKey:key];
+}
+
++ (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
+    return[[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:url completed:completeBlock];
 }
 
 - (NSString *)cacheKeyForURL:(NSURL *)url {
@@ -52,6 +73,7 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
     
     UIImage *image = [self imageFromMemoryCacheForKey:key];
     if (image) {
+        NSLog(@"imageFromMemoryCacheForKey: %@", key);
         return image;
     }
     
@@ -60,7 +82,7 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
         NSUInteger cost = HUCacheCostForImage(diskImage);
         [self.webImageCache setObject:diskImage forKey:key cost:cost];
     }
-
+    NSLog(@"imageFromDiskCacheForKey: %@", key);
     return diskImage;
 }
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
@@ -68,6 +90,15 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
 }
 
 - (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
+    
+    UIImage *image = [self imageFromDiskCacheForKey:[self cacheKeyForURL:url]];
+    if (image) {
+        if (completeBlock) {
+            completeBlock(image, nil, url);
+        }
+        return;
+    }
+    
     char *label = "com.huwebimagedownloader";
     dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
     dispatch_async(queue, ^{
@@ -84,14 +115,13 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
     
 }
 
+#pragma mark - parvate
+
 - (UIImage *)diskImageForKey:(NSString *)key {
     NSString *fileName = [self cacheFileForKey:key];
     UIImage *img = [UIImage imageWithContentsOfFile:fileName];
     return img;
 }
-
-
-
 
 - (NSString *)cacheFileForKey:(NSString *)key {
     NSString *cachePath = [self defaultCahePath];
@@ -110,13 +140,17 @@ inline NSUInteger HUCacheCostForImage(UIImage *image);
             return NO;
         }
     }
-    
+     NSLog(@"cache path: %@", cachePath);
     return isDirExit;
 }
 
 - (void)saveImage:(NSData *)imageData toDiskForKey:(NSString *)key {
-
+    UIImage *image = [self imageFromDiskCacheForKey:key];
+    if (image) {
+        return;
+    }
     NSString *file = [self cacheFileForKey:key];
+    NSLog(@"dowload image %@ save succeed!", key);
     [imageData writeToFile:file atomically:YES];
 }
 

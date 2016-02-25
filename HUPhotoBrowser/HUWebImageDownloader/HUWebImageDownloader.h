@@ -13,11 +13,16 @@ typedef void(^HUDownloadCompletionBlock)(UIImage *image, NSError *error, NSURL *
 @interface HUWebImageDownloader : NSObject
 
 + (instancetype)sharedImageDownloader;
++ (NSString *)cacheKeyForURL:(NSURL *)url;
++ (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
++ (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
++ (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
+
 - (NSString *)cacheKeyForURL:(NSURL *)url;
 - (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
 - (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
 
-@property (nonatomic) BOOL *shouldCacheImagesInMemory;
+@property (nonatomic) BOOL shouldCacheImagesInMemory;
 
 @end

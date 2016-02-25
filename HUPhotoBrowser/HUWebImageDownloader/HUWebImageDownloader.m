@@ -49,6 +49,22 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 }
 
++ (NSString *)cacheKeyForURL:(NSURL *)url {
+   return [[HUWebImageDownloader sharedImageDownloader] cacheKeyForURL:url];
+}
+
++ (UIImage *)imageFromDiskCacheForKey:(NSString *)key {
+    return [[HUWebImageDownloader sharedImageDownloader] imageFromDiskCacheForKey:key];
+}
+
++ (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
+    return [[HUWebImageDownloader sharedImageDownloader] imageFromMemoryCacheForKey:key];
+}
+
++ (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
+    return[[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:url completed:completeBlock];
+}
+
 - (NSString *)cacheKeyForURL:(NSURL *)url {
     return [url absoluteString];
 }
@@ -99,14 +115,13 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     
 }
 
+#pragma mark - parvate
+
 - (UIImage *)diskImageForKey:(NSString *)key {
     NSString *fileName = [self cacheFileForKey:key];
     UIImage *img = [UIImage imageWithContentsOfFile:fileName];
     return img;
 }
-
-
-
 
 - (NSString *)cacheFileForKey:(NSString *)key {
     NSString *cachePath = [self defaultCahePath];

@@ -67,21 +67,6 @@
     NSURL *url = [NSURL URLWithString:URLStrings];
     [[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
         self.imageView.image = image;
-    }];
-//    NSString *key = [[SDWebImageManager sharedManager] cacheKeyForURL:url];
-//    UIImage *image = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:key];
-//    if (image) {
-//        self.imageView.image = image;
-//    }
-//    else {
-//        [[SDWebImageManager sharedManager] downloadImageWithURL:url options:SDWebImageRetryFailed progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-//            NSLog(@"thread: %@", [NSThread currentThread]);
-//            if (image) {
-//                self.imageView.image = image;
-//            }
-//            
-//        }];
-//    }
-}
+    }];}
 
 @end

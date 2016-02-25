@@ -55,7 +55,7 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings atIndex:(NSInteger)index {
 
-    return [self showFromImageView:imageView withURLStrings:URLStrings placeholderImage:nil atIndex:index];
+    return [self showFromImageView:imageView withURLStrings:URLStrings atIndex:index];
 }
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
