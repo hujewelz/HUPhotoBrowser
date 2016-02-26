@@ -112,7 +112,6 @@
     CGRect startFrame = [self.imageView.superview convertRect:self.imageView.frame toView:[UIApplication sharedApplication].keyWindow];
     CGRect endFrame = kScreenRect;
 
-//    self.imageView.hidden = YES;
     if (self.imageView.image) {
         UIImage *image = self.imageView.image;
         CGFloat ratio = image.size.width / image.size.height;
@@ -141,6 +140,7 @@
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         tempImageView.frame = endFrame;
+        
     } completion:^(BOOL finished) {
         _currentPage = index;
         [self.collectionView setContentOffset:CGPointMake(kScreenWidth * index,0) animated:NO];
