@@ -13,7 +13,7 @@
 
 @interface HUPhotoBrowserCell () <UIScrollViewDelegate>
 
-@property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 
 
 @end
@@ -30,21 +30,20 @@
 }
 
 - (void)setupView {
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.backgroundColor = [UIColor blackColor];
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.maximumZoomScale = 4;
-    scrollView.minimumZoomScale = 1;
-    scrollView.delegate = self;
+    _scrollView = [[UIScrollView alloc] init];
+    _scrollView.backgroundColor = [UIColor blackColor];
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.showsVerticalScrollIndicator = NO;
+    _scrollView.maximumZoomScale = 4;
+    _scrollView.minimumZoomScale = 1;
+    _scrollView.delegate = self;
 
-    [self addSubview:scrollView];
-    _scrollView = scrollView;
+    [self addSubview:_scrollView];
     
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [scrollView addSubview:imageView];
-    [scrollView addSubview:imageView];
+    [_scrollView addSubview:imageView];
+    [_scrollView addSubview:imageView];
     _imageView = imageView;
     
 }
