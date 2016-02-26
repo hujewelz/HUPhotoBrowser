@@ -20,6 +20,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 @interface HUWebImageDownloader ()
 
 @property (nonatomic, strong) NSCache *webImageCache;
+@property (nonatomic) dispatch_queue_t webImageQueue;
+@property (nonatomic) dispatch_queue_t ioQueue;
 
 @end
 
@@ -39,6 +41,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     if (self) {
         _webImageCache = [[NSCache alloc] init];
         _shouldCacheImagesInMemory = YES;
+        _webImageQueue = dispatch_queue_create("com.huwebimagedownloader", DISPATCH_QUEUE_SERIAL);
+        _ioQueue = dispatch_queue_create("com.huwebimagedownloader.io", DISPATCH_QUEUE_SERIAL);
         [self createDefaultCachePath];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemory) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
@@ -47,6 +51,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+//    dispatch_release(_ioQueue);
+//    dispatch_release(_webImageQueue);
 }
 
 + (NSString *)cacheKeyForURL:(NSURL *)url {
@@ -73,7 +79,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     
     UIImage *image = [self imageFromMemoryCacheForKey:key];
     if (image) {
-        NSLog(@"imageFromMemoryCacheForKey: %@", key);
+       // NSLog(@"imageFromMemoryCacheForKey: %@", key);
         return image;
     }
     
@@ -82,7 +88,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
         NSUInteger cost = HUCacheCostForImage(diskImage);
         [self.webImageCache setObject:diskImage forKey:key cost:cost];
     }
-    NSLog(@"imageFromDiskCacheForKey: %@", key);
+    //NSLog(@"imageFromDiskCacheForKey: %@", key);
     return diskImage;
 }
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
@@ -99,18 +105,18 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
         return;
     }
     
-    char *label = "com.huwebimagedownloader";
-    dispatch_queue_t queue = dispatch_queue_create(label, DISPATCH_QUEUE_SERIAL);
-    dispatch_async(queue, ^{
+    dispatch_async(_webImageQueue, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage hu_imageFromData:data];
-        [self saveImage:data toDiskForKey:[self cacheKeyForURL:url]];
-        
+       __block UIImage *image = [UIImage hu_imageFromData:data];
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (completeBlock) {
+            
                 completeBlock(image, nil, url);
             }
         });
+        
+        [self saveImage:data toDiskForKey:[self cacheKeyForURL:url]];
     });
     
 }
@@ -140,7 +146,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
             return NO;
         }
     }
-     NSLog(@"cache path: %@", cachePath);
+    // NSLog(@"cache path: %@", cachePath);
     return isDirExit;
 }
 
@@ -150,8 +156,11 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
         return;
     }
     NSString *file = [self cacheFileForKey:key];
-    NSLog(@"dowload image %@ save succeed!", key);
-    [imageData writeToFile:file atomically:YES];
+    
+    dispatch_sync(_ioQueue, ^{
+        [imageData writeToFile:file atomically:YES];
+    });
+    
 }
 
 - (NSString *)defaultCahePath {

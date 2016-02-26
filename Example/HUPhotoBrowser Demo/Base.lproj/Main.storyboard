@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mja-x1-3VU">
-                                <rect key="frame" x="0.0" y="8" width="600" height="584"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9ud-9Q-cIg">
                                     <size key="itemSize" width="150" height="121"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="4" minY="0.0" maxX="4" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="EKC-lY-Png" customClass="PhotoCell">
@@ -58,9 +58,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mja-x1-3VU" secondAttribute="bottom" constant="8" id="Trl-qD-iB8"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mja-x1-3VU" secondAttribute="bottom" id="Trl-qD-iB8"/>
                             <constraint firstAttribute="trailing" secondItem="mja-x1-3VU" secondAttribute="trailing" id="beY-PA-Jni"/>
-                            <constraint firstItem="mja-x1-3VU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="8" id="jQD-W8-j2Q"/>
+                            <constraint firstItem="mja-x1-3VU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="jQD-W8-j2Q"/>
                             <constraint firstItem="mja-x1-3VU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tYB-Op-O1N"/>
                         </constraints>
                     </view>

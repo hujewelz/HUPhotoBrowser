@@ -25,7 +25,7 @@
     [super viewDidLoad];
     _URLStrings = [NSMutableArray array];
     // Do any additional setup after loading the view, typically from a nib.
-    [self downLoad];
+    [self getWebImages];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,19 +71,15 @@
     [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings atIndex:indexPath.row];
 }
 
-- (void)downLoad {
+- (void)getWebImages {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSURL *url = [NSURL URLWithString:@"http://api.tietuku.com/v2/api/getrandrec?key=bJiYx5aWk5vInZRjl2nHxmiZx5VnlpZkapRuY5RnaGyZmsqcw5NmlsObmGiXYpU="];
     
-    NSMutableURLRequest *repuest = [NSMutableURLRequest requestWithURL:url];
-//    repuest.HTTPMethod = @"GET";
-//    repuest.HTTPBody = [@"" dataUsingEncoding:NSUTF8StringEncoding];
-    
+    NSURLRequest *repuest = [NSURLRequest requestWithURL:url];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:repuest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         NSArray *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        // NSLog(@"data: %@", [NSThread currentThread]);
         
         for (NSDictionary *dict in result) {
             NSString *linkurl = dict[@"linkurl"];
@@ -91,7 +87,7 @@
             [_URLStrings addObject:linkurl];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-           // NSLog(@"data: %@", [NSThread currentThread]);
+         
             [self.collectionView reloadData];
         });
         
