@@ -56,9 +56,6 @@
 //    cell.imageView.image = self.images[indexPath.row];
 
     [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
-//    [[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]] completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-//        cell.imageView.image = image;
-//    }];
     
     return cell;
 }
