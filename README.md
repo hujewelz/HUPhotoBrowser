@@ -7,10 +7,10 @@ HUPhotoBrowser仅仅就是为了浏览图片而生，暂不支持浏览视频及
 
 ## 使用
 HUPhotoBrowser支持本地图片浏览
-	[HUPhotoBrowser showFromImageView:cell.imageView withImages:self.images atIndex:indexPath.row];
+    [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.images atIndex:indexPath.row];
 
 HUPhotoBrowser同时支持网络图片浏览
-	[HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings atIndex:indexPath.row];
+    [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings atIndex:indexPath.row];
 
 在需要浏览的图片的点击事件中调用即可：
 ```Objective-C
