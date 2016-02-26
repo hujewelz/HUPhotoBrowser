@@ -56,3 +56,6 @@ pod 'HUPhotoBrowser','~> 0.0.2'
 ```
 
 只需在需要的地方 ` #import "UIImageView+HUWebImage.h" `即可。
+
+* 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的框架代码看看BUG修复没有）
+* 如果在使用过程中发现功能不够用，希望你能Issues我，我非常想为这个框架增加更多好用的功能，谢谢
