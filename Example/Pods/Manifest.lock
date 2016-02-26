@@ -1,0 +1,10 @@
+PODS:
+  - HUPhotoBrowser (0.0.1)
+
+DEPENDENCIES:
+  - HUPhotoBrowser
+
+SPEC CHECKSUMS:
+  HUPhotoBrowser: dd6a107d8c82931eda867fa8ed61a3306a7aacba
+
+COCOAPODS: 0.39.0

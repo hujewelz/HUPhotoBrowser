@@ -117,17 +117,6 @@
         UIImage *image = self.imageView.image;
         CGFloat ratio = image.size.width / image.size.height;
         
-//        if (ratio < startFrame.size.width / startFrame.size.height ) {
-//            CGFloat midX = CGRectGetMaxX(startFrame);
-//            startFrame.size.width = startFrame.size.height * ratio;
-//            startFrame.origin.x = midX - startFrame.size.width / 2;
-//        } else {
-//            CGFloat midY = CGRectGetMidY(startFrame);
-//            startFrame.size.height = startFrame.size.width / ratio;
-//            startFrame.origin.y = midY - startFrame.size.height / 2;
-//        }
-        
-        
         if (ratio > kScreenRatio) {
             endFrame.size.height = kScreenWidth / ratio;
             
@@ -149,7 +138,6 @@
     tempImageView.contentMode = UIViewContentModeScaleAspectFit;
     [[UIApplication sharedApplication].keyWindow addSubview:tempImageView];
     
-//    NSLog(@"start: %@, end: %@", NSStringFromCGRect(startFrame),NSStringFromCGRect(endFrame));
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         tempImageView.frame = endFrame;
@@ -160,9 +148,9 @@
         [tempImageView removeFromSuperview];
     }];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [tempImageView removeFromSuperview];
-//    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [tempImageView removeFromSuperview];
+    });
 }
 
 - (void)dismiss {
@@ -189,7 +177,6 @@
     
     [[UIApplication sharedApplication].keyWindow addSubview:tempImageView];
     
-//    NSLog(@"start: %@, end: %@", NSStringFromCGRect(startFrame),NSStringFromCGRect(endFrame));
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         tempImageView.frame = endFrame;
@@ -249,7 +236,6 @@
 
 - (void)reloadForScreenRotate {
      _collectionView.frame = kScreenRect;
-   // NSLog(@"screen: %@", NSStringFromCGRect(_collectionView.frame));
    
     [_collectionView reloadData];
     _collectionView.contentOffset = CGPointMake(kScreenWidth * _currentPage,0);

@@ -35,7 +35,7 @@
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.maximumZoomScale = 4;
-    scrollView.minimumZoomScale = 0.5;
+    scrollView.minimumZoomScale = 1;
     scrollView.delegate = self;
 
     [self addSubview:scrollView];
