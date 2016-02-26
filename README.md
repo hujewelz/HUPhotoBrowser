@@ -34,13 +34,13 @@ HUPhotoBrowser同时支持网络图片浏览
     }];
 ```
 ## 安装
-1. 下载ZIP包,将HUPhotoBrowser拖到工程中。
-2. CocoaPods安装：
+1. 下载ZIP包,将`HUPhotoBrowser`拖到工程中。
+2. [CocoaPods](https://cocoapods.org/)安装：
 ```
-`pod 'HUPhotoBrowser','~> 0.0.2' `
+pod 'HUPhotoBrowser','~> 0.0.2' 
 ```
 
-在使用cocoapods安装时，请先执行 `pod search HUPhotoBrowser`，如果搜索不到，请执行`pod setup`命令。
+在使用`cocoapods`安装时，请先执行 `pod search HUPhotoBrowser`，如果搜索不到，请执行`pod setup`命令。
 
 ## 其他
 由于HUPhotoBrowser在加载网络图片时对图片有做本地缓存操作，如果您的项目中也使了其他的图片下载工具，所以为了避免在做缓存时生成多个缓存目录，建议在下载网络图片时可以使用`HUPhotoBrowser`中的`HUWebImageDownloader`下载图片，例如demo中的：
