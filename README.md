@@ -1,7 +1,7 @@
 # HUPhotoBrowser
 ##一个简单的ios图片浏览器 支持浏览本地图片及网络图片
 
-HUPhotoBrowser仅仅支持图浏览，暂不支持浏览视频及gif,使用起来非常简单。
+HUPhotoBrowser仅仅支持图片浏览，暂不支持浏览视频及gif,使用起来非常简单,只需要一行代码。
 
 ![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/demo.gif)
 
@@ -34,13 +34,13 @@ HUPhotoBrowser同时支持网络图片浏览
     }];
 ```
 ## 安装
-1. 下载ZIP包,将`HUPhotoBrowser`拖到工程中。
+1. 下载ZIP包,将`HUPhotoBrowser`资源文件拖到工程中。
 2. [CocoaPods](https://cocoapods.org/)安装：
 ```
 pod 'HUPhotoBrowser','~> 0.0.2' 
 ```
 
-在使用`cocoapods`安装时，请先执行 `pod search HUPhotoBrowser`，如果搜索不到，请执行`pod setup`命令。
+在使用cocoapods安装时，请先执行 `pod search HUPhotoBrowser`，如果搜索不到，请执行`pod setup`命令。
 
 ## 其他
 由于HUPhotoBrowser在加载网络图片时对图片有做本地缓存操作，如果您的项目中也使了其他的图片下载工具，所以为了避免在做缓存时生成多个缓存目录，建议在下载网络图片时可以使用`HUPhotoBrowser`中的`HUWebImageDownloader`下载图片，例如demo中的：
@@ -56,3 +56,6 @@ pod 'HUPhotoBrowser','~> 0.0.2'
 ```
 
 只需在需要的地方 ` #import "UIImageView+HUWebImage.h" `即可。
+
+* 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的框架代码看看BUG修复没有）
+* 如果在使用过程中发现功能不够用，希望你能Issues我，我非常想为这个框架增加更多好用的功能，谢谢
