@@ -8,7 +8,7 @@
 
 #import "HUPhotoBrowser.h"
 #import "HUPhotoBrowserCell.h"
-#import "const.h"
+#import "hu_const.h"
 
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;

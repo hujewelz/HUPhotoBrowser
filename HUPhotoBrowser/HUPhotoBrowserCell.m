@@ -7,7 +7,7 @@
 //
 
 #import "HUPhotoBrowserCell.h"
-#import "const.h"
+#import "hu_const.h"
 #import "HUWebImageDownloader.h"
 
 
@@ -74,7 +74,7 @@
 - (void)configureCellWithURLStrings:(NSString *)URLStrings {
     self.imageView.image = self.placeholderImage;
     NSURL *url = [NSURL URLWithString:URLStrings];
-    [[HUWebImageDownloader sharedImageDownloader] downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
+    [[HUWebImageDownloader sharedInstance] downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
         self.imageView.image = image;
     }];}
 

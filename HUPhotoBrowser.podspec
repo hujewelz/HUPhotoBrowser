@@ -8,13 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name         = "HUPhotoBrowser"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "photo browser for ios."
   s.homepage     = "https://github.com/hujewelz/HUPhotoBrowser"
   s.license      = "MIT"
   s.author             = { "Jewelz Hu" => "hujewelz@163.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "0.0.3" }
   s.source_files  = "HUPhotoBrowser", "HUPhotoBrowser/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 

@@ -42,7 +42,7 @@
 		0406225D1C7E93D0005653C1 /* libHUPhotoBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHUPhotoBrowser.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		040622681C7E93D0005653C1 /* HUPhotoBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HUPhotoBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0406226E1C7E93D0005653C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		040622AF1C7E94A6005653C1 /* const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = const.h; sourceTree = "<group>"; };
+		040622AF1C7E94A6005653C1 /* hu_const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hu_const.h; sourceTree = "<group>"; };
 		040624101C7EC8A9005653C1 /* NSString+HUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HUExtension.h"; sourceTree = "<group>"; };
 		040624111C7EC8A9005653C1 /* NSString+HUExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HUExtension.m"; sourceTree = "<group>"; };
 		040624131C7ECABA005653C1 /* UIImage+HUExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HUExtension.h"; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				040624711C7EEF60005653C1 /* HUPhotoBrowser.m */,
 				040624721C7EEF60005653C1 /* HUPhotoBrowserCell.h */,
 				040624731C7EEF60005653C1 /* HUPhotoBrowserCell.m */,
-				040622AF1C7E94A6005653C1 /* const.h */,
+				040622AF1C7E94A6005653C1 /* hu_const.h */,
 				040624201C7EDBA1005653C1 /* HUWebImageDownloader */,
 			);
 			path = HUPhotoBrowser;
