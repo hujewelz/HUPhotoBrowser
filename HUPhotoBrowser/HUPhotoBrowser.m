@@ -36,9 +36,9 @@
     browser.imageView = imageView;
     browser.URLStrings = URLStrings;
     [browser configureBrowser];
-    if (imageView) {
-        [browser animateImageViewAtIndex:index];
-    }
+    
+    [browser animateImageViewAtIndex:index];
+  
     browser.placeholderImage = image;
     browser.dismissDlock = block;
     
@@ -51,9 +51,9 @@
     browser.imageView = imageView;
     browser.images = images;
     [browser configureBrowser];
-    if (imageView) {
-        [browser animateImageViewAtIndex:index];
-    }
+   
+    [browser animateImageViewAtIndex:index];
+    
     
     browser.placeholderImage = image;
     browser.dismissDlock = block;
