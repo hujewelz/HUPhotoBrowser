@@ -37,7 +37,7 @@ HUPhotoBrowser同时支持网络图片浏览
 1. 下载ZIP包,将`HUPhotoBrowser`资源文件拖到工程中。
 2. [CocoaPods](https://cocoapods.org/)安装：
 ```
-pod 'HUPhotoBrowser','~> 0.0.2' 
+pod 'HUPhotoBrowser','~> 0.0.4' 
 ```
 
 在使用cocoapods安装时，请先执行 `pod search HUPhotoBrowser`，如果搜索不到，请执行`pod setup`命令。
