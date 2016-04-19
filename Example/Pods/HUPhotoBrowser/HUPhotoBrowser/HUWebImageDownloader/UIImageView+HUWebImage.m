@@ -7,24 +7,61 @@
 //
 
 #import "UIImageView+HUWebImage.h"
+#import "HUWebImageDownloadOperation.h"
 #import "HUWebImageDownloader.h"
+#import <objc/runtime.h>
+
+static char *loadOperationKey = "loadOperationKey";
 
 @implementation UIImageView (HUWebImage)
 
 - (void)hu_setImageWithURL:(NSURL *)url {
-    self.image = nil;
-    
-    [HUWebImageDownloader downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-        self.image = image;
-    }];
+    [self hu_setImageWithURL:url placeholderImage:nil];
 }
 
-- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)image {
+- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder {
     self.image = nil;
-    self.image = image;
-    [HUWebImageDownloader downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-        self.image = image;
+    self.image = placeholder;
+    [self hu_cancelImageDownloadOperationForKey:@"downloadimage"];
+    __weak __typeof(self) wself = self;
+    HUWebImageDownloadOperation *operation = [HUWebImageDownloader downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
+        if (image) {
+            wself.image = image;
+            [wself setNeedsDisplay];
+        }
+        else {
+            wself.image = placeholder;
+            [wself setNeedsDisplay];
+        }
     }];
+    [self hu_setImageDownloadOperation:operation forKey:@"downloadimage"];
+}
+
+- (void)hu_setImageDownloadOperation:(id)operatio forKey:(NSString *)key {
+    [self hu_cancelImageDownloadOperationForKey:key];
+    NSMutableDictionary *operations = [self operationDict];
+    [operations setObject:operations forKey:key];
+}
+
+- (void)hu_cancelImageDownloadOperationForKey:(NSString *)key {
+    NSMutableDictionary *operations = [self operationDict];
+    
+    id operation = operations[key];
+    if ([operation isKindOfClass:[HUWebImageDownloadOperation class]]) {
+        [operation cancel];
+        operation = nil;
+    }
+
+}
+
+- (NSMutableDictionary *)operationDict {
+    NSMutableDictionary *operations = objc_getAssociatedObject(self, loadOperationKey);
+    if (operations) {
+        return operations;
+    }
+    operations = [NSMutableDictionary dictionary];
+    objc_setAssociatedObject(self, loadOperationKey, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return operations;
 }
 
 @end

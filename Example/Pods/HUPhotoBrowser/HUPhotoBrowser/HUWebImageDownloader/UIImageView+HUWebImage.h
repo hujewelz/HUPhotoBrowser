@@ -11,6 +11,6 @@
 @interface UIImageView (HUWebImage)
 
 - (void)hu_setImageWithURL:(NSURL *)url;
-- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)image;
+- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder;
 
 @end

@@ -16,21 +16,26 @@ typedef NS_ENUM(NSInteger, HUWebImageOption) {
 
 typedef void(^HUDownloadCompletionBlock)(UIImage *image, NSError *error, NSURL *imageUrl);
 
+@class HUWebImageDownloadOperation;
 @interface HUWebImageDownloader : NSObject
 
 + (instancetype)sharedInstance;
 + (NSString *)cacheKeyForURL:(NSURL *)url;
 + (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
 + (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
-+ (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
-+ (void)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock;
++ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
++ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock;
 
 - (NSString *)cacheKeyForURL:(NSURL *)url;
 - (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
 - (void)saveImage:(UIImage *)image forKey:(NSString *)key toDisk:(BOOL)toDisk;
-- (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
-- (void)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock;
+
+
+- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
+
+
+- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock;
 
 @property (nonatomic) BOOL shouldCacheImagesInMemory;
 

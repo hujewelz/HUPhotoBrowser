@@ -7,8 +7,8 @@
 //
 
 #import "HUWebImageDownloader.h"
-#import "NSString+HUExtension.h"
-#import "UIImage+HUExtension.h"
+#import <CommonCrypto/CommonDigest.h>
+#import "HUWebImageDownloadOperation.h"
 
 static NSString *const kDefaultDiskCachePath = @"com.huwebimagedownloader";
 
@@ -17,11 +17,14 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     return image.size.width * image.size.height *image.scale * image.scale;
 }
 
-@interface HUWebImageDownloader ()
+@interface HUWebImageDownloader () {
+    //int count;
+}
 
 @property (nonatomic, strong) NSCache *webImageCache;
-@property (nonatomic) dispatch_queue_t webImageQueue;
 @property (nonatomic) dispatch_queue_t ioQueue;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
+@property (nonatomic, strong) NSMutableDictionary *downloadOperations;
 
 @end
 
@@ -42,9 +45,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
         _webImageCache = [[NSCache alloc] init];
         _shouldCacheImagesInMemory = YES;
         [self createDefaultCachePath];
-        _webImageQueue = dispatch_queue_create("com.huwebimagedownloader", DISPATCH_QUEUE_SERIAL);
         _ioQueue = dispatch_queue_create("com.huwebimagedownloader.io", DISPATCH_QUEUE_SERIAL);
-        
+        _downloadOperations = [NSMutableDictionary dictionary];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemory) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
@@ -66,11 +68,11 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     return [[HUWebImageDownloader sharedInstance] imageFromMemoryCacheForKey:key];
 }
 
-+ (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
-    return[[HUWebImageDownloader sharedInstance] downloadImageWithURL:url completed:completeBlock];
++ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
+    return[self downloadImageWithURL:url option:HUWebImageOptionMemoryAndDisk completed:completeBlock];
 }
 
-+ (void)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock {
++ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock {
     return[[HUWebImageDownloader sharedInstance] downloadImageWithURL:url option:option completed:completeBlock];
 }
 
@@ -100,12 +102,12 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     
     UIImage *image = [self imageFromMemoryCacheForKey:key]; //first from memory
     if (image) {
-        NSLog(@"image from memory");
+        //NSLog(@"image from memory");
         return image;
     }
     UIImage *diskImage = [self diskImageForKey:key];
     if (diskImage && self.shouldCacheImagesInMemory) {
-        NSLog(@"image from disk");
+        ///NSLog(@"image from disk");
         NSUInteger cost = HUCacheCostForImage(diskImage);
         [self.webImageCache setObject:diskImage forKey:key cost:cost];
     }
@@ -121,57 +123,50 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 #pragma mark - download image for url whit option
 
-- (void)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock {
+- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock {
     UIImage *image = [self imageFromDiskCacheForKey:[self cacheKeyForURL:url]];
     if (image) {
         if (completeBlock) {
             completeBlock(image, nil, url);
         }
-        return;
+        return nil;
     }
-    
-    dispatch_async(_webImageQueue, ^{
-        
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-        
-        NSURLRequest *repuest = [NSURLRequest requestWithURL:url];
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:repuest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            
-            NSLog(@"data: %zd", data.length/1024);
-            UIImage *image = [UIImage hu_imageFromData:data];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (completeBlock) {
-                    completeBlock(image, nil, url);
-                }
-            });
-            
+    HUWebImageDownloadOperation *operation = self.downloadOperations[[self cacheKeyForURL:url]];
+    __weak __typeof(self) wself = self;
+    if (operation == nil) {
+        operation = [[HUWebImageDownloadOperation alloc] initWithURL:url completed:^(UIImage *image, NSData *data, NSError *error) {
+            __strong __typeof(self) sself = wself;
+//            count ++;
+//            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
+            if (completeBlock) {
+                completeBlock(image, nil, url);
+            }
+          
             if (option == HUWebImageOptionMemoryAndDisk) {
-                [self saveImage:data toDiskForKey:[self cacheKeyForURL:url]];
-                [self saveImage:image toMemoryForKey:[self cacheKeyForURL:url]];
+                [sself saveImage:data toDiskForKey:[sself cacheKeyForURL:url]];
+                [sself saveImage:image toMemoryForKey:[sself cacheKeyForURL:url]];
             }
             else if (option == HUWebImageOptionMemoryOnely) {
-                [self saveImage:image toMemoryForKey:[self cacheKeyForURL:url]];
+                [sself saveImage:image toMemoryForKey:[sself cacheKeyForURL:url]];
             }
-            
-            
-            
-            
+
         }];
-        [task resume];
         
-    });
+        [self.operationQueue addOperation:operation];
+        [self.downloadOperations setValue:operation forKey:[self cacheKeyForURL:url]];
+    }
+    return operation;
 }
 
-- (void)downloadImageWithUrl:(NSURL *)url {
-    
-    
-}
+//- (void)downloadImageWithUrl:(NSURL *)url {
+//    
+//    
+//}
 
 #pragma mark - download image for url and store to disk
 
-- (void)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
-    [self downloadImageWithURL:url option:HUWebImageOptionMemoryAndDisk completed:completeBlock];
+- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
+   return [self downloadImageWithURL:url option:HUWebImageOptionMemoryAndDisk completed:completeBlock];
 }
 
 #pragma mark - parvate
@@ -181,7 +176,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     if (memoryImage == nil && image) {
         NSUInteger cost = HUCacheCostForImage(image);
         [self.webImageCache setObject:image forKey:key cost:cost];
-        NSLog(@"save image to memory");
+        //NSLog(@"save image to memory");
     }
 }
 
@@ -197,7 +192,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     }
     NSString *file = [self cacheFileForKey:key];
     dispatch_sync(_ioQueue, ^{
-        NSLog(@"save data to disk %@", file);
+       // NSLog(@"save data to disk %@", file);
         [imageData writeToFile:file atomically:YES];
     });
 }
@@ -209,8 +204,19 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 }
 
 - (NSString *)cacheFileForKey:(NSString *)key {
+    const char *cStr = [key UTF8String];
+    unsigned char result[16];
+    
+    CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
+    NSString *md5Key = [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+            result[0], result[1], result[2], result[3],
+            result[4], result[5], result[6], result[7],
+            result[8], result[9], result[10], result[11],
+            result[12], result[13], result[14], result[15]
+            ];
+    
     NSString *cachePath = [self defaultCahePath];
-    return [cachePath stringByAppendingPathComponent:[key hu_md5]];
+    return [cachePath stringByAppendingPathComponent:md5Key];
 }
 
 - (BOOL)createDefaultCachePath {
@@ -237,6 +243,16 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 - (void)clearMemory {
     [self.webImageCache removeAllObjects];
+    [self.downloadOperations removeAllObjects];
 }
+
+- (NSOperationQueue *)operationQueue {
+    if (!_operationQueue) {
+        _operationQueue = [[NSOperationQueue alloc] init];
+        _operationQueue.maxConcurrentOperationCount = 5;
+    }
+    return _operationQueue;
+}
+
 
 @end

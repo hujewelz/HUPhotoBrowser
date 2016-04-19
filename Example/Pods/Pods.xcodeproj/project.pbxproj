@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19A5F931D57F39647E248E65C079AE6E /* NSString+HUExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 882D9A1FE9AB3F00C2F8EC0384C2EDD9 /* NSString+HUExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04018B941CC5D3690069EFF4 /* HUWebImageDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 04018B921CC5D3690069EFF4 /* HUWebImageDownloadOperation.h */; };
+		04018B951CC5D3690069EFF4 /* HUWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04018B931CC5D3690069EFF4 /* HUWebImageDownloadOperation.m */; };
 		1A6429C0D17F66E4327E119D1EF44499 /* HUPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 85BDB7DA8E86BAE7D68C9FF0E0A041A4 /* HUPhotoBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E6D022566B1B29A7D825BE803F0C0E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
 		4F2784BBD131CE188560C25919ED7D47 /* HUWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC6065247803CFDF33B32EE8EF2CA4F /* HUWebImageDownloader.m */; };
@@ -22,7 +23,6 @@
 		BC27E21A7BB5A75A2E6EF2258E10AAD9 /* hu_const.h in Headers */ = {isa = PBXBuildFile; fileRef = 739BDB49814AC599A0263DAC691D74A0 /* hu_const.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C096F837E633F7CE5A8FFBF2809CD375 /* HUWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B22642F4B7C4AC7348B4AE7E99DDF4B9 /* HUWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F1E2E6C978AD875CCB40D60F7E70A /* HUPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B05AAC7CBA955D2453A332FD2F8A96 /* HUPhotoBrowser.m */; };
-		CDA94101E16A29537D64B45D779E1FFB /* NSString+HUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED94293AF4A867F5E07FF653E59A498 /* NSString+HUExtension.m */; };
 		E8878A3DB94B625A02ECC08F40F8F0BC /* UIImageView+HUWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = BABA32C0B5D08D8FBC6CD15205B3EDAE /* UIImageView+HUWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6BE95B1F516095276C739A0AC118390 /* UIImage+HUExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEA90CE6BF62D1AA70799C61F61E3895 /* UIImageView+HUWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */; };
@@ -39,13 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04018B921CC5D3690069EFF4 /* HUWebImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUWebImageDownloadOperation.h; sourceTree = "<group>"; };
+		04018B931CC5D3690069EFF4 /* HUWebImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUWebImageDownloadOperation.m; sourceTree = "<group>"; };
 		16606AB65CCD21688BC50B9D2AE6F282 /* Pods-HUPhotoBrowser Demo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoBrowser Demo-resources.sh"; sourceTree = "<group>"; };
 		21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HUWebImage.m"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImageView+HUWebImage.m"; sourceTree = "<group>"; };
 		26B05AAC7CBA955D2453A332FD2F8A96 /* HUPhotoBrowser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUPhotoBrowser.m; path = HUPhotoBrowser/HUPhotoBrowser.m; sourceTree = "<group>"; };
 		2F974DDF266B355BB76BFE5087F2528C /* UIImage+HUExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+HUExtension.m"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImage+HUExtension.m"; sourceTree = "<group>"; };
 		40E485047A3951DA76D6BB3330EDFC92 /* HUPhotoBrowser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HUPhotoBrowser.xcconfig; sourceTree = "<group>"; };
 		5272B4173E3F29935F6E77B8F765C46B /* libHUPhotoBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHUPhotoBrowser.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ED94293AF4A867F5E07FF653E59A498 /* NSString+HUExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+HUExtension.m"; path = "HUPhotoBrowser/HUWebImageDownloader/NSString+HUExtension.m"; sourceTree = "<group>"; };
 		6C59A2E221CA852A47A386DBAF12CD37 /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		739BDB49814AC599A0263DAC691D74A0 /* hu_const.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hu_const.h; path = HUPhotoBrowser/hu_const.h; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		78AE9D892630227BAA86973C40CBE141 /* Pods-HUPhotoBrowser Demo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoBrowser Demo-frameworks.sh"; sourceTree = "<group>"; };
 		8227C5DC43570D9F2579049D493A3F33 /* HUPhotoBrowser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HUPhotoBrowser-dummy.m"; sourceTree = "<group>"; };
 		85BDB7DA8E86BAE7D68C9FF0E0A041A4 /* HUPhotoBrowser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUPhotoBrowser.h; path = HUPhotoBrowser/HUPhotoBrowser.h; sourceTree = "<group>"; };
-		882D9A1FE9AB3F00C2F8EC0384C2EDD9 /* NSString+HUExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+HUExtension.h"; path = "HUPhotoBrowser/HUWebImageDownloader/NSString+HUExtension.h"; sourceTree = "<group>"; };
 		9F466D66CDC60D3E3DA2A60783141655 /* HUWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUWebImageDownloader.h; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloader.h; sourceTree = "<group>"; };
 		A88855E6BAC7C920AD8A319B24AB2CDA /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+HUExtension.h"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImage+HUExtension.h"; sourceTree = "<group>"; };
@@ -91,6 +91,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04018B961CC606F90069EFF4 /* downloader */ = {
+			isa = PBXGroup;
+			children = (
+				9F466D66CDC60D3E3DA2A60783141655 /* HUWebImageDownloader.h */,
+				CAC6065247803CFDF33B32EE8EF2CA4F /* HUWebImageDownloader.m */,
+				04018B921CC5D3690069EFF4 /* HUWebImageDownloadOperation.h */,
+				04018B931CC5D3690069EFF4 /* HUWebImageDownloadOperation.m */,
+				AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */,
+				2F974DDF266B355BB76BFE5087F2528C /* UIImage+HUExtension.m */,
+				BABA32C0B5D08D8FBC6CD15205B3EDAE /* UIImageView+HUWebImage.h */,
+				21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */,
+			);
+			name = downloader;
+			sourceTree = "<group>";
+		};
 		18340F12838DEE43507667CC74401EB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,14 +160,7 @@
 				73A7FD6F83D7D16AC2E27DFD32C7583A /* HUPhotoBrowserCell.h */,
 				DC20229A98BE7C3A5F71ABEAFA7CB52E /* HUPhotoBrowserCell.m */,
 				B22642F4B7C4AC7348B4AE7E99DDF4B9 /* HUWebImage.h */,
-				9F466D66CDC60D3E3DA2A60783141655 /* HUWebImageDownloader.h */,
-				CAC6065247803CFDF33B32EE8EF2CA4F /* HUWebImageDownloader.m */,
-				882D9A1FE9AB3F00C2F8EC0384C2EDD9 /* NSString+HUExtension.h */,
-				5ED94293AF4A867F5E07FF653E59A498 /* NSString+HUExtension.m */,
-				AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */,
-				2F974DDF266B355BB76BFE5087F2528C /* UIImage+HUExtension.m */,
-				BABA32C0B5D08D8FBC6CD15205B3EDAE /* UIImageView+HUWebImage.h */,
-				21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */,
+				04018B961CC606F90069EFF4 /* downloader */,
 				CC7ABE13D3FA01F116C14A8F2969DD0D /* Support Files */,
 			);
 			path = HUPhotoBrowser;
@@ -204,7 +212,7 @@
 				73B28389BA91ECC227D6F2941500B119 /* HUPhotoBrowserCell.h in Headers */,
 				C096F837E633F7CE5A8FFBF2809CD375 /* HUWebImage.h in Headers */,
 				8DF0E0ECCF800168947C6AE4C95D9E71 /* HUWebImageDownloader.h in Headers */,
-				19A5F931D57F39647E248E65C079AE6E /* NSString+HUExtension.h in Headers */,
+				04018B941CC5D3690069EFF4 /* HUWebImageDownloadOperation.h in Headers */,
 				F6BE95B1F516095276C739A0AC118390 /* UIImage+HUExtension.h in Headers */,
 				E8878A3DB94B625A02ECC08F40F8F0BC /* UIImageView+HUWebImage.h in Headers */,
 			);
@@ -283,9 +291,9 @@
 				C54F1E2E6C978AD875CCB40D60F7E70A /* HUPhotoBrowser.m in Sources */,
 				8EDCEE618EFC289C930C54FBF29882AE /* HUPhotoBrowserCell.m in Sources */,
 				4F2784BBD131CE188560C25919ED7D47 /* HUWebImageDownloader.m in Sources */,
-				CDA94101E16A29537D64B45D779E1FFB /* NSString+HUExtension.m in Sources */,
 				68DD4132ADDE30D863F1363525CB89B7 /* UIImage+HUExtension.m in Sources */,
 				FEA90CE6BF62D1AA70799C61F61E3895 /* UIImageView+HUWebImage.m in Sources */,
+				04018B951CC5D3690069EFF4 /* HUWebImageDownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
