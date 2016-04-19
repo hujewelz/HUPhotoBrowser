@@ -162,8 +162,12 @@
     }
     
     if (_currentPage != _index) {
-        
-        [self removeFromSuperview];
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.alpha = 0;
+        } completion:^(BOOL finished) {
+            
+            [self removeFromSuperview];
+        }];
         return;
     }
     

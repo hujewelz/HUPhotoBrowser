@@ -7,25 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04018B941CC5D3690069EFF4 /* HUWebImageDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 04018B921CC5D3690069EFF4 /* HUWebImageDownloadOperation.h */; };
-		04018B951CC5D3690069EFF4 /* HUWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04018B931CC5D3690069EFF4 /* HUWebImageDownloadOperation.m */; };
-		1A6429C0D17F66E4327E119D1EF44499 /* HUPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = 85BDB7DA8E86BAE7D68C9FF0E0A041A4 /* HUPhotoBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A15487225D8945D1A56A4F05BC6D3B7 /* HUPhotoBrowserCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 714A9DB9843583EFE666F3D5D727E312 /* HUPhotoBrowserCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28341ACB5057624A01294C4EDCBDA806 /* HUPhotoBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = D20A36A1BF4E07954137076AD99B9468 /* HUPhotoBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E6D022566B1B29A7D825BE803F0C0E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
-		4F2784BBD131CE188560C25919ED7D47 /* HUWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC6065247803CFDF33B32EE8EF2CA4F /* HUWebImageDownloader.m */; };
-		68DD4132ADDE30D863F1363525CB89B7 /* UIImage+HUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F974DDF266B355BB76BFE5087F2528C /* UIImage+HUExtension.m */; };
+		4429B5E9D665CA9453E522C9E1CD0ED4 /* HUWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 295CCA21AA405E2989EB9085650E806F /* HUWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68AE6836B85D5F4444A38018CA34BABA /* HUWebImageDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = FA06A236BE684B02C8B99A55F5B85498 /* HUWebImageDownloadOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B9D204A3260F1BE8D524F0E325FD247 /* HUPhotoBrowser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E205362B51D77AE84102FDABBBF4F29B /* HUPhotoBrowser-dummy.m */; };
+		6FB4A1D6E6FA016C5D946250EBB25963 /* UIImageView+HUWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CBF421587750078FE0CB1CE16862567 /* UIImageView+HUWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FE67A2467151B878D88B33BE8F3E899 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		73B28389BA91ECC227D6F2941500B119 /* HUPhotoBrowserCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 73A7FD6F83D7D16AC2E27DFD32C7583A /* HUPhotoBrowserCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8DF0E0ECCF800168947C6AE4C95D9E71 /* HUWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F466D66CDC60D3E3DA2A60783141655 /* HUWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8EDCEE618EFC289C930C54FBF29882AE /* HUPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC20229A98BE7C3A5F71ABEAFA7CB52E /* HUPhotoBrowserCell.m */; };
+		8F96FCFA4EA217B937EA7E08ADEC0287 /* UIImage+HUExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 89FF2EAC850965FC0505B8122B91FFAC /* UIImage+HUExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8FE05062EA4826E5869319EEBCF133D2 /* HUWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43531B4E57060A563DE954CAB45CC83A /* HUWebImageDownloader.m */; };
 		93F840FB073F065571D180140724268B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
-		9E2026086CE8D92E50BF3A4995AC2B7F /* HUPhotoBrowser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8227C5DC43570D9F2579049D493A3F33 /* HUPhotoBrowser-dummy.m */; };
+		A835662717FA39727733764C839C8004 /* UIImageView+HUWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C86C3FD0BAB8BA7C17E0102BD349B33B /* UIImageView+HUWebImage.m */; };
+		AFD0F2A936142C6BE9C1B1AFB88B6240 /* HUPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 292A28AB41D8122A933E6C9AA51E991E /* HUPhotoBrowserCell.m */; };
 		B1B01F29523802D12D513E368ACE9E2A /* Pods-HUPhotoBrowser Demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4841CECAB31F42D392B3EA56A3C78A /* Pods-HUPhotoBrowser Demo-dummy.m */; };
-		BC27E21A7BB5A75A2E6EF2258E10AAD9 /* hu_const.h in Headers */ = {isa = PBXBuildFile; fileRef = 739BDB49814AC599A0263DAC691D74A0 /* hu_const.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C096F837E633F7CE5A8FFBF2809CD375 /* HUWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = B22642F4B7C4AC7348B4AE7E99DDF4B9 /* HUWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C54F1E2E6C978AD875CCB40D60F7E70A /* HUPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B05AAC7CBA955D2453A332FD2F8A96 /* HUPhotoBrowser.m */; };
-		E8878A3DB94B625A02ECC08F40F8F0BC /* UIImageView+HUWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = BABA32C0B5D08D8FBC6CD15205B3EDAE /* UIImageView+HUWebImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F6BE95B1F516095276C739A0AC118390 /* UIImage+HUExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEA90CE6BF62D1AA70799C61F61E3895 /* UIImageView+HUWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */; };
+		D2945E71A72091EB20869BEA685E961A /* UIImage+HUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A28F18BCCD029E475815C8479761913B /* UIImage+HUExtension.m */; };
+		D622345D6BB866B05EC8E0CF0328D759 /* HUWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = F7FBFC858A9CEF109E03597ACD3B4C7B /* HUWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6A43C7318D1E3ACA176E890F18F3B78 /* HUPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE57705C5FF8DC20C20E47EE1556B14 /* HUPhotoBrowser.m */; };
+		E5B9BAF74966224A4238BD0F07EE2F77 /* HUWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 092A410DE7ABD75174BCD3E469D812C9 /* HUWebImageDownloadOperation.m */; };
+		FFC85A7465E78B9A7DC58DCA6A619232 /* hu_const.h in Headers */ = {isa = PBXBuildFile; fileRef = C67FFD77EB15489C1A16BBA48D774741 /* hu_const.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,35 +39,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04018B921CC5D3690069EFF4 /* HUWebImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUWebImageDownloadOperation.h; sourceTree = "<group>"; };
-		04018B931CC5D3690069EFF4 /* HUWebImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUWebImageDownloadOperation.m; sourceTree = "<group>"; };
+		092A410DE7ABD75174BCD3E469D812C9 /* HUWebImageDownloadOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUWebImageDownloadOperation.m; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloadOperation.m; sourceTree = "<group>"; };
 		16606AB65CCD21688BC50B9D2AE6F282 /* Pods-HUPhotoBrowser Demo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoBrowser Demo-resources.sh"; sourceTree = "<group>"; };
-		21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HUWebImage.m"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImageView+HUWebImage.m"; sourceTree = "<group>"; };
-		26B05AAC7CBA955D2453A332FD2F8A96 /* HUPhotoBrowser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUPhotoBrowser.m; path = HUPhotoBrowser/HUPhotoBrowser.m; sourceTree = "<group>"; };
-		2F974DDF266B355BB76BFE5087F2528C /* UIImage+HUExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+HUExtension.m"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImage+HUExtension.m"; sourceTree = "<group>"; };
-		40E485047A3951DA76D6BB3330EDFC92 /* HUPhotoBrowser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HUPhotoBrowser.xcconfig; sourceTree = "<group>"; };
+		1CBF421587750078FE0CB1CE16862567 /* UIImageView+HUWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HUWebImage.h"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImageView+HUWebImage.h"; sourceTree = "<group>"; };
+		292A28AB41D8122A933E6C9AA51E991E /* HUPhotoBrowserCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUPhotoBrowserCell.m; path = HUPhotoBrowser/HUPhotoBrowserCell.m; sourceTree = "<group>"; };
+		295CCA21AA405E2989EB9085650E806F /* HUWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUWebImage.h; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImage.h; sourceTree = "<group>"; };
+		43531B4E57060A563DE954CAB45CC83A /* HUWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUWebImageDownloader.m; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloader.m; sourceTree = "<group>"; };
 		5272B4173E3F29935F6E77B8F765C46B /* libHUPhotoBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHUPhotoBrowser.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C59A2E221CA852A47A386DBAF12CD37 /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		739BDB49814AC599A0263DAC691D74A0 /* hu_const.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hu_const.h; path = HUPhotoBrowser/hu_const.h; sourceTree = "<group>"; };
-		73A7FD6F83D7D16AC2E27DFD32C7583A /* HUPhotoBrowserCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUPhotoBrowserCell.h; path = HUPhotoBrowser/HUPhotoBrowserCell.h; sourceTree = "<group>"; };
+		714A9DB9843583EFE666F3D5D727E312 /* HUPhotoBrowserCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUPhotoBrowserCell.h; path = HUPhotoBrowser/HUPhotoBrowserCell.h; sourceTree = "<group>"; };
 		78AE9D892630227BAA86973C40CBE141 /* Pods-HUPhotoBrowser Demo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HUPhotoBrowser Demo-frameworks.sh"; sourceTree = "<group>"; };
-		8227C5DC43570D9F2579049D493A3F33 /* HUPhotoBrowser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HUPhotoBrowser-dummy.m"; sourceTree = "<group>"; };
-		85BDB7DA8E86BAE7D68C9FF0E0A041A4 /* HUPhotoBrowser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUPhotoBrowser.h; path = HUPhotoBrowser/HUPhotoBrowser.h; sourceTree = "<group>"; };
-		9F466D66CDC60D3E3DA2A60783141655 /* HUWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUWebImageDownloader.h; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloader.h; sourceTree = "<group>"; };
+		7AEBFCEE9D1F5374E9F0AFB4A8970689 /* HUPhotoBrowser.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HUPhotoBrowser.xcconfig; sourceTree = "<group>"; };
+		89FF2EAC850965FC0505B8122B91FFAC /* UIImage+HUExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+HUExtension.h"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImage+HUExtension.h"; sourceTree = "<group>"; };
+		A28F18BCCD029E475815C8479761913B /* UIImage+HUExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+HUExtension.m"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImage+HUExtension.m"; sourceTree = "<group>"; };
+		A32DC1461505B079CF4240160059A5E1 /* HUPhotoBrowser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HUPhotoBrowser-prefix.pch"; sourceTree = "<group>"; };
 		A88855E6BAC7C920AD8A319B24AB2CDA /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+HUExtension.h"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImage+HUExtension.h"; sourceTree = "<group>"; };
 		AF4841CECAB31F42D392B3EA56A3C78A /* Pods-HUPhotoBrowser Demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HUPhotoBrowser Demo-dummy.m"; sourceTree = "<group>"; };
-		B22642F4B7C4AC7348B4AE7E99DDF4B9 /* HUWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUWebImage.h; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImage.h; sourceTree = "<group>"; };
-		B5B94D5F253A5A0258DEFFA510420616 /* HUPhotoBrowser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HUPhotoBrowser-prefix.pch"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BABA32C0B5D08D8FBC6CD15205B3EDAE /* UIImageView+HUWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HUWebImage.h"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImageView+HUWebImage.h"; sourceTree = "<group>"; };
+		BEE57705C5FF8DC20C20E47EE1556B14 /* HUPhotoBrowser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUPhotoBrowser.m; path = HUPhotoBrowser/HUPhotoBrowser.m; sourceTree = "<group>"; };
 		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		CAC6065247803CFDF33B32EE8EF2CA4F /* HUWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUWebImageDownloader.m; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloader.m; sourceTree = "<group>"; };
-		DC20229A98BE7C3A5F71ABEAFA7CB52E /* HUPhotoBrowserCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HUPhotoBrowserCell.m; path = HUPhotoBrowser/HUPhotoBrowserCell.m; sourceTree = "<group>"; };
+		C67FFD77EB15489C1A16BBA48D774741 /* hu_const.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hu_const.h; path = HUPhotoBrowser/hu_const.h; sourceTree = "<group>"; };
+		C86C3FD0BAB8BA7C17E0102BD349B33B /* UIImageView+HUWebImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HUWebImage.m"; path = "HUPhotoBrowser/HUWebImageDownloader/UIImageView+HUWebImage.m"; sourceTree = "<group>"; };
+		D20A36A1BF4E07954137076AD99B9468 /* HUPhotoBrowser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUPhotoBrowser.h; path = HUPhotoBrowser/HUPhotoBrowser.h; sourceTree = "<group>"; };
+		E205362B51D77AE84102FDABBBF4F29B /* HUPhotoBrowser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HUPhotoBrowser-dummy.m"; sourceTree = "<group>"; };
 		E7052FA34B30EBD0A4F9BA52D99FA1DA /* Pods-HUPhotoBrowser Demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HUPhotoBrowser Demo-acknowledgements.plist"; sourceTree = "<group>"; };
 		EF15D08A4E2D807F75DDBB8A4CF16713 /* Pods-HUPhotoBrowser Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HUPhotoBrowser Demo.release.xcconfig"; sourceTree = "<group>"; };
 		F3A0686E6158B78596BD0B22136E1250 /* Pods-HUPhotoBrowser Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HUPhotoBrowser Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F7FBFC858A9CEF109E03597ACD3B4C7B /* HUWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUWebImageDownloader.h; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloader.h; sourceTree = "<group>"; };
+		FA06A236BE684B02C8B99A55F5B85498 /* HUWebImageDownloadOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HUWebImageDownloadOperation.h; path = HUPhotoBrowser/HUWebImageDownloader/HUWebImageDownloadOperation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,21 +91,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04018B961CC606F90069EFF4 /* downloader */ = {
-			isa = PBXGroup;
-			children = (
-				9F466D66CDC60D3E3DA2A60783141655 /* HUWebImageDownloader.h */,
-				CAC6065247803CFDF33B32EE8EF2CA4F /* HUWebImageDownloader.m */,
-				04018B921CC5D3690069EFF4 /* HUWebImageDownloadOperation.h */,
-				04018B931CC5D3690069EFF4 /* HUWebImageDownloadOperation.m */,
-				AAF5109552010E9DC38D56039E9749EA /* UIImage+HUExtension.h */,
-				2F974DDF266B355BB76BFE5087F2528C /* UIImage+HUExtension.m */,
-				BABA32C0B5D08D8FBC6CD15205B3EDAE /* UIImageView+HUWebImage.h */,
-				21C410B70F197D4018F6581CFF620D12 /* UIImageView+HUWebImage.m */,
-			);
-			name = downloader;
-			sourceTree = "<group>";
-		};
 		18340F12838DEE43507667CC74401EB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +106,17 @@
 				AE7804356A834A33C56E502A294A2E37 /* Pods-HUPhotoBrowser Demo */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		2E6988D2E85C3787E01B99C02943490C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AEBFCEE9D1F5374E9F0AFB4A8970689 /* HUPhotoBrowser.xcconfig */,
+				E205362B51D77AE84102FDABBBF4F29B /* HUPhotoBrowser-dummy.m */,
+				A32DC1461505B079CF4240160059A5E1 /* HUPhotoBrowser-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HUPhotoBrowser";
 			sourceTree = "<group>";
 		};
 		3B0963EF489D2014D5F17F2A59CC7A6B /* Products */ = {
@@ -140,6 +136,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		704D1043E9FA0EDD721DC11372E3179F /* HUPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				C67FFD77EB15489C1A16BBA48D774741 /* hu_const.h */,
+				D20A36A1BF4E07954137076AD99B9468 /* HUPhotoBrowser.h */,
+				BEE57705C5FF8DC20C20E47EE1556B14 /* HUPhotoBrowser.m */,
+				714A9DB9843583EFE666F3D5D727E312 /* HUPhotoBrowserCell.h */,
+				292A28AB41D8122A933E6C9AA51E991E /* HUPhotoBrowserCell.m */,
+				295CCA21AA405E2989EB9085650E806F /* HUWebImage.h */,
+				F7FBFC858A9CEF109E03597ACD3B4C7B /* HUWebImageDownloader.h */,
+				43531B4E57060A563DE954CAB45CC83A /* HUWebImageDownloader.m */,
+				FA06A236BE684B02C8B99A55F5B85498 /* HUWebImageDownloadOperation.h */,
+				092A410DE7ABD75174BCD3E469D812C9 /* HUWebImageDownloadOperation.m */,
+				89FF2EAC850965FC0505B8122B91FFAC /* UIImage+HUExtension.h */,
+				A28F18BCCD029E475815C8479761913B /* UIImage+HUExtension.m */,
+				1CBF421587750078FE0CB1CE16862567 /* UIImageView+HUWebImage.h */,
+				C86C3FD0BAB8BA7C17E0102BD349B33B /* UIImageView+HUWebImage.m */,
+				2E6988D2E85C3787E01B99C02943490C /* Support Files */,
+			);
+			path = HUPhotoBrowser;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -149,21 +167,6 @@
 				3B0963EF489D2014D5F17F2A59CC7A6B /* Products */,
 				2731708306ADFBCA49A30DAE17D8A844 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		99FBBB571FDB9E44C7D3AF0258FC6A07 /* HUPhotoBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				739BDB49814AC599A0263DAC691D74A0 /* hu_const.h */,
-				85BDB7DA8E86BAE7D68C9FF0E0A041A4 /* HUPhotoBrowser.h */,
-				26B05AAC7CBA955D2453A332FD2F8A96 /* HUPhotoBrowser.m */,
-				73A7FD6F83D7D16AC2E27DFD32C7583A /* HUPhotoBrowserCell.h */,
-				DC20229A98BE7C3A5F71ABEAFA7CB52E /* HUPhotoBrowserCell.m */,
-				B22642F4B7C4AC7348B4AE7E99DDF4B9 /* HUWebImage.h */,
-				04018B961CC606F90069EFF4 /* downloader */,
-				CC7ABE13D3FA01F116C14A8F2969DD0D /* Support Files */,
-			);
-			path = HUPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		AE7804356A834A33C56E502A294A2E37 /* Pods-HUPhotoBrowser Demo */ = {
@@ -181,21 +184,10 @@
 			path = "Target Support Files/Pods-HUPhotoBrowser Demo";
 			sourceTree = "<group>";
 		};
-		CC7ABE13D3FA01F116C14A8F2969DD0D /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				40E485047A3951DA76D6BB3330EDFC92 /* HUPhotoBrowser.xcconfig */,
-				8227C5DC43570D9F2579049D493A3F33 /* HUPhotoBrowser-dummy.m */,
-				B5B94D5F253A5A0258DEFFA510420616 /* HUPhotoBrowser-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/HUPhotoBrowser";
-			sourceTree = "<group>";
-		};
 		EC45FBBDF6AC5666746D8261D327431D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				99FBBB571FDB9E44C7D3AF0258FC6A07 /* HUPhotoBrowser */,
+				704D1043E9FA0EDD721DC11372E3179F /* HUPhotoBrowser */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -203,18 +195,18 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E557F7B4FCB5A9A42E5C163F3000A582 /* Headers */ = {
+		61A5D99DC2E0F3949ADF1B74754C6CC4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC27E21A7BB5A75A2E6EF2258E10AAD9 /* hu_const.h in Headers */,
-				1A6429C0D17F66E4327E119D1EF44499 /* HUPhotoBrowser.h in Headers */,
-				73B28389BA91ECC227D6F2941500B119 /* HUPhotoBrowserCell.h in Headers */,
-				C096F837E633F7CE5A8FFBF2809CD375 /* HUWebImage.h in Headers */,
-				8DF0E0ECCF800168947C6AE4C95D9E71 /* HUWebImageDownloader.h in Headers */,
-				04018B941CC5D3690069EFF4 /* HUWebImageDownloadOperation.h in Headers */,
-				F6BE95B1F516095276C739A0AC118390 /* UIImage+HUExtension.h in Headers */,
-				E8878A3DB94B625A02ECC08F40F8F0BC /* UIImageView+HUWebImage.h in Headers */,
+				FFC85A7465E78B9A7DC58DCA6A619232 /* hu_const.h in Headers */,
+				28341ACB5057624A01294C4EDCBDA806 /* HUPhotoBrowser.h in Headers */,
+				0A15487225D8945D1A56A4F05BC6D3B7 /* HUPhotoBrowserCell.h in Headers */,
+				4429B5E9D665CA9453E522C9E1CD0ED4 /* HUWebImage.h in Headers */,
+				D622345D6BB866B05EC8E0CF0328D759 /* HUWebImageDownloader.h in Headers */,
+				68AE6836B85D5F4444A38018CA34BABA /* HUWebImageDownloadOperation.h in Headers */,
+				8F96FCFA4EA217B937EA7E08ADEC0287 /* UIImage+HUExtension.h in Headers */,
+				6FB4A1D6E6FA016C5D946250EBB25963 /* UIImageView+HUWebImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,9 +234,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5B0A26D85A4ABC030E3952ED6910E20 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser" */;
 			buildPhases = (
-				A7BCA43459CCB7D6FFAA9E41001C8D0D /* Sources */,
+				2467B74348B3FC389A4949732BD7E76C /* Sources */,
 				3C6C4BC2BCCE7ED164763E0B622C881A /* Frameworks */,
-				E557F7B4FCB5A9A42E5C163F3000A582 /* Headers */,
+				61A5D99DC2E0F3949ADF1B74754C6CC4 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -283,17 +275,17 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A7BCA43459CCB7D6FFAA9E41001C8D0D /* Sources */ = {
+		2467B74348B3FC389A4949732BD7E76C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E2026086CE8D92E50BF3A4995AC2B7F /* HUPhotoBrowser-dummy.m in Sources */,
-				C54F1E2E6C978AD875CCB40D60F7E70A /* HUPhotoBrowser.m in Sources */,
-				8EDCEE618EFC289C930C54FBF29882AE /* HUPhotoBrowserCell.m in Sources */,
-				4F2784BBD131CE188560C25919ED7D47 /* HUWebImageDownloader.m in Sources */,
-				68DD4132ADDE30D863F1363525CB89B7 /* UIImage+HUExtension.m in Sources */,
-				FEA90CE6BF62D1AA70799C61F61E3895 /* UIImageView+HUWebImage.m in Sources */,
-				04018B951CC5D3690069EFF4 /* HUWebImageDownloadOperation.m in Sources */,
+				6B9D204A3260F1BE8D524F0E325FD247 /* HUPhotoBrowser-dummy.m in Sources */,
+				D6A43C7318D1E3ACA176E890F18F3B78 /* HUPhotoBrowser.m in Sources */,
+				AFD0F2A936142C6BE9C1B1AFB88B6240 /* HUPhotoBrowserCell.m in Sources */,
+				8FE05062EA4826E5869319EEBCF133D2 /* HUWebImageDownloader.m in Sources */,
+				E5B9BAF74966224A4238BD0F07EE2F77 /* HUWebImageDownloadOperation.m in Sources */,
+				D2945E71A72091EB20869BEA685E961A /* UIImage+HUExtension.m in Sources */,
+				A835662717FA39727733764C839C8004 /* UIImageView+HUWebImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +345,7 @@
 		};
 		6B14F387D976B9BBD23C6D37C480A17B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40E485047A3951DA76D6BB3330EDFC92 /* HUPhotoBrowser.xcconfig */;
+			baseConfigurationReference = 7AEBFCEE9D1F5374E9F0AFB4A8970689 /* HUPhotoBrowser.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HUPhotoBrowser/HUPhotoBrowser-prefix.pch";
@@ -444,7 +436,7 @@
 		};
 		D31E661A32995AC1A7A299F77A26C5EA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40E485047A3951DA76D6BB3330EDFC92 /* HUPhotoBrowser.xcconfig */;
+			baseConfigurationReference = 7AEBFCEE9D1F5374E9F0AFB4A8970689 /* HUPhotoBrowser.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/HUPhotoBrowser/HUPhotoBrowser-prefix.pch";

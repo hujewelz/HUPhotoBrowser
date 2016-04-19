@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7C972E4CE8BCF4522AFA714C'
+               BlueprintIdentifier = '3DCED23436BAFC14FA8296CC'
                BlueprintName = 'Pods-HUPhotoBrowser Demo'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-HUPhotoBrowser Demo.a'>
