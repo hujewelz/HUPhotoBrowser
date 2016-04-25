@@ -149,7 +149,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
             else if (option == HUWebImageOptionMemoryOnely) {
                 [sself saveImage:image toMemoryForKey:[sself cacheKeyForURL:url]];
             }
-
+            [sself.downloadOperations removeObjectForKey:[self cacheKeyForURL:url]];
         }];
         
         [self.operationQueue addOperation:operation];
@@ -157,11 +157,6 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     }
     return operation;
 }
-
-//- (void)downloadImageWithUrl:(NSURL *)url {
-//    
-//    
-//}
 
 #pragma mark - download image for url and store to disk
 

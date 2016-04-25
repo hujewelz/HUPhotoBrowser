@@ -36,7 +36,6 @@
     browser.imageView = imageView;
     browser.URLStrings = URLStrings;
     [browser configureBrowser];
-    
     [browser animateImageViewAtIndex:index];
   
     browser.placeholderImage = image;
@@ -51,9 +50,7 @@
     browser.imageView = imageView;
     browser.images = images;
     [browser configureBrowser];
-   
     [browser animateImageViewAtIndex:index];
-    
     
     browser.placeholderImage = image;
     browser.dismissDlock = block;
@@ -102,7 +99,6 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     [self.collectionView registerClass:[HUPhotoBrowserCell class] forCellWithReuseIdentifier:kPhotoBrowserCellID];
-    [self.collectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)]];
     
     [[UIApplication sharedApplication].keyWindow addSubview:self];
 }
@@ -117,11 +113,14 @@
         CGFloat ratio = image.size.width / image.size.height;
         
         if (ratio > kScreenRatio) {
+           
+            endFrame.size.width = kScreenWidth;
             endFrame.size.height = kScreenWidth / ratio;
             
         } else {
-        
-            endFrame.size.height = kScreenHeight * ratio;
+            endFrame.size.height = kScreenHeight;
+            endFrame.size.width = kScreenHeight * ratio;
+            
         }
         endFrame.origin.x = (kScreenWidth - endFrame.size.width) / 2;
         endFrame.origin.y = (kScreenHeight - endFrame.size.height) / 2;
@@ -136,7 +135,6 @@
     tempImageView.image = self.imageView.image;
     tempImageView.contentMode = UIViewContentModeScaleAspectFit;
     [[UIApplication sharedApplication].keyWindow addSubview:tempImageView];
-    
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         tempImageView.frame = endFrame;
@@ -171,7 +169,6 @@
         return;
     }
     
-    
     CGRect endFrame = [self.imageView.superview convertRect:self.imageView.frame toView:[UIApplication sharedApplication].keyWindow];
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithFrame:_endTempFrame];
@@ -189,7 +186,6 @@
         
         [self removeFromSuperview];
         [tempImageView removeFromSuperview];
-        
         
     }];
    
@@ -213,7 +209,10 @@
     cell.indexPath = indexPath;
     cell.placeholderImage = self.placeholderImage;
     [cell resetZoomingScale];
-    
+    __weak __typeof(self) wself = self;
+    cell.tapActionBlock = ^(UITapGestureRecognizer *sender) {
+        [wself dismiss];
+    };
     if (self.URLStrings) {
         [cell configureCellWithURLStrings:self.URLStrings[indexPath.row]];
     }

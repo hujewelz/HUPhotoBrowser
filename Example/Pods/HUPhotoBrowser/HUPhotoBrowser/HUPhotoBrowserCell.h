@@ -21,7 +21,8 @@ static NSString *const kPhotoCellDidZommingNotification = @"kPhotoCellDidZomming
 
 - (void)resetZoomingScale;
 
-
 - (void)configureCellWithURLStrings:(NSString *)URLStrings;
+
+@property (nonatomic, copy) void(^tapActionBlock)(UITapGestureRecognizer *tapGesture);
 
 @end
