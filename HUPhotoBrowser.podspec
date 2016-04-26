@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Jewelz Hu" => "https://github.com/hujewelz/HUPhotoBrowser" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "1.0.1" }
   s.source_files  = "HUPhotoBrowser/**/*.{h,m}"
   s.resources = "HUPhotoBrowser/**/*.png", "HUPhotoBrowser/**/*.xib"
   #s.exclude_files = "Classes/Exclude"

@@ -5,7 +5,7 @@
 
 target 'HUPhotoBrowser Demo' do
 
-pod 'HUPhotoBrowser', '~> 1.0.0'
+pod 'HUPhotoBrowser', '~> 1.0.1'
 
 end
 
