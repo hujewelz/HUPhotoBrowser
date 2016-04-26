@@ -9,12 +9,16 @@
 #import "ViewController.h"
 #import "PhotoCell.h"
 #import "HUPhotoBrowser.h"
+#import <HUImagePickerViewController.h>
 #import "UIImageView+HUWebImage.h"
 
-@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,HUImagePickerViewControllerDelegate,UINavigationControllerDelegate> {
+    BOOL _localImage;
+}
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSArray *originalImages;
 @property (nonatomic, strong) NSMutableArray *URLStrings;
 
 @end
@@ -33,39 +37,60 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSArray *)images {
-    if (!_images) {
-        NSArray *array =  @[@"1.jpg",@"2.jpg",@"3.jpg",@"4.png",@"5.jpg"];
-        NSMutableArray *images = [NSMutableArray arrayWithCapacity:array.count];
-        for (NSString *named in array) {
-            UIImage *img = [UIImage imageNamed:named];
-            [images addObject:img];
-        }
-        _images = [NSArray arrayWithArray:images];
-    }
-    return _images;
-}
+
+#pragma mark collection view data source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _URLStrings.count;
+    return _localImage ? _images.count : _URLStrings.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
-    
-//    cell.imageView.image = self.images[indexPath.row];
-
-    [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+    if (_localImage) {
+        cell.imageView.image = self.images[indexPath.row];
+    }
+    else {
+        [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+    }
     
     return cell;
 }
 
+#pragma mark - collection view delegate
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.images placeholderImage:nil atIndex:indexPath.row dismiss:nil];
-    [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings atIndex:indexPath.row];
+    if (_localImage) {
+        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages placeholderImage:nil atIndex:indexPath.row dismiss:nil];
+    }
+    else {
+        [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings atIndex:indexPath.row];
+    }
 }
+
+#pragma mark - HUImagePickerViewControllerDelegate
+
+- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info{
+    NSLog(@"dismiss: %@", info);
+    _images = images;
+    _originalImages = info[kHUImagePickerOriginalImage];
+    _localImage = YES;
+    [self.collectionView reloadData];
+}
+
+#pragma mark - IBAction
+
+- (IBAction)pickImage:(id)sender {
+    HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+    picker.delegate = self;
+    picker.maxAllowedCount = 10;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+
+
+#pragma mark - private 
 
 - (void)getWebImages {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];

@@ -18,7 +18,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 }
 
 @interface HUWebImageDownloader () {
-    //int count;
+    int count;
 }
 
 @property (nonatomic, strong) NSCache *webImageCache;
@@ -136,8 +136,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     if (operation == nil) {
         operation = [[HUWebImageDownloadOperation alloc] initWithURL:url completed:^(UIImage *image, NSData *data, NSError *error) {
             __strong __typeof(self) sself = wself;
-//            count ++;
-//            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
+            count ++;
+            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
             if (completeBlock) {
                 completeBlock(image, nil, url);
             }

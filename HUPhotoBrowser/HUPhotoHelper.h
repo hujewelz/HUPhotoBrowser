@@ -37,7 +37,7 @@ typedef void (^FetchAlbumSucceed)(NSArray *albums);
 
 //@property (nonatomic) NSInteger numberofAlbums;
 - (void)fetchSelectedPhoto:(NSInteger)index;
-@property (nonatomic,readonly, strong) NSMutableArray *originalImages;
+@property (nonatomic, strong) NSMutableArray *originalImages;
 
 
 @end

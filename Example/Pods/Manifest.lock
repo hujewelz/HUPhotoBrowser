@@ -1,10 +1,14 @@
 PODS:
-  - HUPhotoBrowser (1.0.1)
+  - HUPhotoBrowser (1.0.2)
 
 DEPENDENCIES:
-  - HUPhotoBrowser (~> 1.0.1)
+  - HUPhotoBrowser (from `../`)
+
+EXTERNAL SOURCES:
+  HUPhotoBrowser:
+    :path: ../
 
 SPEC CHECKSUMS:
-  HUPhotoBrowser: cf436ffe87199b2619aff91ab93bc43786ffda68
+  HUPhotoBrowser: f8fabf1688afcd0ac13f2274858cdb3926946329
 
 COCOAPODS: 0.39.0

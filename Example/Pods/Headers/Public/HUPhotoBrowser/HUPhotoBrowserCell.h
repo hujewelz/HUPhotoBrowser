@@ -1,1 +1,1 @@
-../../../HUPhotoBrowser/HUPhotoBrowser/HUPhotoBrowserCell.h
+../../../../../HUPhotoBrowser/HUPhotoBrowserCell.h

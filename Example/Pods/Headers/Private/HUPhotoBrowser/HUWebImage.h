@@ -1,1 +1,1 @@
-../../../HUPhotoBrowser/HUPhotoBrowser/HUWebImageDownloader/HUWebImage.h
+../../../../../HUPhotoBrowser/HUWebImageDownloader/HUWebImage.h

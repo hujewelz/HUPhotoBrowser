@@ -28,10 +28,12 @@ static char *loadOperationKey = "loadOperationKey";
         if (image) {
             wself.image = image;
             [wself setNeedsDisplay];
+            [wself layoutIfNeeded];
         }
         else {
             wself.image = placeholder;
             [wself setNeedsDisplay];
+            [wself layoutIfNeeded];
         }
     }];
     [self hu_setImageDownloadOperation:operation forKey:@"downloadimage"];

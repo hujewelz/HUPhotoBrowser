@@ -150,18 +150,17 @@ static const CGFloat kSpacing = 2.0;
             [_selectedImages addObject:_images[indexPath.row]];
             [[HUPhotoHelper sharedInstance] fetchSelectedPhoto:indexPath.row];
         }
-        
-        _imagesInfo[kHUImagePickerOriginalImage] = [HUPhotoHelper sharedInstance].originalImages;
+        NSArray *originals = [[HUPhotoHelper sharedInstance].originalImages copy];
+        _imagesInfo[kHUImagePickerOriginalImage] = originals;
         _imagesInfo[kHUImagePickerThumbnailImage] = _selectedImages;
+        [[HUPhotoHelper sharedInstance].originalImages removeAllObjects];
+        
+        HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
+        if ([navigationVc.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingImages:imageInfo:)]) {
+            [navigationVc.delegate imagePickerController:navigationVc didFinishPickingImages:_selectedImages imageInfo:_imagesInfo];
+        }
     }
    
-    
-    
-    HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
-    if ([navigationVc.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingImages:imageInfo:)]) {
-        [navigationVc.delegate imagePickerController:navigationVc didFinishPickingImages:_selectedImages imageInfo:_imagesInfo];
-    }
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
