@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HUAlbumCell" rowHeight="80" id="KGk-i7-Jjw" customClass="HUAlbumCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="avn-CI-xN6">
+                        <rect key="frame" x="20" y="8" width="56" height="1"/>
+                        <color key="backgroundColor" red="0.7843137255" green="0.098039215690000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-mT-aoG">
+                        <rect key="frame" x="18" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="FtD-fk-3Ra"/>
+                            <constraint firstAttribute="width" constant="60" id="IG5-zG-Oy2"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSG-8e-Ra1">
+                        <rect key="frame" x="93" y="18" width="40" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFc-4s-pMU">
+                        <rect key="frame" x="93" y="42" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TFc-4s-pMU" firstAttribute="leading" secondItem="zsC-mT-aoG" secondAttribute="trailing" constant="15" id="2vS-V1-fbt"/>
+                    <constraint firstItem="ZSG-8e-Ra1" firstAttribute="leading" secondItem="zsC-mT-aoG" secondAttribute="trailing" constant="15" id="AOY-gC-xMd"/>
+                    <constraint firstItem="avn-CI-xN6" firstAttribute="leading" secondItem="zsC-mT-aoG" secondAttribute="leading" constant="2" id="B1j-22-7DL"/>
+                    <constraint firstItem="zsC-mT-aoG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EO5-Fn-gqD"/>
+                    <constraint firstItem="avn-CI-xN6" firstAttribute="trailing" secondItem="zsC-mT-aoG" secondAttribute="trailing" constant="-2" id="Huu-J3-mAE"/>
+                    <constraint firstItem="zsC-mT-aoG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Qja-NG-Cg7"/>
+                    <constraint firstItem="TFc-4s-pMU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="centerYWithinMargins" constant="2" id="S0O-br-TsV"/>
+                    <constraint firstAttribute="centerY" secondItem="ZSG-8e-Ra1" secondAttribute="bottom" constant="2" id="oDd-6i-ZE4"/>
+                    <constraint firstItem="avn-CI-xN6" firstAttribute="bottom" secondItem="zsC-mT-aoG" secondAttribute="top" constant="-1" id="sVE-nQ-whl"/>
+                    <constraint firstItem="avn-CI-xN6" firstAttribute="top" secondItem="zsC-mT-aoG" secondAttribute="top" constant="-2" id="ygS-2h-b0c"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="albumCountLab" destination="TFc-4s-pMU" id="w4r-ZM-jMj"/>
+                <outlet property="albumImageView" destination="zsC-mT-aoG" id="MzG-8x-xC4"/>
+                <outlet property="albumTitleLab" destination="ZSG-8e-Ra1" id="MyU-g1-ExI"/>
+                <outlet property="cover2" destination="avn-CI-xN6" id="pSA-kb-65d"/>
+            </connections>
+            <point key="canvasLocation" x="375" y="361"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="a.jpg" width="550" height="698"/>
+    </resources>
+</document>
