@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "PhotoCell.h"
 #import "HUPhotoBrowser.h"
-#import <HUImagePickerViewController.h>
-#import "UIImageView+HUWebImage.h"
 
-@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,HUImagePickerViewControllerDelegate,UINavigationControllerDelegate> {
+//#import <HUImagePickerViewController.h>
+//#import "UIImageView+HUWebImage.h"
+
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>//,HUImagePickerViewControllerDelegate,UINavigationControllerDelegate>
+{
     BOOL _localImage;
 }
 
@@ -50,7 +52,8 @@
         cell.imageView.image = self.images[indexPath.row];
     }
     else {
-        [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+//        [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+//        cell.imageView sd
     }
     
     return cell;
@@ -71,22 +74,22 @@
 
 #pragma mark - HUImagePickerViewControllerDelegate
 
-- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info{
-    NSLog(@"dismiss: %@", info);
-    _images = images;
-    _originalImages = info[kHUImagePickerOriginalImage];
-    _localImage = YES;
-    [self.collectionView reloadData];
-}
-
-#pragma mark - IBAction
-
-- (IBAction)pickImage:(id)sender {
-    HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
-    picker.delegate = self;
-    picker.maxAllowedCount = 10;
-    [self presentViewController:picker animated:YES completion:nil];
-}
+//- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info{
+//    NSLog(@"dismiss: %@", info);
+//    _images = images;
+//    _originalImages = info[kHUImagePickerOriginalImage];
+//    _localImage = YES;
+//    [self.collectionView reloadData];
+//}
+//
+//#pragma mark - IBAction
+//
+//- (IBAction)pickImage:(id)sender {
+//    HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+//    picker.delegate = self;
+//    picker.maxAllowedCount = 10;
+//    [self presentViewController:picker animated:YES completion:nil];
+//}
 
 
 

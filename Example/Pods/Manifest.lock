@@ -1,5 +1,9 @@
 PODS:
-  - HUPhotoBrowser (1.0.2)
+  - HUPhotoBrowser (1.0.3):
+    - SDWebImage
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
 
 DEPENDENCIES:
   - HUPhotoBrowser (from `../`)
@@ -9,6 +13,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  HUPhotoBrowser: f8fabf1688afcd0ac13f2274858cdb3926946329
+  HUPhotoBrowser: 70f117b350a84a4a57cf903be12ac5601e6edaa1
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
 
 COCOAPODS: 0.39.0

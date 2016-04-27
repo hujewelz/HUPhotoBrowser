@@ -8,8 +8,7 @@
 
 #import "HUPhotoBrowserCell.h"
 #import "hu_const.h"
-#import "UIImageView+WebCache.h"
-
+#import "UIImageView+HUWebImage.h"
 
 @interface HUPhotoBrowserCell () <UIScrollViewDelegate>
 
@@ -115,10 +114,10 @@
 - (void)configureCellWithURLStrings:(NSString *)URLStrings {
    // self.imageView.image = self.placeholderImage;
     NSURL *url = [NSURL URLWithString:URLStrings];
-    [self.imageView sd_setImageWithURL:url placeholderImage:self.placeholderImage];
 //    [[HUWebImageDownloader sharedInstance] downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
 //        self.imageView.image = image;
 //    }];
+    [self.imageView hu_setImageWithURL:url placeholderImage:self.placeholderImage];
 }
 
 #pragma mark - getter

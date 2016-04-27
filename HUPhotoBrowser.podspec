@@ -8,22 +8,22 @@
 
 Pod::Spec.new do |s|
   s.name         = "HUPhotoBrowser"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "photo browser for ios."
   s.homepage     = "https://github.com/hujewelz/HUPhotoBrowser"
   s.license      = "MIT"
   s.author             = { "Jewelz Hu" => "https://github.com/hujewelz/HUPhotoBrowser" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "1.0.3" }
+  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "1.0.4" }
   s.source_files  = "HUPhotoBrowser/**/*.{h,m}"
-  s.resources = "HUPhotoBrowser/**/*.png", "HUPhotoBrowser/**/*.xib"
+  #s.resources = "HUPhotoBrowser/**/*.png", "HUPhotoBrowser/**/*.xib"
   #s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
+  s.requires_arc = true
+  s.framework  = "UIKit"
 
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -33,9 +33,7 @@ Pod::Spec.new do |s|
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-  s.requires_arc = true
-  s.framework  = "UIKit", "Photos", "AssetsLibrary"
-  s.dependency 'SDWebImage'
+
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
