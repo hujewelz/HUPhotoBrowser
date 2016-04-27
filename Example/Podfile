@@ -6,6 +6,7 @@
 target 'HUPhotoBrowser Demo' do
 
 pod 'HUPhotoBrowser', :path => '../'
+pod 'SDWebImage'
 
 end
 

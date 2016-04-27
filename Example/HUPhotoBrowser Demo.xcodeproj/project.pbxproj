@@ -20,6 +20,17 @@
 		040624091C7E9C83005653C1 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 040624051C7E9C83005653C1 /* 3.jpg */; };
 		0406240A1C7E9C83005653C1 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 040624061C7E9C83005653C1 /* 4.png */; };
 		0406240C1C7E9F0E005653C1 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0406240B1C7E9F0E005653C1 /* 5.jpg */; };
+		0419F0091CD0BC7A0033088D /* HUAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419EFF81CD0BC7A0033088D /* HUAlbum.m */; };
+		0419F00A1CD0BC7A0033088D /* HUAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419EFFA1CD0BC7A0033088D /* HUAlbumCell.m */; };
+		0419F00B1CD0BC7A0033088D /* HUAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0419EFFB1CD0BC7A0033088D /* HUAlbumCell.xib */; };
+		0419F00C1CD0BC7A0033088D /* HUAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419EFFD1CD0BC7A0033088D /* HUAlbumsViewController.m */; };
+		0419F00D1CD0BC7A0033088D /* HUImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419EFFF1CD0BC7A0033088D /* HUImagePickerCell.m */; };
+		0419F00E1CD0BC7A0033088D /* HUImagePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0419F0001CD0BC7A0033088D /* HUImagePickerCell.xib */; };
+		0419F00F1CD0BC7A0033088D /* HUImagePickerRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419F0021CD0BC7A0033088D /* HUImagePickerRootViewController.m */; };
+		0419F0111CD0BC7A0033088D /* HUPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419F0061CD0BC7A0033088D /* HUPhotoHelper.m */; };
+		0419F0121CD0BC7A0033088D /* pick_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0419F0071CD0BC7A0033088D /* pick_checked@2x.png */; };
+		0419F0131CD0BC7A0033088D /* pick_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0419F0081CD0BC7A0033088D /* pick_checked@3x.png */; };
+		0419F0161CD0BD8C0033088D /* HUImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419F0151CD0BD8C0033088D /* HUImagePickerViewController.m */; };
 		F4FA93E886DEB788FD5DFD70 /* libPods-HUPhotoBrowser Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +65,24 @@
 		040624051C7E9C83005653C1 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		040624061C7E9C83005653C1 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		0406240B1C7E9F0E005653C1 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		0419EFF71CD0BC7A0033088D /* HUAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAlbum.h; sourceTree = "<group>"; };
+		0419EFF81CD0BC7A0033088D /* HUAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAlbum.m; sourceTree = "<group>"; };
+		0419EFF91CD0BC7A0033088D /* HUAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAlbumCell.h; sourceTree = "<group>"; };
+		0419EFFA1CD0BC7A0033088D /* HUAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAlbumCell.m; sourceTree = "<group>"; };
+		0419EFFB1CD0BC7A0033088D /* HUAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUAlbumCell.xib; sourceTree = "<group>"; };
+		0419EFFC1CD0BC7A0033088D /* HUAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAlbumsViewController.h; sourceTree = "<group>"; };
+		0419EFFD1CD0BC7A0033088D /* HUAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAlbumsViewController.m; sourceTree = "<group>"; };
+		0419EFFE1CD0BC7A0033088D /* HUImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerCell.h; sourceTree = "<group>"; };
+		0419EFFF1CD0BC7A0033088D /* HUImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerCell.m; sourceTree = "<group>"; };
+		0419F0001CD0BC7A0033088D /* HUImagePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUImagePickerCell.xib; sourceTree = "<group>"; };
+		0419F0011CD0BC7A0033088D /* HUImagePickerRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerRootViewController.h; sourceTree = "<group>"; };
+		0419F0021CD0BC7A0033088D /* HUImagePickerRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerRootViewController.m; sourceTree = "<group>"; };
+		0419F0051CD0BC7A0033088D /* HUPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoHelper.h; sourceTree = "<group>"; };
+		0419F0061CD0BC7A0033088D /* HUPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoHelper.m; sourceTree = "<group>"; };
+		0419F0071CD0BC7A0033088D /* pick_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_checked@2x.png"; sourceTree = "<group>"; };
+		0419F0081CD0BC7A0033088D /* pick_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_checked@3x.png"; sourceTree = "<group>"; };
+		0419F0141CD0BD8C0033088D /* HUImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerViewController.h; sourceTree = "<group>"; };
+		0419F0151CD0BD8C0033088D /* HUImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerViewController.m; sourceTree = "<group>"; };
 		0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB69F10DBAB449BE835D229 /* Pods-HUPhotoBrowser Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.release.xcconfig"; sourceTree = "<group>"; };
 		60269676670946AAB9275ECE /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +137,7 @@
 				040624001C7E9BB6005653C1 /* PhotoCell.h */,
 				040624011C7E9BB6005653C1 /* PhotoCell.m */,
 				040623AA1C7E9989005653C1 /* Main.storyboard */,
+				0419EFF61CD0BC7A0033088D /* HUPhotoPicker */,
 				040623AD1C7E9989005653C1 /* Images.xcassets */,
 				040623AF1C7E9989005653C1 /* LaunchScreen.xib */,
 				040623A01C7E9989005653C1 /* Supporting Files */,
@@ -144,6 +174,31 @@
 				040623BB1C7E9989005653C1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0419EFF61CD0BC7A0033088D /* HUPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				0419EFF71CD0BC7A0033088D /* HUAlbum.h */,
+				0419EFF81CD0BC7A0033088D /* HUAlbum.m */,
+				0419EFF91CD0BC7A0033088D /* HUAlbumCell.h */,
+				0419EFFA1CD0BC7A0033088D /* HUAlbumCell.m */,
+				0419EFFB1CD0BC7A0033088D /* HUAlbumCell.xib */,
+				0419EFFC1CD0BC7A0033088D /* HUAlbumsViewController.h */,
+				0419EFFD1CD0BC7A0033088D /* HUAlbumsViewController.m */,
+				0419EFFE1CD0BC7A0033088D /* HUImagePickerCell.h */,
+				0419EFFF1CD0BC7A0033088D /* HUImagePickerCell.m */,
+				0419F0001CD0BC7A0033088D /* HUImagePickerCell.xib */,
+				0419F0011CD0BC7A0033088D /* HUImagePickerRootViewController.h */,
+				0419F0021CD0BC7A0033088D /* HUImagePickerRootViewController.m */,
+				0419F0141CD0BD8C0033088D /* HUImagePickerViewController.h */,
+				0419F0151CD0BD8C0033088D /* HUImagePickerViewController.m */,
+				0419F0051CD0BC7A0033088D /* HUPhotoHelper.h */,
+				0419F0061CD0BC7A0033088D /* HUPhotoHelper.m */,
+				0419F0071CD0BC7A0033088D /* pick_checked@2x.png */,
+				0419F0081CD0BC7A0033088D /* pick_checked@3x.png */,
+			);
+			path = HUPhotoPicker;
 			sourceTree = "<group>";
 		};
 		99774561EBE7C1A0F5DB881E /* Frameworks */ = {
@@ -247,7 +302,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0419F00E1CD0BC7A0033088D /* HUImagePickerCell.xib in Resources */,
+				0419F0121CD0BC7A0033088D /* pick_checked@2x.png in Resources */,
+				0419F0131CD0BC7A0033088D /* pick_checked@3x.png in Resources */,
 				040623AC1C7E9989005653C1 /* Main.storyboard in Resources */,
+				0419F00B1CD0BC7A0033088D /* HUAlbumCell.xib in Resources */,
 				040624071C7E9C83005653C1 /* 1.jpg in Resources */,
 				040624081C7E9C83005653C1 /* 2.jpg in Resources */,
 				040624091C7E9C83005653C1 /* 3.jpg in Resources */,
@@ -320,9 +379,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0419F00C1CD0BC7A0033088D /* HUAlbumsViewController.m in Sources */,
+				0419F00A1CD0BC7A0033088D /* HUAlbumCell.m in Sources */,
 				040624021C7E9BB6005653C1 /* PhotoCell.m in Sources */,
+				0419F0111CD0BC7A0033088D /* HUPhotoHelper.m in Sources */,
+				0419F00F1CD0BC7A0033088D /* HUImagePickerRootViewController.m in Sources */,
+				0419F0161CD0BD8C0033088D /* HUImagePickerViewController.m in Sources */,
 				040623A91C7E9989005653C1 /* ViewController.m in Sources */,
+				0419F00D1CD0BC7A0033088D /* HUImagePickerCell.m in Sources */,
 				040623A61C7E9989005653C1 /* AppDelegate.m in Sources */,
+				0419F0091CD0BC7A0033088D /* HUAlbum.m in Sources */,
 				040623A31C7E9989005653C1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

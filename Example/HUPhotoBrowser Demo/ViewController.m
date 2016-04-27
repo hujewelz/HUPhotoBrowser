@@ -9,11 +9,11 @@
 #import "ViewController.h"
 #import "PhotoCell.h"
 #import "HUPhotoBrowser.h"
+#import <UIImageView+WebCache.h>
+#import "HUImagePickerViewController.h"
 
-//#import <HUImagePickerViewController.h>
-//#import "UIImageView+HUWebImage.h"
 
-@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>//,HUImagePickerViewControllerDelegate,UINavigationControllerDelegate>
+@interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,HUImagePickerViewControllerDelegate,UINavigationControllerDelegate>
 {
     BOOL _localImage;
 }
@@ -52,8 +52,8 @@
         cell.imageView.image = self.images[indexPath.row];
     }
     else {
-//        [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
-//        cell.imageView sd
+
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
     }
     
     return cell;
@@ -65,31 +65,31 @@
     
     PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (_localImage) {
-        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages placeholderImage:nil atIndex:indexPath.row dismiss:nil];
+        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages placeholderImage:[UIImage imageNamed:@"1.jpg"] atIndex:indexPath.row dismiss:nil];
     }
     else {
-        [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings atIndex:indexPath.row];
+        [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings placeholderImage:[UIImage imageNamed:@"1.jpg"] atIndex:indexPath.row dismiss:nil];
     }
 }
 
 #pragma mark - HUImagePickerViewControllerDelegate
 
-//- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info{
-//    NSLog(@"dismiss: %@", info);
-//    _images = images;
-//    _originalImages = info[kHUImagePickerOriginalImage];
-//    _localImage = YES;
-//    [self.collectionView reloadData];
-//}
-//
-//#pragma mark - IBAction
-//
-//- (IBAction)pickImage:(id)sender {
-//    HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
-//    picker.delegate = self;
-//    picker.maxAllowedCount = 10;
-//    [self presentViewController:picker animated:YES completion:nil];
-//}
+- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info{
+    NSLog(@"dismiss: %@", info);
+    _images = images;
+    _originalImages = info[kHUImagePickerOriginalImage];
+    _localImage = YES;
+    [self.collectionView reloadData];
+}
+
+#pragma mark - IBAction
+
+- (IBAction)pickImage:(id)sender {
+    HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
+    picker.delegate = self;
+    picker.maxAllowedCount = 10;
+    [self presentViewController:picker animated:YES completion:nil];
+}
 
 
 

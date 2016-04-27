@@ -9,14 +9,18 @@
 #import "HUPhotoBrowser.h"
 #import "HUPhotoBrowserCell.h"
 #import "hu_const.h"
+#import "HUWebImage.h"
 
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;
     NSInteger _currentPage;
     NSIndexPath *_zoomingIndexPath;
+    BOOL _imageDidLoaded;
+    BOOL _animationCompleted;
 }
 
 @property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, weak) UIImageView *tmpImageView;
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *URLStrings;
 @property (nonatomic) NSInteger index;
@@ -37,6 +41,7 @@
     browser.URLStrings = URLStrings;
     [browser configureBrowser];
     [browser animateImageViewAtIndex:index];
+    
   
     browser.placeholderImage = image;
     browser.dismissDlock = block;
@@ -51,6 +56,8 @@
     browser.images = images;
     [browser configureBrowser];
     [browser animateImageViewAtIndex:index];
+    
+    
     
     browser.placeholderImage = image;
     browser.dismissDlock = block;
@@ -135,20 +142,29 @@
     tempImageView.image = self.imageView.image;
     tempImageView.contentMode = UIViewContentModeScaleAspectFit;
     [[UIApplication sharedApplication].keyWindow addSubview:tempImageView];
+    _tmpImageView = tempImageView;
+    
+    if (self.URLStrings && !self.images) {
+        NSString *key = [HUWebImageDownloader cacheKeyForURL:[NSURL URLWithString:self.URLStrings[_index]]];
+        UIImage *image = [HUWebImageDownloader imageFromDiskCacheForKey:key];
+        _imageDidLoaded = image != nil;
+    }
+    [self.collectionView setContentOffset:CGPointMake(kScreenWidth * index,0) animated:NO];
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         tempImageView.frame = endFrame;
         
     } completion:^(BOOL finished) {
         _currentPage = index;
-        [self.collectionView setContentOffset:CGPointMake(kScreenWidth * index,0) animated:NO];
-        self.collectionView.hidden = NO;
-        [tempImageView removeFromSuperview];
+        _animationCompleted = YES;
+        if (self.images || _imageDidLoaded) {
+            self.collectionView.hidden = NO;
+            [tempImageView removeFromSuperview];
+        }
+       
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [tempImageView removeFromSuperview];
-    });
+
 }
 
 - (void)dismiss {
@@ -183,7 +199,7 @@
         tempImageView.frame = endFrame;
         self.alpha = 0;
     } completion:^(BOOL finished) {
-        
+       
         [self removeFromSuperview];
         [tempImageView removeFromSuperview];
         
@@ -207,14 +223,24 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HUPhotoBrowserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPhotoBrowserCellID forIndexPath:indexPath];
     cell.indexPath = indexPath;
-    cell.placeholderImage = self.placeholderImage;
     [cell resetZoomingScale];
     __weak __typeof(self) wself = self;
     cell.tapActionBlock = ^(UITapGestureRecognizer *sender) {
         [wself dismiss];
     };
     if (self.URLStrings) {
-        [cell configureCellWithURLStrings:self.URLStrings[indexPath.row]];
+        NSURL *url = [NSURL URLWithString:self.URLStrings[indexPath.row]];
+        
+        [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
+            if (indexPath.row == _index && !_imageDidLoaded) {
+                 _imageDidLoaded = YES;
+                if (_animationCompleted) {
+                    self.collectionView.hidden = NO;
+                    [_tmpImageView removeFromSuperview];
+                }
+               
+            }
+        }];
     }
     else if (self.images) {
         cell.imageView.image = self.images[indexPath.row];
@@ -248,5 +274,6 @@
     NSIndexPath *indexPath = nofit.object;
     _zoomingIndexPath = indexPath;
 }
+
 
 @end

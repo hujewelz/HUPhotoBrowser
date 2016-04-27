@@ -20,6 +20,10 @@ static char *loadOperationKey = "loadOperationKey";
 }
 
 - (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder {
+    [self hu_setImageWithURL:url placeholderImage:placeholder completed:nil];
+}
+
+- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(void (^)(UIImage *, NSError *, NSURL *))completed {
     self.image = nil;
     self.image = placeholder;
     [self hu_cancelImageDownloadOperationForKey:@"downloadimage"];
@@ -35,8 +39,12 @@ static char *loadOperationKey = "loadOperationKey";
             [wself setNeedsDisplay];
             [wself layoutIfNeeded];
         }
+        if (completed) {
+            completed(image, error, imageUrl);
+        }
     }];
     [self hu_setImageDownloadOperation:operation forKey:@"downloadimage"];
+
 }
 
 - (void)hu_setImageDownloadOperation:(id)operatio forKey:(NSString *)key {

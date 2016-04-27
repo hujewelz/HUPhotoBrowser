@@ -12,5 +12,6 @@
 
 - (void)hu_setImageWithURL:(NSURL *)url;
 - (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder;
+- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(void(^)(UIImage *image, NSError *error, NSURL *imageUrl))completed;
 
 @end
