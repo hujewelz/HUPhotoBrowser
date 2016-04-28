@@ -41,8 +41,6 @@
     browser.URLStrings = URLStrings;
     [browser configureBrowser];
     [browser animateImageViewAtIndex:index];
-    
-  
     browser.placeholderImage = image;
     browser.dismissDlock = block;
     
@@ -56,9 +54,6 @@
     browser.images = images;
     [browser configureBrowser];
     [browser animateImageViewAtIndex:index];
-    
-    
-    
     browser.placeholderImage = image;
     browser.dismissDlock = block;
     
@@ -230,17 +225,22 @@
     };
     if (self.URLStrings) {
         NSURL *url = [NSURL URLWithString:self.URLStrings[indexPath.row]];
-        
-        [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-            if (indexPath.row == _index && !_imageDidLoaded) {
-                 _imageDidLoaded = YES;
-                if (_animationCompleted) {
-                    self.collectionView.hidden = NO;
-                    [_tmpImageView removeFromSuperview];
+        if (indexPath.row != _index) {
+            [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage];
+        }
+        else {
+            UIImage *placeHolder = _animationCompleted ? _tmpImageView.image : _placeholderImage;
+            [cell.imageView hu_setImageWithURL:url placeholderImage:placeHolder completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
+                if (!_imageDidLoaded) {
+                     _imageDidLoaded = YES;
+                    if (_animationCompleted) {
+                        self.collectionView.hidden = NO;
+                        [_tmpImageView removeFromSuperview];
+                    }
+                   
                 }
-               
-            }
-        }];
+            }];
+        }
     }
     else if (self.images) {
         cell.imageView.image = self.images[indexPath.row];
