@@ -65,10 +65,10 @@
     
     PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (_localImage) {
-        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages placeholderImage:[UIImage imageNamed:@"1.jpg"] atIndex:indexPath.row dismiss:nil];
+        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages placeholderImage:[UIImage imageNamed:@"placeholder"] atIndex:indexPath.row dismiss:nil];
     }
     else {
-        [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings placeholderImage:[UIImage imageNamed:@"1.jpg"] atIndex:indexPath.row dismiss:nil];
+        [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings placeholderImage:[UIImage imageNamed:@"placeholder"] atIndex:indexPath.row dismiss:nil];
     }
 }
 

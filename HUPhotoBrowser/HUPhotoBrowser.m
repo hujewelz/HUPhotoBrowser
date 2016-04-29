@@ -19,8 +19,8 @@
     BOOL _animationCompleted;
 }
 
-@property (nonatomic, weak) UIImageView *imageView;
-@property (nonatomic, weak) UIImageView *tmpImageView;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *tmpImageView;
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *URLStrings;
 @property (nonatomic) NSInteger index;
@@ -155,6 +155,7 @@
         if (self.images || _imageDidLoaded) {
             self.collectionView.hidden = NO;
             [tempImageView removeFromSuperview];
+            _animationCompleted = NO;
         }
        
     }];
@@ -229,13 +230,14 @@
             [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage];
         }
         else {
-            UIImage *placeHolder = _animationCompleted ? _tmpImageView.image : _placeholderImage;
+            UIImage *placeHolder = _tmpImageView.image;
             [cell.imageView hu_setImageWithURL:url placeholderImage:placeHolder completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
                 if (!_imageDidLoaded) {
                      _imageDidLoaded = YES;
                     if (_animationCompleted) {
                         self.collectionView.hidden = NO;
                         [_tmpImageView removeFromSuperview];
+                        _animationCompleted = NO;
                     }
                    
                 }

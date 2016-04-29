@@ -16,9 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="avn-CI-xN6">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="avn-CI-xN6">
                         <rect key="frame" x="20" y="8" width="56" height="1"/>
-                        <color key="backgroundColor" red="0.7843137255" green="0.098039215690000001" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-mT-aoG">
                         <rect key="frame" x="18" y="10" width="60" height="60"/>
@@ -62,7 +61,4 @@
             <point key="canvasLocation" x="375" y="361"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="a.jpg" width="550" height="698"/>
-    </resources>
 </document>

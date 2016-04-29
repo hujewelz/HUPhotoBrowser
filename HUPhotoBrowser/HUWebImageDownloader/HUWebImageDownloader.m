@@ -136,12 +136,17 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     if (operation == nil) {
         operation = [[HUWebImageDownloadOperation alloc] initWithURL:url completed:^(UIImage *image, NSData *data, NSError *error) {
             __strong __typeof(self) sself = wself;
-            count ++;
-            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
+            
             if (completeBlock) {
                 completeBlock(image, nil, url);
             }
-          
+            
+            if (image == nil)  return ;
+            count ++;
+            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
+
+            [sself.downloadOperations removeObjectForKey:[self cacheKeyForURL:url]];
+            
             if (option == HUWebImageOptionMemoryAndDisk) {
                 [sself saveImage:data toDiskForKey:[sself cacheKeyForURL:url]];
                 [sself saveImage:image toMemoryForKey:[sself cacheKeyForURL:url]];
@@ -149,7 +154,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
             else if (option == HUWebImageOptionMemoryOnely) {
                 [sself saveImage:image toMemoryForKey:[sself cacheKeyForURL:url]];
             }
-            [sself.downloadOperations removeObjectForKey:[self cacheKeyForURL:url]];
+           
         }];
         
         [self.operationQueue addOperation:operation];

@@ -31,6 +31,7 @@
 		0419F0121CD0BC7A0033088D /* pick_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0419F0071CD0BC7A0033088D /* pick_checked@2x.png */; };
 		0419F0131CD0BC7A0033088D /* pick_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0419F0081CD0BC7A0033088D /* pick_checked@3x.png */; };
 		0419F0161CD0BD8C0033088D /* HUImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0419F0151CD0BD8C0033088D /* HUImagePickerViewController.m */; };
+		044D06501CD34623005BDFF2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 044D064F1CD34623005BDFF2 /* placeholder.png */; };
 		F4FA93E886DEB788FD5DFD70 /* libPods-HUPhotoBrowser Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		0419F0081CD0BC7A0033088D /* pick_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_checked@3x.png"; sourceTree = "<group>"; };
 		0419F0141CD0BD8C0033088D /* HUImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerViewController.h; sourceTree = "<group>"; };
 		0419F0151CD0BD8C0033088D /* HUImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerViewController.m; sourceTree = "<group>"; };
+		044D064F1CD34623005BDFF2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CB69F10DBAB449BE835D229 /* Pods-HUPhotoBrowser Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.release.xcconfig"; sourceTree = "<group>"; };
 		60269676670946AAB9275ECE /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		040623A01C7E9989005653C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				044D064F1CD34623005BDFF2 /* placeholder.png */,
 				040624031C7E9C83005653C1 /* 1.jpg */,
 				040624041C7E9C83005653C1 /* 2.jpg */,
 				040624051C7E9C83005653C1 /* 3.jpg */,
@@ -305,6 +308,7 @@
 				0419F00E1CD0BC7A0033088D /* HUImagePickerCell.xib in Resources */,
 				0419F0121CD0BC7A0033088D /* pick_checked@2x.png in Resources */,
 				0419F0131CD0BC7A0033088D /* pick_checked@3x.png in Resources */,
+				044D06501CD34623005BDFF2 /* placeholder.png in Resources */,
 				040623AC1C7E9989005653C1 /* Main.storyboard in Resources */,
 				0419F00B1CD0BC7A0033088D /* HUAlbumCell.xib in Resources */,
 				040624071C7E9C83005653C1 /* 1.jpg in Resources */,
