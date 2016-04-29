@@ -10,6 +10,13 @@
 		040622691C7E93D0005653C1 /* libHUPhotoBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0406225D1C7E93D0005653C1 /* libHUPhotoBrowser.a */; };
 		040624741C7EEF60005653C1 /* HUPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624711C7EEF60005653C1 /* HUPhotoBrowser.m */; };
 		040624751C7EEF60005653C1 /* HUPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624731C7EEF60005653C1 /* HUPhotoBrowserCell.m */; };
+		044D06641CD35F41005BDFF2 /* HUAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D06531CD35F41005BDFF2 /* HUAlbum.m */; };
+		044D06651CD35F41005BDFF2 /* HUAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D06551CD35F41005BDFF2 /* HUAlbumCell.m */; };
+		044D06661CD35F41005BDFF2 /* HUAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D06581CD35F41005BDFF2 /* HUAlbumsViewController.m */; };
+		044D06671CD35F41005BDFF2 /* HUImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D065A1CD35F41005BDFF2 /* HUImagePickerCell.m */; };
+		044D06681CD35F41005BDFF2 /* HUImagePickerRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D065D1CD35F41005BDFF2 /* HUImagePickerRootViewController.m */; };
+		044D06691CD35F41005BDFF2 /* HUImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D065F1CD35F41005BDFF2 /* HUImagePickerViewController.m */; };
+		044D066A1CD35F41005BDFF2 /* HUPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 044D06611CD35F41005BDFF2 /* HUPhotoHelper.m */; };
 		048D4E5A1CD05FB80042B958 /* HUWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D4E531CD05FB80042B958 /* HUWebImageDownloader.m */; };
 		048D4E5B1CD05FB80042B958 /* HUWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D4E551CD05FB80042B958 /* HUWebImageDownloadOperation.m */; };
 		048D4E5C1CD05FB80042B958 /* UIImage+HUExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D4E571CD05FB80042B958 /* UIImage+HUExtension.m */; };
@@ -47,6 +54,24 @@
 		040624711C7EEF60005653C1 /* HUPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoBrowser.m; sourceTree = "<group>"; };
 		040624721C7EEF60005653C1 /* HUPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoBrowserCell.h; sourceTree = "<group>"; };
 		040624731C7EEF60005653C1 /* HUPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoBrowserCell.m; sourceTree = "<group>"; };
+		044D06521CD35F41005BDFF2 /* HUAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAlbum.h; sourceTree = "<group>"; };
+		044D06531CD35F41005BDFF2 /* HUAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAlbum.m; sourceTree = "<group>"; };
+		044D06541CD35F41005BDFF2 /* HUAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAlbumCell.h; sourceTree = "<group>"; };
+		044D06551CD35F41005BDFF2 /* HUAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAlbumCell.m; sourceTree = "<group>"; };
+		044D06561CD35F41005BDFF2 /* HUAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUAlbumCell.xib; sourceTree = "<group>"; };
+		044D06571CD35F41005BDFF2 /* HUAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUAlbumsViewController.h; sourceTree = "<group>"; };
+		044D06581CD35F41005BDFF2 /* HUAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUAlbumsViewController.m; sourceTree = "<group>"; };
+		044D06591CD35F41005BDFF2 /* HUImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerCell.h; sourceTree = "<group>"; };
+		044D065A1CD35F41005BDFF2 /* HUImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerCell.m; sourceTree = "<group>"; };
+		044D065B1CD35F41005BDFF2 /* HUImagePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUImagePickerCell.xib; sourceTree = "<group>"; };
+		044D065C1CD35F41005BDFF2 /* HUImagePickerRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerRootViewController.h; sourceTree = "<group>"; };
+		044D065D1CD35F41005BDFF2 /* HUImagePickerRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerRootViewController.m; sourceTree = "<group>"; };
+		044D065E1CD35F41005BDFF2 /* HUImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImagePickerViewController.h; sourceTree = "<group>"; };
+		044D065F1CD35F41005BDFF2 /* HUImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImagePickerViewController.m; sourceTree = "<group>"; };
+		044D06601CD35F41005BDFF2 /* HUPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUPhotoHelper.h; sourceTree = "<group>"; };
+		044D06611CD35F41005BDFF2 /* HUPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUPhotoHelper.m; sourceTree = "<group>"; };
+		044D06621CD35F41005BDFF2 /* pick_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_checked@2x.png"; sourceTree = "<group>"; };
+		044D06631CD35F41005BDFF2 /* pick_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_checked@3x.png"; sourceTree = "<group>"; };
 		048D4E511CD05FB80042B958 /* HUWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUWebImage.h; sourceTree = "<group>"; };
 		048D4E521CD05FB80042B958 /* HUWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUWebImageDownloader.h; sourceTree = "<group>"; };
 		048D4E531CD05FB80042B958 /* HUWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUWebImageDownloader.m; sourceTree = "<group>"; };
@@ -103,6 +128,7 @@
 				040624721C7EEF60005653C1 /* HUPhotoBrowserCell.h */,
 				040624731C7EEF60005653C1 /* HUPhotoBrowserCell.m */,
 				040622AF1C7E94A6005653C1 /* hu_const.h */,
+				044D06511CD35F41005BDFF2 /* HUPhotoPicker */,
 				048D4E501CD05FB80042B958 /* HUWebImageDownloader */,
 			);
 			path = HUPhotoBrowser;
@@ -122,6 +148,31 @@
 				0406226E1C7E93D0005653C1 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		044D06511CD35F41005BDFF2 /* HUPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				044D065E1CD35F41005BDFF2 /* HUImagePickerViewController.h */,
+				044D065F1CD35F41005BDFF2 /* HUImagePickerViewController.m */,
+				044D065C1CD35F41005BDFF2 /* HUImagePickerRootViewController.h */,
+				044D065D1CD35F41005BDFF2 /* HUImagePickerRootViewController.m */,
+				044D06571CD35F41005BDFF2 /* HUAlbumsViewController.h */,
+				044D06581CD35F41005BDFF2 /* HUAlbumsViewController.m */,
+				044D06541CD35F41005BDFF2 /* HUAlbumCell.h */,
+				044D06551CD35F41005BDFF2 /* HUAlbumCell.m */,
+				044D06561CD35F41005BDFF2 /* HUAlbumCell.xib */,
+				044D06591CD35F41005BDFF2 /* HUImagePickerCell.h */,
+				044D065A1CD35F41005BDFF2 /* HUImagePickerCell.m */,
+				044D065B1CD35F41005BDFF2 /* HUImagePickerCell.xib */,
+				044D06521CD35F41005BDFF2 /* HUAlbum.h */,
+				044D06531CD35F41005BDFF2 /* HUAlbum.m */,
+				044D06601CD35F41005BDFF2 /* HUPhotoHelper.h */,
+				044D06611CD35F41005BDFF2 /* HUPhotoHelper.m */,
+				044D06621CD35F41005BDFF2 /* pick_checked@2x.png */,
+				044D06631CD35F41005BDFF2 /* pick_checked@3x.png */,
+			);
+			path = HUPhotoPicker;
 			sourceTree = "<group>";
 		};
 		048D4E501CD05FB80042B958 /* HUWebImageDownloader */ = {
@@ -228,11 +279,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044D06661CD35F41005BDFF2 /* HUAlbumsViewController.m in Sources */,
+				044D066A1CD35F41005BDFF2 /* HUPhotoHelper.m in Sources */,
 				040624741C7EEF60005653C1 /* HUPhotoBrowser.m in Sources */,
 				048D4E5A1CD05FB80042B958 /* HUWebImageDownloader.m in Sources */,
 				040624751C7EEF60005653C1 /* HUPhotoBrowserCell.m in Sources */,
 				048D4E5B1CD05FB80042B958 /* HUWebImageDownloadOperation.m in Sources */,
 				048D4E5D1CD05FB80042B958 /* UIImageView+HUWebImage.m in Sources */,
+				044D06681CD35F41005BDFF2 /* HUImagePickerRootViewController.m in Sources */,
+				044D06671CD35F41005BDFF2 /* HUImagePickerCell.m in Sources */,
+				044D06641CD35F41005BDFF2 /* HUAlbum.m in Sources */,
+				044D06691CD35F41005BDFF2 /* HUImagePickerViewController.m in Sources */,
+				044D06651CD35F41005BDFF2 /* HUAlbumCell.m in Sources */,
 				048D4E5C1CD05FB80042B958 /* UIImage+HUExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

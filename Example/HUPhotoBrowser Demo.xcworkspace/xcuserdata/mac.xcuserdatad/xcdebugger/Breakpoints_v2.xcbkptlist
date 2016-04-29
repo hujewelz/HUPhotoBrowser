@@ -2,4 +2,70 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HUPhotoBrowser Demo/HUPhotoPicker/HUPhotoHelper.m"
+            timestampString = "483613931.932884"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-enumerateAlbum:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HUPhotoHelper enumerateAlbum:]"
+                  moduleName = "HUPhotoBrowser Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/HUPhotoBrowser/Example/HUPhotoBrowser%20Demo/HUPhotoPicker/HUPhotoHelper.m"
+                  timestampString = "483614009.610174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "525">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[HUPhotoHelper enumerateAlbum:]_block_invoke"
+                  moduleName = "HUPhotoBrowser Demo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/HUPhotoBrowser/Example/HUPhotoBrowser%20Demo/HUPhotoPicker/HUPhotoHelper.m"
+                  timestampString = "483614009.610326"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HUPhotoBrowser Demo/HUPhotoPicker/HUPhotoHelper.m"
+            timestampString = "483613934.924897"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "-enumerateAlbum:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
