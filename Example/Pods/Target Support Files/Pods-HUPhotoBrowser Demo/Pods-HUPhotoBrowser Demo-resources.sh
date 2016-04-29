@@ -57,6 +57,18 @@ install_resource()
       ;;
   esac
 }
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/pick_checked@2x.png"
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/pick_checked@3x.png"
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/HUAlbumCell.xib"
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/HUImagePickerCell.xib"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/pick_checked@2x.png"
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/pick_checked@3x.png"
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/HUAlbumCell.xib"
+  install_resource "../../HUPhotoBrowser/HUPhotoPicker/HUImagePickerCell.xib"
+fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

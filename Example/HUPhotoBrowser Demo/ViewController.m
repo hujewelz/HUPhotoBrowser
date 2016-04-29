@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"HUPhotoBrowser Demo";
     _URLStrings = [NSMutableArray array];
     // Do any additional setup after loading the view, typically from a nib.
     [self getWebImages];
