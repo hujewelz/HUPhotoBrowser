@@ -35,6 +35,10 @@
 		4C3495C7C6FA45993B6166C84063AAED /* UIImage+HUExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156E9EBF497EE5F68029B00283AE5E0 /* UIImage+HUExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D93AD67827866D01F78224224A79EE3 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA762DD93A06FB43F745DCCCBC1D6249 /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4EC691325E4EFD53AA526DE6D934C89C /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B9DB2A002719436CEECAB3444646B64 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		513CFE7A1CD4545C00341995 /* HUToast.h in Headers */ = {isa = PBXBuildFile; fileRef = 513CFE781CD4545C00341995 /* HUToast.h */; };
+		513CFE7B1CD4545C00341995 /* HUToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 513CFE791CD4545C00341995 /* HUToast.m */; };
+		513CFE7E1CD46C8D00341995 /* UIView+frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 513CFE7C1CD46C8D00341995 /* UIView+frame.h */; };
+		513CFE7F1CD46C8D00341995 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 513CFE7D1CD46C8D00341995 /* UIView+frame.m */; };
 		5C5A9CA4F4E9684A369E1BB4FA5BDC35 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 25FACB0DA2CEDD1C574C3B3665B2B863 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CD7F72BEDF7E15C6D19EF3A93442046 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857CB2A32E18E9AF0A7878D855EBEDA6 /* Photos.framework */; };
 		6367253318BBC3012E2CE445E76CC4CF /* HUAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE7B4E258F17AF15752FED2B30FF34F /* HUAlbumCell.m */; };
@@ -119,6 +123,10 @@
 		48A09FE35ADF900277C8B50749A7A443 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		4C9E65914494713F77C72165398DDE05 /* HUWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = HUWebImage.h; sourceTree = "<group>"; };
 		4FE14E49C11A08FA132ADB2667489C89 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
+		513CFE781CD4545C00341995 /* HUToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUToast.h; sourceTree = "<group>"; };
+		513CFE791CD4545C00341995 /* HUToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUToast.m; sourceTree = "<group>"; };
+		513CFE7C1CD46C8D00341995 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		513CFE7D1CD46C8D00341995 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
 		537945DA0B26164F755D26998BCB8216 /* HUPhotoHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = HUPhotoHelper.m; sourceTree = "<group>"; };
 		53C4EA1C4BFE3F13F74B288B217D2618 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		57432B77DB4524A0940406E1574CAE23 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
@@ -382,11 +390,15 @@
 		E261EFA1FEA0196B1B2180FE54FB15E2 /* HUPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				513CFE7C1CD46C8D00341995 /* UIView+frame.h */,
+				513CFE7D1CD46C8D00341995 /* UIView+frame.m */,
 				AA8680B66FC4A9942A8029B2C9F47ECF /* hu_const.h */,
 				20FCECE4A6F7BC6759B7289F490F3248 /* HUPhotoBrowser.h */,
 				6731A4C18575AD8FFD9C9EE38601C4E5 /* HUPhotoBrowser.m */,
 				38798C63DCFB74515A0E41B92F5ADCAD /* HUPhotoBrowserCell.h */,
 				68595CDA02246773EA94A7F978E8DCDF /* HUPhotoBrowserCell.m */,
+				513CFE781CD4545C00341995 /* HUToast.h */,
+				513CFE791CD4545C00341995 /* HUToast.m */,
 				153754DEA0169A97D4F26A908A340A3C /* HUPhotoPicker */,
 				EC469DDFCF2CFA6DAA626E10070FBD65 /* HUWebImageDownloader */,
 			);
@@ -462,6 +474,7 @@
 				C13774692BAEF62D28371FF6BE4BEC9C /* HUImagePickerCell.h in Headers */,
 				3523106243DE344A8CD992C02DC8ABA2 /* HUImagePickerRootViewController.h in Headers */,
 				AE9E0429F463170928EC5C091FA8AB42 /* HUImagePickerViewController.h in Headers */,
+				513CFE7A1CD4545C00341995 /* HUToast.h in Headers */,
 				66A4F5B88DDCA5E169154168776196E7 /* HUPhotoBrowser.h in Headers */,
 				8D692B31B38496CE5B279E6E1ED35553 /* HUPhotoBrowserCell.h in Headers */,
 				F7DACCA5820737CA41D97CC2424E4CDF /* HUPhotoHelper.h in Headers */,
@@ -469,6 +482,7 @@
 				10B7CD43E5A3E3E9C8897954FA9BED31 /* HUWebImageDownloader.h in Headers */,
 				2C891821F2C533F65F5C733C359B8837 /* HUWebImageDownloadOperation.h in Headers */,
 				4C3495C7C6FA45993B6166C84063AAED /* UIImage+HUExtension.h in Headers */,
+				513CFE7E1CD46C8D00341995 /* UIView+frame.h in Headers */,
 				CDDBB19B9815CBFFF594F03CFF96A2BA /* UIImageView+HUWebImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -597,7 +611,9 @@
 				D06B3F67A5AB2AECA99A150909B2F360 /* HUImagePickerCell.m in Sources */,
 				168F67C4868504C0DD64BF5DF86003CE /* HUImagePickerRootViewController.m in Sources */,
 				B21F174401A44C5C7B57DDDEB4DA5FBD /* HUImagePickerViewController.m in Sources */,
+				513CFE7B1CD4545C00341995 /* HUToast.m in Sources */,
 				CDF8C5031D58E6E0FB18B89AA30F03AA /* HUPhotoBrowser-dummy.m in Sources */,
+				513CFE7F1CD46C8D00341995 /* UIView+frame.m in Sources */,
 				63B30442322B5AE580634BCCBF46C347 /* HUPhotoBrowser.m in Sources */,
 				76693C9ABA29F461AAF31832E6FE7FC9 /* HUPhotoBrowserCell.m in Sources */,
 				327B618629B41BC29BFFE8BFEE9C4BFC /* HUPhotoHelper.m in Sources */,

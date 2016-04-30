@@ -36,7 +36,7 @@
     _scrollView.backgroundColor = [UIColor blackColor];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.maximumZoomScale = 4;
+    _scrollView.maximumZoomScale = 2;
     _scrollView.minimumZoomScale = 0.5;
     _scrollView.delegate = self;
 

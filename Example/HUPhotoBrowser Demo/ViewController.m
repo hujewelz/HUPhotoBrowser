@@ -54,7 +54,6 @@
         cell.imageView.image = self.images[indexPath.row];
     }
     else {
-
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
     }
     
@@ -89,8 +88,8 @@
 - (IBAction)pickImage:(id)sender {
     HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
     picker.delegate = self;
-    picker.maxAllowedCount = 10;
-    picker.originalImageAllowed = YES;
+    picker.maxAllowedCount = 4;
+    picker.originalImageAllowed = YES; //想要获取高清图设置为YES,默认为NO
     [self presentViewController:picker animated:YES completion:nil];
 }
 

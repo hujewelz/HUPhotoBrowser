@@ -10,6 +10,7 @@
 #import "HUImagePickerCell.h"
 #import "HUPhotoHelper.h"
 #import "HUImagePickerViewController.h"
+#import "HUToast.h"
 
 NSString * const kHUImagePickerOriginalImage = @"kHUImagePickerOriginalImage";
 NSString * const kHUImagePickerThumbnailImage = @"kHUImagePickerThumbnailImage";
@@ -124,7 +125,8 @@ static const CGFloat kSpacing = 2.0;
     else {
         NSArray *allValues = _selectedIndexPaths.allValues;
         if (allValues.count >= self.maxCount) {
-            NSLog(@"已到达最大数量了");
+            
+            [HUToast showToastWithMsg:@"已达最大数量了"];
             return;
         }
 
