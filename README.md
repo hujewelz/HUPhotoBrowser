@@ -1,11 +1,9 @@
 # HUPhotoBrowser
-##一个ios图片浏览器 支持浏览本地图片及网络图片
 
-**HUPhotoBrowser**ios图片浏览器，支持浏览本地图片及网络图片，暂不支持浏览视频及gif,使用起来非常简单,只需要一行代码。
-**HUImagePickerViewController**图片选择器，你可以像使用`UIImagePickerController`一样的使用它，支持图片多选。
+**HUPhotoBrowser** ios图片浏览器，支持浏览本地图片及网络图片，暂不支持浏览视频及gif,使用起来非常简单,只需要一行代码。
+**HUImagePickerViewController** 图片选择器，你可以像使用`UIImagePickerController`一样的使用它，支持图片多选。
 
-![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-30 08_57_13.gif)
-
+![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-30%2008_57_13.gif.gif)
 ## PhotoBrowser的使用
 在需要用到的地方 `#import "HUPhotoBrowser.h"`
 
@@ -41,9 +39,9 @@ HUPhotoBrowser同时支持网络图片浏览
     }];
 ```
 #HUPhotoPicker
-![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-309.57.28)
-![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-309.58.04)
-![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-309.57.39)
+![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-309.57.28.png)
+![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-309.58.04.png)
+![image](https://github.com/hujewelz/HUPhotoBrowser/blob/master/screenshot/2016-04-309.57.39.png)
 
 在需要用到的地方`#import "HUImagePickerViewController.h"`，并且遵循`HUImagePickerViewControllerDelegate,UINavigationControllerDelegate`代理.
 现在你就可以像使用`UIImagePickerController`一样的使用它了:
@@ -88,9 +86,10 @@ images info: {
 pod 'HUPhotoBrowser','~> 1.1.1' 
 ```
 
+您可以使用`pod search HUPhotoBrowser`查看所有版本，在`pod search`之前请先执行`pod setup`，并且请您安装最新版本。
 
 ## 其他
-
+为了不影响您项目中导入的其他第三方库，本库没有导入任何其他的第三方内容，可以放心使用。
 * 如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的框架代码看看BUG修复没有）
 * 如果您有什么建议可以Issues我，谢谢
 * 后续我会持续更新，为它添加更多的功能，欢迎star :)
