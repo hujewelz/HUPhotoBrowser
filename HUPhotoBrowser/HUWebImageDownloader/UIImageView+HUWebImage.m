@@ -43,7 +43,9 @@ static char *loadOperationKey = "loadOperationKey";
             completed(image, error, imageUrl);
         }
     }];
-    [self hu_setImageDownloadOperation:operation forKey:@"downloadimage"];
+    if (operation) {
+        [self hu_setImageDownloadOperation:operation forKey:@"downloadimage"];
+    }
 
 }
 
