@@ -47,10 +47,10 @@ static char *loadOperationKey = "loadOperationKey";
 
 }
 
-- (void)hu_setImageDownloadOperation:(id)operatio forKey:(NSString *)key {
+- (void)hu_setImageDownloadOperation:(id)operation forKey:(NSString *)key {
     [self hu_cancelImageDownloadOperationForKey:key];
     NSMutableDictionary *operations = [self operationDict];
-    [operations setObject:operations forKey:key];
+    [operations setObject:operation forKey:key];
 }
 
 - (void)hu_cancelImageDownloadOperationForKey:(NSString *)key {

@@ -16,7 +16,4 @@
 @property (assign, nonatomic) CGSize  size;
 @property (assign, nonatomic) CGPoint origion;
 
-- (void)addLineAtButtonFrom:(CGPoint)fromPoint to:(CGPoint)toPoint;
-- (void)addLineFrom:(CGPoint)fromPoint to:(CGPoint)toPoint;
-
 @end
