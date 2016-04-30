@@ -38,6 +38,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 
 
@@ -66,7 +67,7 @@
     
     PhotoCell *cell = (PhotoCell *)[collectionView cellForItemAtIndexPath:indexPath];
     if (_localImage) {
-        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages placeholderImage:[UIImage imageNamed:@"placeholder"] atIndex:indexPath.row dismiss:nil];
+        [HUPhotoBrowser showFromImageView:cell.imageView withImages:self.originalImages atIndex:indexPath.row];
     }
     else {
         [HUPhotoBrowser showFromImageView:cell.imageView withURLStrings:_URLStrings placeholderImage:[UIImage imageNamed:@"placeholder"] atIndex:indexPath.row dismiss:nil];
@@ -75,9 +76,9 @@
 
 #pragma mark - HUImagePickerViewControllerDelegate
 
-- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info{
-    NSLog(@"dismiss: %@", info);
-    _images = images;
+- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImagesWithInfo:(NSDictionary *)info{
+    NSLog(@"images info: %@", info);
+    _images = info[kHUImagePickerThumbnailImage];
     _originalImages = info[kHUImagePickerOriginalImage];
     _localImage = YES;
     [self.collectionView reloadData];
@@ -89,9 +90,15 @@
     HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
     picker.delegate = self;
     picker.maxAllowedCount = 10;
+    picker.originalImageAllowed = YES;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
+- (IBAction)refresh:(id)sender {
+    [self getWebImages];
+    _localImage = NO;
+    [self.collectionView reloadData];
+}
 
 
 #pragma mark - private 
@@ -105,12 +112,13 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:repuest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         NSArray *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
+        NSMutableArray *urlS = [NSMutableArray array];
         for (NSDictionary *dict in result) {
             NSString *linkurl = dict[@"linkurl"];
             
-            [_URLStrings addObject:linkurl];
+            [urlS addObject:linkurl];
         }
+        _URLStrings = urlS;
         dispatch_async(dispatch_get_main_queue(), ^{
          
             [self.collectionView reloadData];

@@ -142,8 +142,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
             }
             
             if (image == nil)  return ;
-            count ++;
-            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
+//            count ++;
+//            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
 
             [sself.downloadOperations removeObjectForKey:[self cacheKeyForURL:url]];
             

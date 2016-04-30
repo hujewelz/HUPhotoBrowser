@@ -144,20 +144,24 @@ static const CGFloat kSpacing = 2.0;
 
 - (void)didFinishedPick {
     NSArray *allValues = _selectedIndexPaths.allValues;
+    NSMutableArray *thumbnails = [NSMutableArray arrayWithCapacity:allValues.count];
     if (allValues.count > 0) {
         
         for (NSIndexPath *indexPath in allValues) {
-            [_selectedImages addObject:_images[indexPath.row]];
+            [thumbnails addObject:_images[indexPath.row]];
             [[HUPhotoHelper sharedInstance] fetchSelectedPhoto:indexPath.row];
         }
-        NSArray *originals = [[HUPhotoHelper sharedInstance].originalImages copy];
-        _imagesInfo[kHUImagePickerOriginalImage] = originals;
-        _imagesInfo[kHUImagePickerThumbnailImage] = _selectedImages;
-        [[HUPhotoHelper sharedInstance].originalImages removeAllObjects];
+        _imagesInfo[kHUImagePickerThumbnailImage] = thumbnails;
+        
+        if ([self originalAllowed]) {
+            NSArray *originals = [[HUPhotoHelper sharedInstance].originalImages copy];
+            _imagesInfo[kHUImagePickerOriginalImage] = originals;
+            [[HUPhotoHelper sharedInstance].originalImages removeAllObjects];
+        }
         
         HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
-        if ([navigationVc.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingImages:imageInfo:)]) {
-            [navigationVc.delegate imagePickerController:navigationVc didFinishPickingImages:_selectedImages imageInfo:_imagesInfo];
+        if ([navigationVc.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingImagesWithInfo:)]) {
+            [navigationVc.delegate imagePickerController:navigationVc didFinishPickingImagesWithInfo:_imagesInfo];
         }
     }
    
@@ -167,6 +171,11 @@ static const CGFloat kSpacing = 2.0;
 - (NSInteger)maxCount {
     HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
     return navigationVc.maxAllowedCount;
+}
+
+- (BOOL)originalAllowed {
+    HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
+    return navigationVc.originalImageAllowed;
 }
 
 - (BOOL)didSelectedAtIndexPath:(NSIndexPath *)indexPath withSelectedIndexPath:(NSIndexPath *)selectedIndexPath {

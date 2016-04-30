@@ -15,7 +15,16 @@ extern NSString * const kHUImagePickerThumbnailImage;
 @interface HUImagePickerViewController : UINavigationController
 
 @property (nonatomic, weak) id<UINavigationControllerDelegate, HUImagePickerViewControllerDelegate> delegate;
+
+/**
+ * max selected count. default is 10
+ */
 @property (nonatomic) NSInteger maxAllowedCount;
+
+/**
+ * original image allowed ?  default is NO
+ */
+@property (nonatomic, assign) BOOL originalImageAllowed;
 
 @end
 
@@ -24,6 +33,6 @@ extern NSString * const kHUImagePickerThumbnailImage;
 
 @optional
 
-- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImages:(NSArray *)images imageInfo:(NSDictionary *)info;
+- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImagesWithInfo:(NSDictionary *)info;
 
 @end
