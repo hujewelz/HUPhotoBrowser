@@ -7,7 +7,6 @@
 //
 
 #import "UIView+frame.h"
-#import <objc/runtime.h>
 
 @implementation UIView (frame)
 
@@ -70,32 +69,6 @@
 - (CGPoint)origion {
     return self.frame.origin;
 }
-
-//- (void)addLineAtButtonFrom:(CGPoint)fromPoint to:(CGPoint)toPoint {
-//    UIBezierPath *path = [[UIBezierPath alloc] init];
-//    path.lineWidth = 0.5;
-//    UIColor *lineColor = kSEPARATOR_COLOR;
-//    [lineColor setStroke];
-//    
-//    [path moveToPoint:fromPoint];
-//    [path addLineToPoint:toPoint];
-//    
-//    [path stroke];
-//    
-//
-//}
-- (void)addLineFrom:(CGPoint)fromPoint to:(CGPoint)toPoint {
-    CGContextRef ctx = UIGraphicsGetCurrentContext();//获取当前ctx
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(ctx, 1.0);  //线宽
-    CGContextSetAllowsAntialiasing(ctx, YES);
-    CGContextSetRGBStrokeColor(ctx, 1.0, 0.0, 0.0, 1.0);  //颜色
-    CGContextBeginPath(ctx);
-    CGContextMoveToPoint(ctx, fromPoint.x, fromPoint.y);  //起点坐标
-    CGContextAddLineToPoint(ctx,toPoint.x, toPoint.y);   //终点坐标
-    CGContextStrokePath(ctx);
-}
-
 
 
 @end
