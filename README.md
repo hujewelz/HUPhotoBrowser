@@ -1,4 +1,6 @@
 # HUPhotoBrowser
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hujewelz/HUPhotoBrowser/master/LICENSE)
+
 
 **HUPhotoBrowser** ios图片浏览器，支持浏览本地图片及网络图片，暂不支持浏览视频及gif,使用起来非常简单,只需要一行代码。
 **HUImagePickerViewController** 图片选择器，你可以像使用`UIImagePickerController`一样的使用它，支持图片多选。
