@@ -84,10 +84,10 @@ images info: {
 1. 下载ZIP包,将`HUPhotoBrowser`资源文件拖到工程中。
 2. [CocoaPods](https://cocoapods.org/)安装：
 ```
-pod 'HUPhotoBrowser','~> 1.1.3' 
+pod 'HUPhotoBrowser','~> 1.1.4' 
 ```
 
-您可以使用`pod search HUPhotoBrowser`查看所有版本，在`pod search`之前请先执行`pod setup`。请您安装最新1.1.3版本。
+您可以使用`pod search HUPhotoBrowser`查看所有版本，在`pod search`之前请先执行`pod setup`。请您安装最新1.1.4版本。
 
 ## 其他
 为了不影响您项目中导入的其他第三方库，本库没有导入任何其他的第三方内容，可以放心使用。在使用前，您可以查看[示例程序](https://github.com/hujewelz/HUPhotoBrowser/tree/master/Example)
