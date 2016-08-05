@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^DismissBlock)(UIImage*image, NSInteger index);
+typedef void(^ __nullable DismissBlock)(UIImage * __nullable image, NSInteger index);
 
 @interface HUPhotoBrowser : UIView
 
@@ -18,7 +18,7 @@ typedef void(^DismissBlock)(UIImage*image, NSInteger index);
  * @param index        点击的图片在所有要展示图片中的位置
  */
 
-+ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings atIndex:(NSInteger)index;
++ (nonnull instancetype)showFromImageView:(nullable UIImageView *)imageView withURLStrings:(nullable NSArray *)URLStrings atIndex:(NSInteger)index;
 
 /*
  * @param imageView    点击的imageView
@@ -26,7 +26,7 @@ typedef void(^DismissBlock)(UIImage*image, NSInteger index);
  * @param index        点击的图片在所有要展示图片中的位置
  */
 
-+ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index;
++ (nonnull instancetype)showFromImageView:(nullable UIImageView *)imageView withImages:(nullable NSArray *)images atIndex:(NSInteger)index;
 
 /*
  * @param imageView    点击的imageView
@@ -35,7 +35,7 @@ typedef void(^DismissBlock)(UIImage*image, NSInteger index);
  * @param index        点击的图片在所有要展示图片中的位置
  * @param dismiss      photoBrowser消失的回调
  */
-+ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block;
++ (nonnull instancetype)showFromImageView:(nullable UIImageView *)imageView withURLStrings:(nullable NSArray *)URLStrings placeholderImage:(nullable UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block;
 
 /*
  * @param imageView    点击的imageView
@@ -44,8 +44,8 @@ typedef void(^DismissBlock)(UIImage*image, NSInteger index);
  * @param index        点击的图片在所有要展示图片中的位置
  * @param dismiss      photoBrowser消失的回调
  */
-+ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block;
++ (nonnull instancetype)showFromImageView:(nullable UIImageView *)imageView withImages:(nullable NSArray *)images atIndex:(NSInteger)index dismiss:(DismissBlock)block;
 
-@property (nonatomic, strong) UIImage *placeholderImage;
+@property (nonatomic, strong, nullable) UIImage *placeholderImage;
 
 @end
