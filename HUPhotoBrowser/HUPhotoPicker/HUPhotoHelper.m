@@ -19,7 +19,6 @@
 
 NSString * const kDidFetchCameraRollSucceedNotification = @"kDidFetchCameraRollSucceedNotification";
 
-
 static const char *kIOQueueLable = "com.jewelz.assetqueue";
 static NSString * const kOriginalImages = @"";
 
