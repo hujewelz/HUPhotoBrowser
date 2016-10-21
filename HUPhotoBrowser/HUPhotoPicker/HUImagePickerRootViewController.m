@@ -43,9 +43,9 @@ static const CGFloat kSpacing = 2.0;
         _imagesInfo = [NSMutableDictionary dictionary];
         _selectedImages = [NSMutableArray array];
         _images = [NSArray array];
-        if (!IS_IOS8_LATER) {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraRollHandler:) name:kDidFetchCameraRollSucceedNotification object:nil];
-        }
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraRollHandler:) name:kDidFetchCameraRollSucceedNotification object:nil];
+        
     }
     return self;
 }

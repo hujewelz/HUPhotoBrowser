@@ -9,6 +9,7 @@
 #import "HUPhotoHelper.h"
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
 #import <Photos/Photos.h>
+#import <Photos/PHPhotoLibrary.h>
 #endif
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetsGroup.h>
@@ -17,6 +18,7 @@
 #import "HUAlbum.h"
 
 NSString * const kDidFetchCameraRollSucceedNotification = @"kDidFetchCameraRollSucceedNotification";
+
 
 static const char *kIOQueueLable = "com.jewelz.assetqueue";
 static NSString * const kOriginalImages = @"";
@@ -74,18 +76,51 @@ static NSString * const kOriginalImages = @"";
 #pragma mark - 获取相机胶卷
 
 - (id)cameraRoll {
-    if (IS_IOS8_LATER)
-        return [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil].lastObject;
-    
-    [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        if (group) {
-
-            [[NSNotificationCenter defaultCenter] postNotificationName:kDidFetchCameraRollSucceedNotification object:group];
+    if (IS_IOS8_LATER) {
+        PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+        if (status == PHAuthorizationStatusNotDetermined) {
+            // 无权限
+            __block PHFetchResult<PHAssetCollection *> *result = nil;
+            [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+                if (status == PHAuthorizationStatusAuthorized) {
+                   result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil].lastObject;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kDidFetchCameraRollSucceedNotification object:result];
+                }
+            }];
+            return result;
         }
-        
-    } failureBlock:^(NSError *error) {
-        NSLog(@"Group not found!");
-    }];
+        return [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil].lastObject;
+    }
+    
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author == ALAuthorizationStatusNotDetermined) {
+        NSLog(@"您没权限访问相册");
+        [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+            if (*stop) {
+                //点击"好"回调
+                if (group) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kDidFetchCameraRollSucceedNotification object:group];
+                }
+            }
+            *stop = TRUE;
+            
+        } failureBlock:^(NSError *error) {
+            NSLog(@"Group not found!");
+            
+        }];
+    }
+    else {
+    
+        [_assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+            if (group) {
+
+                [[NSNotificationCenter defaultCenter] postNotificationName:kDidFetchCameraRollSucceedNotification object:group];
+            }
+            
+        } failureBlock:^(NSError *error) {
+            NSLog(@"Group not found!");
+        }];
+    }
     return nil;
 }
 
