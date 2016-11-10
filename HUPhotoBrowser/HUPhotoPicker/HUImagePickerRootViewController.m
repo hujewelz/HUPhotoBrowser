@@ -11,19 +11,19 @@
 #import "HUPhotoHelper.h"
 #import "HUImagePickerViewController.h"
 #import "HUToast.h"
+#import "HUImageItem.h"
 
 NSString * const kHUImagePickerOriginalImage = @"kHUImagePickerOriginalImage";
 NSString * const kHUImagePickerThumbnailImage = @"kHUImagePickerThumbnailImage";
 
 static const CGFloat kSpacing = 2.0;
 
-@interface HUImagePickerRootViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
-    NSMutableDictionary *_selectedIndexPaths;
-    NSMutableArray *_selectedImages;
-}
+@interface HUImagePickerRootViewController () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSMutableArray *selectedStataArray;
+@property (nonatomic, strong) NSMutableArray *selectedImages;
 @property (nonatomic, strong) NSMutableDictionary *imagesInfo;
 
 @end
@@ -39,21 +39,15 @@ static const CGFloat kSpacing = 2.0;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _selectedIndexPaths = [NSMutableDictionary dictionary];
-        _imagesInfo = [NSMutableDictionary dictionary];
-        _selectedImages = [NSMutableArray array];
-        _images = [NSArray array];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cameraRollHandler:) name:kDidFetchCameraRollSucceedNotification object:nil];
-        
     }
     return self;
 }
 
 - (void)dealloc {
-    if (!IS_IOS8_LATER) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidFetchCameraRollSucceedNotification object:nil];
-    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kDidFetchCameraRollSucceedNotification object:nil];
+
 }
 
 - (void)viewDidLoad {
@@ -78,7 +72,12 @@ static const CGFloat kSpacing = 2.0;
     [HUPhotoHelper fetchAssetsInAssetCollection:collection resultHandler:^(NSArray *images, NSString *albumTitle) {
         __strong __typeof(self) sself = wself;
         sself.title = albumTitle;
-        sself.images = images;
+        NSMutableArray *tmp = [NSMutableArray arrayWithCapacity:images.count];
+        for (NSInteger i=0; i<images.count; i++) {
+            HUImageItem *item = [HUImageItem imageItemWithImage:images[i]];
+            [tmp addObject:item];
+        }
+        sself.images = [tmp copy];
         [sself.collectionView reloadData];
     }];
 }
@@ -106,32 +105,38 @@ static const CGFloat kSpacing = 2.0;
 #pragma mark - Collection view data source 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _images.count;
+    return self.images.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     HUImagePickerCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[HUImagePickerCell reuserIdentifier] forIndexPath:indexPath];
-    cell.imageView.image = _images[indexPath.row];
+    HUImageItem *item = self.images[indexPath.row];
+    cell.imageView.image = item.image;
+    cell.didSelected = item.selected;
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
     HUImagePickerCell *cell = (HUImagePickerCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (_selectedIndexPaths[@(indexPath.row)]) {
-        [_selectedIndexPaths removeObjectForKey:@(indexPath.row)];
-        cell.didSelected = NO;
+    if (!cell.didSelected && self.selectedImages.count > self.maxCount-1) {
+        [HUToast showToastWithMsg:@"已达最大数量了"];
+        return;
+    }
+
+    HUImageItem *item = self.images[indexPath.row];
+    item.selected = !item.selected;
+    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    
+    
+    UIImage *image = item.image;
+    if (!cell.didSelected) {
+        if (![self.selectedImages containsObject:image]) {
+            [self.selectedImages addObject:image];
+        }
     }
     else {
-        NSArray *allValues = _selectedIndexPaths.allValues;
-        if (allValues.count >= self.maxCount) {
-            
-            [HUToast showToastWithMsg:@"已达最大数量了"];
-            return;
-        }
-
-        [_selectedIndexPaths setObject:indexPath forKey:@(indexPath.row)];
-        cell.didSelected = YES;
+        [self.selectedImages removeObject:image];
     }
     
 }
@@ -145,28 +150,33 @@ static const CGFloat kSpacing = 2.0;
 #pragma mark - private
 
 - (void)didFinishedPick {
-    NSArray *allValues = _selectedIndexPaths.allValues;
-    NSMutableArray *thumbnails = [NSMutableArray arrayWithCapacity:allValues.count];
-    if (allValues.count > 0) {
-        
-        for (NSIndexPath *indexPath in allValues) {
-            [thumbnails addObject:_images[indexPath.row]];
-            [[HUPhotoHelper sharedInstance] fetchSelectedPhoto:indexPath.row];
-        }
-        _imagesInfo[kHUImagePickerThumbnailImage] = thumbnails;
-        
-        if ([self originalAllowed]) {
-            NSArray *originals = [[HUPhotoHelper sharedInstance].originalImages copy];
-            _imagesInfo[kHUImagePickerOriginalImage] = originals;
-            [[HUPhotoHelper sharedInstance].originalImages removeAllObjects];
-        }
-        
-        HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
-        if ([navigationVc.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingImagesWithInfo:)]) {
-            [navigationVc.delegate imagePickerController:navigationVc didFinishPickingImagesWithInfo:_imagesInfo];
-        }
+    
+    if (self.selectedImages.count < 1) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
     }
-   
+    
+    NSMutableArray *thumbnail = [NSMutableArray array];
+    __weak __typeof(self) wself = self;
+    [self.images enumerateObjectsUsingBlock:^(HUImageItem  * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+         if (obj.selected) {
+             [thumbnail addObject:obj.image];
+             if ([wself originalAllowed]) {
+                 [[HUPhotoHelper sharedInstance] fetchSelectedOriginalPhotoAt:idx];
+             }
+         }
+     }];
+    
+    self.imagesInfo[kHUImagePickerThumbnailImage] = thumbnail;
+    NSArray *originals = [[HUPhotoHelper sharedInstance].originalImages copy];
+    self.imagesInfo[kHUImagePickerOriginalImage] = originals;
+    [[HUPhotoHelper sharedInstance].originalImages removeAllObjects];
+
+     HUImagePickerViewController *navigationVc = (HUImagePickerViewController *)self.navigationController;
+     if ([navigationVc.delegate respondsToSelector:@selector(imagePickerController:didFinishPickingImagesWithInfo:)]) {
+        [navigationVc.delegate imagePickerController:navigationVc didFinishPickingImagesWithInfo:_imagesInfo];
+     }
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -180,10 +190,34 @@ static const CGFloat kSpacing = 2.0;
     return navigationVc.originalImageAllowed;
 }
 
-- (BOOL)didSelectedAtIndexPath:(NSIndexPath *)indexPath withSelectedIndexPath:(NSIndexPath *)selectedIndexPath {
-    if (!selectedIndexPath) return NO;
-    
-    return indexPath.row == selectedIndexPath.row;
+#pragma mark - getter
+
+- (NSArray *)images {
+    if (!_images) {
+        _images = [NSArray array];
+    }
+    return _images;
+}
+
+- (NSMutableArray *)selectedStataArray {
+    if (!_selectedStataArray) {
+        _selectedStataArray = [NSMutableArray array];
+    }
+    return _selectedStataArray;
+}
+
+- (NSMutableArray *)selectedImages {
+    if (!_selectedImages) {
+        _selectedImages = [NSMutableArray array];
+    }
+    return _selectedImages;
+}
+
+- (NSMutableDictionary *)imagesInfo {
+    if (!_imagesInfo) {
+        _imagesInfo = [NSMutableDictionary dictionary];
+    }
+    return _imagesInfo;
 }
 
 @end

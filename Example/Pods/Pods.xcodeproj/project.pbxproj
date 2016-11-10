@@ -10,6 +10,8 @@
 		00A425ACD13466CCA4EEB94CEA74430E /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CAA9CDF50B3B3D72A40DDD6992A3F1AB /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0160362214375EF299690ED47C938EAB /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D4B171E8C10A9B61871121F6B772057 /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		022612B950A89409D2C647293895F722 /* HUWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6843DE4D39A479FC195F525E543989D /* HUWebImageDownloadOperation.m */; };
+		0466F9B91DD420CD00B1F4C4 /* HUImageItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 0466F9B71DD420CD00B1F4C4 /* HUImageItem.h */; };
+		0466F9BA1DD420CD00B1F4C4 /* HUImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0466F9B81DD420CD00B1F4C4 /* HUImageItem.m */; };
 		07E5589A4194CB9AE7E3D352DE1B37CF /* HUAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 870E8970E74BF9D64210802355729FEB /* HUAlbumCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08D9A1F3B11329215FE4A8B8137FC308 /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 11F9903267CA68F30E00A0239345863A /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CD6DDC76BA88E3B2C7D32D137A34300 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B5EB27371089DC3C748090DE33658 /* SDWebImage-dummy.m */; };
@@ -99,6 +101,8 @@
 
 /* Begin PBXFileReference section */
 		01BED00DF80BB65461F0D28336FB6CE8 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		0466F9B71DD420CD00B1F4C4 /* HUImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUImageItem.h; sourceTree = "<group>"; };
+		0466F9B81DD420CD00B1F4C4 /* HUImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUImageItem.m; sourceTree = "<group>"; };
 		053B5EB27371089DC3C748090DE33658 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		0ACAC3316F7B86AA1862BE94DFE5C4D0 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		11F9903267CA68F30E00A0239345863A /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				6240073F2514FCE4104EFD9F9607A3AD /* HUImagePickerViewController.m */,
 				7367AE598E7CD76A150750EA2AE5D96F /* HUPhotoHelper.h */,
 				537945DA0B26164F755D26998BCB8216 /* HUPhotoHelper.m */,
+				0466F9B71DD420CD00B1F4C4 /* HUImageItem.h */,
+				0466F9B81DD420CD00B1F4C4 /* HUImageItem.m */,
 			);
 			path = HUPhotoPicker;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				385BAA77F3C13EDF6E29C63B4AC20F2D /* HUAlbumsViewController.h in Headers */,
 				C13774692BAEF62D28371FF6BE4BEC9C /* HUImagePickerCell.h in Headers */,
 				3523106243DE344A8CD992C02DC8ABA2 /* HUImagePickerRootViewController.h in Headers */,
+				0466F9B91DD420CD00B1F4C4 /* HUImageItem.h in Headers */,
 				AE9E0429F463170928EC5C091FA8AB42 /* HUImagePickerViewController.h in Headers */,
 				513CFE7A1CD4545C00341995 /* HUToast.h in Headers */,
 				66A4F5B88DDCA5E169154168776196E7 /* HUPhotoBrowser.h in Headers */,
@@ -606,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33C4EE4EF27739234FC0D62A9D37EE75 /* HUAlbum.m in Sources */,
+				0466F9BA1DD420CD00B1F4C4 /* HUImageItem.m in Sources */,
 				6367253318BBC3012E2CE445E76CC4CF /* HUAlbumCell.m in Sources */,
 				465368C07B7270869A3C19AED2E6555F /* HUAlbumsViewController.m in Sources */,
 				D06B3F67A5AB2AECA99A150909B2F360 /* HUImagePickerCell.m in Sources */,

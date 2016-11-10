@@ -22,15 +22,13 @@ NSString * const kDidFetchCameraRollSucceedNotification = @"kDidFetchCameraRollS
 static const char *kIOQueueLable = "com.jewelz.assetqueue";
 static NSString * const kOriginalImages = @"";
 
-@interface HUPhotoHelper () {
-    NSMutableArray *_photos;
-    
-}
+@interface HUPhotoHelper ()
 
 @property (nonatomic, copy) FetchPhotoSucceed resutBlock;
 @property (nonatomic, copy) FetchAlbumSucceed albumBlock;
 @property (nonatomic) dispatch_queue_t ioQueue;
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
+@property (nonatomic, strong) NSMutableArray * photos;
 
 
 @end
@@ -50,8 +48,6 @@ static NSString * const kOriginalImages = @"";
     self = [super init];
     if (self) {
         _ioQueue = dispatch_queue_create(kIOQueueLable, DISPATCH_QUEUE_CONCURRENT);
-        _photos = [NSMutableArray array];
-        _originalImages = [NSMutableArray array];
         if (!IS_IOS8_LATER) {
             self.assetsLibrary = [[ALAssetsLibrary alloc] init];
         }
@@ -246,7 +242,7 @@ static NSString * const kOriginalImages = @"";
                     }
                 }];
                 
-                [_photos addObject:asset];
+                [self.photos addObject:asset];
             }
            
         }
@@ -259,7 +255,7 @@ static NSString * const kOriginalImages = @"";
                 
                 if (result) {
                     [images addObject:[UIImage imageWithCGImage:result.thumbnail]];
-                    [_photos addObject:result];
+                    [self.photos addObject:result];
                 }
                 
             }];
@@ -277,9 +273,8 @@ static NSString * const kOriginalImages = @"";
     });
 }
 
-- (void)fetchSelectedPhoto:(NSInteger)index {
-    id photo = _photos[index];
-   
+- (void)fetchSelectedOriginalPhotoAt:(NSInteger)index {
+    id photo = self.photos[index];
     if (IS_IOS8_LATER) {
         PHAsset *asset = (PHAsset *)photo;
     
@@ -288,7 +283,8 @@ static NSString * const kOriginalImages = @"";
         options.synchronous = YES;
         [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * result, NSDictionary * info) {
             if (result) {
-                [_originalImages addObject:result];
+                [self.originalImages addObject:result];
+                
             }
             
         }];
@@ -297,7 +293,7 @@ static NSString * const kOriginalImages = @"";
         ALAsset *result = (ALAsset *)photo;
         UIImage *image = [UIImage imageWithCGImage:result.defaultRepresentation.fullScreenImage];
         if (image) {
-            [_originalImages addObject:image];
+            [self.originalImages addObject:image];
         }
         
 //        ALAssetRepresentation *representation = result.defaultRepresentation;
@@ -314,6 +310,21 @@ static NSString * const kOriginalImages = @"";
   
 }
 
+#pragma mark - getter
+
+- (NSMutableArray *)originalImages {
+    if (!_originalImages) {
+         _originalImages = [NSMutableArray array];
+    }
+    return _originalImages;
+}
+
+- (NSMutableArray *)photos {
+    if (!_photos) {
+        _photos = [NSMutableArray array];
+    }
+    return _photos;
+}
 
 
 @end
