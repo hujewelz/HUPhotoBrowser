@@ -219,6 +219,7 @@ static NSString * const kOriginalImages = @"";
 - (void)enumerateAssetsInAssetCollection:(id)assetCollection original:(BOOL)original {
     __block NSString *localizedTitle = nil;
     __block NSMutableArray *images = nil;
+    [self.photos removeAllObjects];
     dispatch_async(_ioQueue, ^{
         if (IS_IOS8_LATER) {
             PHAssetCollection *assetC = (PHAssetCollection *)assetCollection;
