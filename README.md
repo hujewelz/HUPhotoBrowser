@@ -87,7 +87,7 @@ images info: {
 pod 'HUPhotoBrowser' 
 ```
 
-您可以使用`pod search HUPhotoBrowser`查看所有版本，在`pod search`之前请先执行`pod setup`。最新版本为1.2.1。
+您可以使用`pod search HUPhotoBrowser`查看所有版本，在`pod search`之前请先执行`pod setup`。最新版本为1.2.4。
 
 ## 其他
 为了不影响您项目中导入的其他第三方库，本库没有导入任何其他的第三方内容，可以放心使用。在使用前，您可以查看[示例程序](https://github.com/hujewelz/HUPhotoBrowser/tree/master/Example)
