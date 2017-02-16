@@ -10,6 +10,7 @@
 #import "PhotoCell.h"
 #import "HUPhotoBrowser.h"
 #import <UIImageView+WebCache.h>
+#import <UIImageView+HUWebImage.h>
 #import "HUImagePickerViewController.h"
 
 
@@ -33,6 +34,7 @@
     _URLStrings = [NSMutableArray array];
     // Do any additional setup after loading the view, typically from a nib.
     [self getWebImages];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +56,8 @@
         cell.imageView.image = self.images[indexPath.row];
     }
     else {
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+        //[cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
+      [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
     }
     
     return cell;
@@ -105,16 +108,15 @@
 - (void)getWebImages {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    NSURL *url = [NSURL URLWithString:@"http://api.tietuku.cn/v2/api/getrandrec?key=bJiYx5aWk5vInZRjl2nHxmiZx5VnlpZkapRuY5RnaGyZmsqcw5NmlsObmGiXYpU="];
+    NSURL *url = [NSURL URLWithString:@"https://pixabay.com/api/?key=4572819-33c1e1dcbac7521c915689a81&&image_type=photo"];
     
     NSURLRequest *repuest = [NSURLRequest requestWithURL:url];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:repuest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        NSArray *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         NSMutableArray *urlS = [NSMutableArray array];
-        for (NSDictionary *dict in result) {
-            NSString *linkurl = dict[@"linkurl"];
-            
+        for (NSDictionary *dict in result[@"hits"]) {
+            NSString *linkurl = dict[@"webformatURL"];
             [urlS addObject:linkurl];
         }
         _URLStrings = urlS;

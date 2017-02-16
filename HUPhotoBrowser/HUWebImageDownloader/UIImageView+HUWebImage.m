@@ -12,32 +12,42 @@
 #import <objc/runtime.h>
 
 static char *loadOperationKey = "loadOperationKey";
+static char imageURLKey;
 
 @implementation UIImageView (HUWebImage)
 
-- (void)hu_setImageWithURL:(NSURL *)url {
+- (void)hu_setImageWithURL:(nullable NSURL *)url {
     [self hu_setImageWithURL:url placeholderImage:nil];
 }
 
-- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder {
+- (void)hu_setImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder {
     [self hu_setImageWithURL:url placeholderImage:placeholder completed:nil];
 }
 
-- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(void (^)(UIImage *, NSError *, NSURL *))completed {
+- (void)hu_setImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder completed:(nullable void (^)(UIImage *, NSError *, NSURL *))completed {
+    if (url == nil) {
+      return;
+    }
     self.image = nil;
     self.image = placeholder;
     [self hu_cancelImageDownloadOperationForKey:@"downloadimage"];
+    objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     __weak __typeof(self) wself = self;
     HUWebImageDownloadOperation *operation = [HUWebImageDownloader downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
+        __strong __typeof (wself) sself = wself;
+        if (!sself) {
+          return ;
+        }
+        if (![[sself hu_imageURL].absoluteString isEqualToString:url.absoluteString]) {
+            return;
+        }
         if (image) {
-            wself.image = image;
-            [wself setNeedsDisplay];
-            [wself layoutIfNeeded];
+            sself.image = image;
+            [sself setNeedsLayout];
         }
         else {
-            wself.image = placeholder;
-            [wself setNeedsDisplay];
-            [wself layoutIfNeeded];
+            sself.image = placeholder;
+            [sself setNeedsLayout];
         }
         if (completed) {
             completed(image, error, imageUrl);
@@ -50,6 +60,9 @@ static char *loadOperationKey = "loadOperationKey";
 }
 
 - (void)hu_setImageDownloadOperation:(id)operation forKey:(NSString *)key {
+    if (key == nil) {
+      return ;
+    }
     [self hu_cancelImageDownloadOperationForKey:key];
     NSMutableDictionary *operations = [self operationDict];
     [operations setObject:operation forKey:key];
@@ -61,9 +74,8 @@ static char *loadOperationKey = "loadOperationKey";
     id operation = operations[key];
     if ([operation isKindOfClass:[HUWebImageDownloadOperation class]]) {
         [operation cancel];
-        operation = nil;
     }
-
+    [operations removeObjectForKey:key];
 }
 
 - (NSMutableDictionary *)operationDict {
@@ -74,6 +86,10 @@ static char *loadOperationKey = "loadOperationKey";
     operations = [NSMutableDictionary dictionary];
     objc_setAssociatedObject(self, loadOperationKey, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return operations;
+}
+
+- (NSURL *)hu_imageURL {
+  return objc_getAssociatedObject(self, &imageURLKey);
 }
 
 @end

@@ -30,7 +30,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 @implementation HUWebImageDownloader
 
-+ (instancetype)sharedInstance {
++ (nonnull instancetype)sharedInstance {
     static HUWebImageDownloader *downloader = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -56,29 +56,29 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 }
 
-+ (NSString *)cacheKeyForURL:(NSURL *)url {
++ (nonnull NSString *)cacheKeyForURL:(nonnull NSURL *)url {
     return [[HUWebImageDownloader sharedInstance] cacheKeyForURL:url];
 }
 
-+ (UIImage *)imageFromDiskCacheForKey:(NSString *)key {
++ (nullable UIImage *)imageFromDiskCacheForKey:(nonnull NSString *)key {
     return [[HUWebImageDownloader sharedInstance] imageFromDiskCacheForKey:key];
 }
 
-+ (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
++ (nullable UIImage *)imageFromMemoryCacheForKey:(nonnull NSString *)key {
     return [[HUWebImageDownloader sharedInstance] imageFromMemoryCacheForKey:key];
 }
 
-+ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
++ (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url completed:(nullable HUDownloadCompletionBlock)completeBlock {
     return[self downloadImageWithURL:url option:HUWebImageOptionMemoryAndDisk completed:completeBlock];
 }
 
-+ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock {
++ (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url option:(HUWebImageOption)option completed:(nullable HUDownloadCompletionBlock)completeBlock {
     return[[HUWebImageDownloader sharedInstance] downloadImageWithURL:url option:option completed:completeBlock];
 }
 
 #pragma mark - save image
 
-- (void)saveImage:(UIImage *)image forKey:(NSString *)key toDisk:(BOOL)toDisk {
+- (void)saveImage:(nullable UIImage *)image forKey:(nonnull NSString *)key toDisk:(BOOL)toDisk {
     if (image == nil) {
         return;
     }
@@ -92,13 +92,13 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 #pragma mark - cache key for url
 
-- (NSString *)cacheKeyForURL:(NSURL *)url {
+- (nonnull NSString *)cacheKeyForURL:(nonnull NSURL *)url {
     return [url absoluteString];
 }
 
 #pragma mark - the image from disk for key
 
-- (UIImage *)imageFromDiskCacheForKey:(NSString *)key {
+- (nullable UIImage *)imageFromDiskCacheForKey:(nonnull NSString *)key {
     
     UIImage *image = [self imageFromMemoryCacheForKey:key]; //first from memory
     if (image) {
@@ -117,13 +117,13 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 #pragma mark - the image from memory for key
 
-- (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
+- (nullable UIImage *)imageFromMemoryCacheForKey:(nonnull NSString *)key {
     return [self.webImageCache objectForKey:key];
 }
 
 #pragma mark - download image for url whit option
 
-- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock {
+- (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url option:(HUWebImageOption)option completed:(nullable HUDownloadCompletionBlock)completeBlock {
     UIImage *image = [self imageFromDiskCacheForKey:[self cacheKeyForURL:url]];
     if (image) {
         if (completeBlock) {
@@ -142,8 +142,6 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
             }
             
             if (image == nil)  return ;
-//            count ++;
-//            NSLog(@"count: %zd, down load image data: %zd",count, data.length/1024);
 
             [sself.downloadOperations removeObjectForKey:[self cacheKeyForURL:url]];
             
@@ -165,7 +163,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 #pragma mark - download image for url and store to disk
 
-- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock {
+- (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url completed:(nullable HUDownloadCompletionBlock)completeBlock {
    return [self downloadImageWithURL:url option:HUWebImageOptionMemoryAndDisk completed:completeBlock];
 }
 
@@ -203,7 +201,7 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
     return img;
 }
 
-- (NSString *)cacheFileForKey:(NSString *)key {
+- (nonnull NSString *)cacheFileForKey:(nonnull NSString *)key {
     const char *cStr = [key UTF8String];
     unsigned char result[16];
     
