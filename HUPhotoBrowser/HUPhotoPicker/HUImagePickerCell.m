@@ -26,6 +26,7 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
     self.mask.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
 }

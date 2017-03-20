@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
 
   #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
-  
+  s.public_header_files = "HUPhotoBrowser/HUPhotoBrowser.h", "HUPhotoBrowser/HUPhotoPicker/HUImagePickerViewController.h", "HUPhotoBrowser/HUWebImageDownloader/{UIImageView+HUWebImage,HUWebImageDownloader}.h"
+
 
 
 

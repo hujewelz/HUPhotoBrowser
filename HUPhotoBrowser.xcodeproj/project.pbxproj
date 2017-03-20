@@ -23,6 +23,10 @@
 		048D4E5D1CD05FB80042B958 /* UIImageView+HUWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D4E591CD05FB80042B958 /* UIImageView+HUWebImage.m */; };
 		513CFE841CD4B5F700341995 /* HUToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 513CFE811CD4B5F700341995 /* HUToast.m */; };
 		513CFE851CD4B5F700341995 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 513CFE831CD4B5F700341995 /* UIView+frame.m */; };
+		51B662261E7F80AB00397C5D /* HUPhotoBrowser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 040624701C7EEF60005653C1 /* HUPhotoBrowser.h */; };
+		51B662271E7F80AB00397C5D /* HUImagePickerViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 044D065E1CD35F41005BDFF2 /* HUImagePickerViewController.h */; };
+		51B662281E7F80AB00397C5D /* HUWebImageDownloader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 048D4E521CD05FB80042B958 /* HUWebImageDownloader.h */; };
+		51B662291E7F80AB00397C5D /* UIImageView+HUWebImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 048D4E581CD05FB80042B958 /* UIImageView+HUWebImage.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				51B662261E7F80AB00397C5D /* HUPhotoBrowser.h in CopyFiles */,
+				51B662271E7F80AB00397C5D /* HUImagePickerViewController.h in CopyFiles */,
+				51B662281E7F80AB00397C5D /* HUWebImageDownloader.h in CopyFiles */,
+				51B662291E7F80AB00397C5D /* UIImageView+HUWebImage.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,7 @@
 		040622721C7E93D0005653C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
