@@ -36,7 +36,7 @@ typedef void (^FetchAlbumSucceed)(NSArray *albums);
 //@property (nonatomic) CGSize targerSize;
 
 //@property (nonatomic) NSInteger numberofAlbums;
-- (void)fetchSelectedPhoto:(NSInteger)index;
+- (void)fetchSelectedOriginalPhotoAt:(NSInteger)index;
 @property (nonatomic, strong) NSMutableArray *originalImages;
 
 

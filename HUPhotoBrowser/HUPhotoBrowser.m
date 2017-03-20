@@ -55,7 +55,7 @@
 }
 
 
-+ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
++ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index dismiss:(DismissBlock)block {
     HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:kScreenRect];
     browser.imageView = imageView;
     browser.images = images;
@@ -63,7 +63,6 @@
     [browser resetCountLabWithIndex:index+1];
     [browser configureBrowser];
     [browser animateImageViewAtIndex:index];
-    browser.placeholderImage = image;
     browser.dismissDlock = block;
     
     return browser;
@@ -75,7 +74,7 @@
 }
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index {
-    return [self showFromImageView:imageView withImages:images placeholderImage:nil atIndex:index dismiss:nil];
+    return [self showFromImageView:imageView withImages:images atIndex:index dismiss:nil];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -255,7 +254,10 @@
     
     _endTempFrame = endFrame;
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+#endif
     
     UIImageView *tempImageView = [[UIImageView alloc] initWithFrame:startFrame];
     tempImageView.image = self.imageView.image;
@@ -276,7 +278,7 @@
     } completion:^(BOOL finished) {
         _currentPage = index;
         _animationCompleted = YES;
-        if (self.images || _imageDidLoaded) {
+        if (self.images || _imageDidLoaded || (self.URLStrings && !_imageDidLoaded)) {
             self.collectionView.hidden = NO;
             [tempImageView removeFromSuperview];
             _animationCompleted = NO;
@@ -288,7 +290,9 @@
 }
 
 - (void)dismiss {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED < __IPHONE_9_0
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+#endif
     
     if (self.dismissDlock) {
         HUPhotoBrowserCell *cell = (HUPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_currentPage inSection:0]];

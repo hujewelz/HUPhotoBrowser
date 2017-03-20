@@ -10,8 +10,8 @@
 
 @interface UIImageView (HUWebImage)
 
-- (void)hu_setImageWithURL:(NSURL *)url;
-- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder;
-- (void)hu_setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholder completed:(void(^)(UIImage *image, NSError *error, NSURL *imageUrl))completed;
+- (void)hu_setImageWithURL:(nullable NSURL *)url;
+- (void)hu_setImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder;
+- (void)hu_setImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder completed:(nullable void(^)(UIImage * __nullable image, NSError * __nullable error, NSURL * __nullable imageUrl))completed;
 
 @end

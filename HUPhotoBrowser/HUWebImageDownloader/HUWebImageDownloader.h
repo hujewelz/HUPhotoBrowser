@@ -14,28 +14,28 @@ typedef NS_ENUM(NSInteger, HUWebImageOption) {
     HUWebImageOptionMemoryAndDisk,
 };
 
-typedef void(^HUDownloadCompletionBlock)(UIImage *image, NSError *error, NSURL *imageUrl);
+typedef void(^HUDownloadCompletionBlock)( UIImage * __nullable image, NSError * __nullable error, NSURL * __nullable imageUrl);
 
 @class HUWebImageDownloadOperation;
 @interface HUWebImageDownloader : NSObject
 
-+ (instancetype)sharedInstance;
-+ (NSString *)cacheKeyForURL:(NSURL *)url;
-+ (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
-+ (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
-+ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
-+ (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock;
++ (nonnull instancetype)sharedInstance;
++ (nonnull NSString *)cacheKeyForURL:(nonnull NSURL *)url;
++ (nullable UIImage *)imageFromDiskCacheForKey:(nonnull NSString *)key;
++ (nullable UIImage *)imageFromMemoryCacheForKey:(nonnull NSString *)key;
++ (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url completed:(nullable HUDownloadCompletionBlock)completeBlock;
++ (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url option:(HUWebImageOption)option completed:(nullable HUDownloadCompletionBlock)completeBlock;
 
-- (NSString *)cacheKeyForURL:(NSURL *)url;
-- (UIImage *)imageFromDiskCacheForKey:(NSString *)key;
-- (UIImage *)imageFromMemoryCacheForKey:(NSString *)key;
-- (void)saveImage:(UIImage *)image forKey:(NSString *)key toDisk:(BOOL)toDisk;
-
-
-- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url completed:(HUDownloadCompletionBlock)completeBlock;
+- (nonnull NSString *)cacheKeyForURL:(nonnull NSURL *)url;
+- (nullable UIImage *)imageFromDiskCacheForKey:(nonnull NSString *)key;
+- (nullable UIImage *)imageFromMemoryCacheForKey:(nonnull NSString *)key;
+- (void)saveImage:(nullable UIImage *)image forKey:(nonnull NSString *)key toDisk:(BOOL)toDisk;
 
 
-- (HUWebImageDownloadOperation *)downloadImageWithURL:(NSURL *)url option:(HUWebImageOption)option completed:(HUDownloadCompletionBlock)completeBlock;
+- (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url completed:(nullable HUDownloadCompletionBlock)completeBlock;
+
+
+- (nonnull HUWebImageDownloadOperation *)downloadImageWithURL:(nonnull NSURL *)url option:(HUWebImageOption)option completed:(nullable HUDownloadCompletionBlock)completeBlock;
 
 @property (nonatomic) BOOL shouldCacheImagesInMemory;
 
