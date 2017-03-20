@@ -87,6 +87,7 @@ pod 'HUPhotoBrowser'
 ```
 2. 下载ZIP包,将`HUPhotoBrowser`资源文件拖到工程中。
 3. 将`HUPhotoBrowser.xcodeproj`工程文件和`HUPhotoBrowser`源文件一同拖入工程目录下，在工程中右键选择 "Add Files to ..."，选择`HUPhotoBrowser.xcodeproj`。
+
 	![](http://image18-c.poco.cn/mypoco/myphoto/20170320/12/18436043320170320121521061.jpg?542x710_120)
 	
 	然后在 "Build Settings -> Header Search Paths" 中添加源文件路径。
