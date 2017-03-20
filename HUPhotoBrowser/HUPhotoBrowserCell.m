@@ -36,7 +36,7 @@
     _scrollView.backgroundColor = [UIColor blackColor];
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.maximumZoomScale = 2;
+    _scrollView.maximumZoomScale = 4;
     _scrollView.minimumZoomScale = 0.5;
     _scrollView.delegate = self;
 
@@ -85,7 +85,8 @@
     if (self.scrollView.zoomScale <=1.0) {
         CGFloat scaleX = p.x + self.scrollView.contentOffset.x;
         CGFloat scaley = p.y + self.scrollView.contentOffset.y;
-        [self.scrollView zoomToRect:CGRectMake(scaleX, scaley, 10, 10) animated:YES];
+        CGRect rect = [self zoomRectForScale:_scrollView.zoomScale*3 withCenter:p];
+        [self.scrollView zoomToRect:rect animated:YES];
     }
     else {
         [self.scrollView setZoomScale:1.0 animated:YES];
@@ -101,6 +102,17 @@
 
 #pragma mark - private
 
+- (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
+    CGRect zoomRect;
+    zoomRect.size.height = _scrollView.frame.size.height / scale;
+    zoomRect.size.width  = _scrollView.frame.size.width  / scale;
+    zoomRect.origin.x = center.x - (zoomRect.size.width  / 2.0);
+    zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0);
+    
+    return zoomRect;
+    
+}
+
 - (CGPoint)centerOfScrollViewContent:(UIScrollView *)scrollView {
     CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
     (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5 : 0.0;
@@ -110,19 +122,6 @@
                                        scrollView.contentSize.height * 0.5 + offsetY);
     return actualCenter;
 }
-
-//- (void)configureCellWithURLStrings:(NSString *)URLStrings {
-//   // self.imageView.image = self.placeholderImage;
-//    NSURL *url = [NSURL URLWithString:URLStrings];
-////    [[HUWebImageDownloader sharedInstance] downloadImageWithURL:url completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-////        self.imageView.image = image;
-////    }];
-//    [self.imageView hu_setImageWithURL:url placeholderImage:self.placeholderImage completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-//        if (image) {
-//            [[NSNotificationCenter defaultCenter] postNotificationName:kPhotoCellDidImageLoadedNotification object:nil];
-//        }
-//    }];
-//}
 
 #pragma mark - getter
 

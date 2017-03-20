@@ -40,7 +40,7 @@ const static NSTimeInterval kDefaultDuration = 1.0;
     if (self) {
         _didHiden = YES;
         self.alpha = 0;
-        self.frame = CGRectMake((kScreenWidth-80)/2, (kScreenHeight-50)/2, 100, 30);
+        self.frame = CGRectMake((kScreenWidth-100)/2, (kScreenHeight-50)/2, 100, 30);
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
         self.layer.cornerRadius = 6;
         UILabel *msgLab = [[UILabel alloc] initWithFrame:self.bounds];
@@ -61,6 +61,7 @@ const static NSTimeInterval kDefaultDuration = 1.0;
     
     CGFloat width = [msg sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}].width+16;
     self.width = width;
+    self.x = (kScreenWidth - width) * 0.5;
     self.msgLab.width = width;
     self.msgLab.text = msg;
     [self showToast];
