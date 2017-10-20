@@ -1,7 +1,7 @@
 {
   "name": "HUPhotoBrowser",
-  "version": "1.1.0",
-  "summary": "photo browser for ios.",
+  "version": "1.2.4",
+  "summary": "photo browser for ios, which can browse Photo library and web image",
   "homepage": "https://github.com/hujewelz/HUPhotoBrowser",
   "license": "MIT",
   "authors": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/hujewelz/HUPhotoBrowser.git",
-    "tag": "1.1.0"
+    "tag": "1.2.4"
   },
   "source_files": "HUPhotoBrowser/**/*.{h,m}",
   "resources": [
@@ -24,5 +24,10 @@
     "UIKit",
     "Photos",
     "AssetsLibrary"
+  ],
+  "public_header_files": [
+    "HUPhotoBrowser/HUPhotoBrowser.h",
+    "HUPhotoBrowser/HUPhotoPicker/HUImagePickerViewController.h",
+    "HUPhotoBrowser/HUWebImageDownloader/{UIImageView+HUWebImage,HUWebImageDownloader}.h"
   ]
 }

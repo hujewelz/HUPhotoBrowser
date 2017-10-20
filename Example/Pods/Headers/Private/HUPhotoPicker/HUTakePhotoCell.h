@@ -1,0 +1,1 @@
+../../../HUPhotoPicker/HUPhotoPicker/Classes/HUTakePhotoCell.h

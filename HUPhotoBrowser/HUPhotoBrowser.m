@@ -10,7 +10,6 @@
 #import "HUPhotoBrowserCell.h"
 #import "hu_const.h"
 #import "HUWebImage.h"
-#import "HUToast.h"
 
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;
@@ -357,7 +356,7 @@
     else{
         msg = @"保存图片成功";
     }
-    [HUToast showToastWithMsg:msg];
+    
 }
 
 @end

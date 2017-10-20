@@ -16,7 +16,8 @@
 		040623BD1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 040623BC1C7E9989005653C1 /* HUPhotoBrowser_DemoTests.m */; };
 		040624021C7E9BB6005653C1 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624011C7E9BB6005653C1 /* PhotoCell.m */; };
 		044D06501CD34623005BDFF2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 044D064F1CD34623005BDFF2 /* placeholder.png */; };
-		F4FA93E886DEB788FD5DFD70 /* libPods-HUPhotoBrowser Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */; };
+		BAE6B9A9C28D8D7FBAFBD61F /* libPods-HUPhotoBrowser DemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB702EF6466173C9049EA4E3 /* libPods-HUPhotoBrowser DemoTests.a */; };
+		F5D16FEE5AB714F5360AD713 /* libPods-HUPhotoBrowser Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3405AA6738D3B753050B7C /* libPods-HUPhotoBrowser Demo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +47,12 @@
 		040624001C7E9BB6005653C1 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
 		040624011C7E9BB6005653C1 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		044D064F1CD34623005BDFF2 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
-		0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CB69F10DBAB449BE835D229 /* Pods-HUPhotoBrowser Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.release.xcconfig"; sourceTree = "<group>"; };
-		60269676670946AAB9275ECE /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		0B3405AA6738D3B753050B7C /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F903672B8A30024BEB85314 /* Pods-HUPhotoBrowser Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.release.xcconfig"; sourceTree = "<group>"; };
+		5E779CEE89A1CB6936C03263 /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		E46B2F0916D241B35A9BD18C /* Pods-HUPhotoBrowser DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser DemoTests/Pods-HUPhotoBrowser DemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		F1491B717433294000E08563 /* Pods-HUPhotoBrowser DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser DemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser DemoTests/Pods-HUPhotoBrowser DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FB702EF6466173C9049EA4E3 /* libPods-HUPhotoBrowser DemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser DemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4FA93E886DEB788FD5DFD70 /* libPods-HUPhotoBrowser Demo.a in Frameworks */,
+				F5D16FEE5AB714F5360AD713 /* libPods-HUPhotoBrowser Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE6B9A9C28D8D7FBAFBD61F /* libPods-HUPhotoBrowser DemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,8 +81,8 @@
 				0406239F1C7E9989005653C1 /* HUPhotoBrowser Demo */,
 				040623B91C7E9989005653C1 /* HUPhotoBrowser DemoTests */,
 				0406239E1C7E9989005653C1 /* Products */,
-				99774561EBE7C1A0F5DB881E /* Frameworks */,
-				C9997B1D354C523A6DA1AD26 /* Pods */,
+				AFAAEBF96020AD44718B49B4 /* Pods */,
+				FAC6D30897335D2BCBFDD90B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,21 +139,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		99774561EBE7C1A0F5DB881E /* Frameworks */ = {
+		AFAAEBF96020AD44718B49B4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0D5762234829C0451C573BA1 /* libPods-HUPhotoBrowser Demo.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C9997B1D354C523A6DA1AD26 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				60269676670946AAB9275ECE /* Pods-HUPhotoBrowser Demo.debug.xcconfig */,
-				3CB69F10DBAB449BE835D229 /* Pods-HUPhotoBrowser Demo.release.xcconfig */,
+				5E779CEE89A1CB6936C03263 /* Pods-HUPhotoBrowser Demo.debug.xcconfig */,
+				3F903672B8A30024BEB85314 /* Pods-HUPhotoBrowser Demo.release.xcconfig */,
+				F1491B717433294000E08563 /* Pods-HUPhotoBrowser DemoTests.debug.xcconfig */,
+				E46B2F0916D241B35A9BD18C /* Pods-HUPhotoBrowser DemoTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FAC6D30897335D2BCBFDD90B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B3405AA6738D3B753050B7C /* libPods-HUPhotoBrowser Demo.a */,
+				FB702EF6466173C9049EA4E3 /* libPods-HUPhotoBrowser DemoTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 040623C01C7E9989005653C1 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser Demo" */;
 			buildPhases = (
-				92B537624EF0C9FFD7D93671 /* Check Pods Manifest.lock */,
+				A962A2954A15437EEDEDD01C /* [CP] Check Pods Manifest.lock */,
 				040623991C7E9989005653C1 /* Sources */,
 				0406239A1C7E9989005653C1 /* Frameworks */,
 				0406239B1C7E9989005653C1 /* Resources */,
-				DABBE0AD7BA6CED5B6B1AB7B /* Embed Pods Frameworks */,
-				E5535A326C93278E5A6337A9 /* Copy Pods Resources */,
+				B0E9B81CB19068F4E9174942 /* [CP] Embed Pods Frameworks */,
+				97981A438D22C17C60DAD2EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -178,9 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 040623C31C7E9989005653C1 /* Build configuration list for PBXNativeTarget "HUPhotoBrowser DemoTests" */;
 			buildPhases = (
+				E0F2C44E94EA75AA6F5357CA /* [CP] Check Pods Manifest.lock */,
 				040623B21C7E9989005653C1 /* Sources */,
 				040623B31C7E9989005653C1 /* Frameworks */,
 				040623B41C7E9989005653C1 /* Resources */,
+				65F7F3B05B67ECD82A8D70B0 /* [CP] Embed Pods Frameworks */,
+				4267A09C64DAB8DB54D72BE0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,29 +262,74 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		92B537624EF0C9FFD7D93671 /* Check Pods Manifest.lock */ = {
+		4267A09C64DAB8DB54D72BE0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUPhotoBrowser DemoTests/Pods-HUPhotoBrowser DemoTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DABBE0AD7BA6CED5B6B1AB7B /* Embed Pods Frameworks */ = {
+		65F7F3B05B67ECD82A8D70B0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUPhotoBrowser DemoTests/Pods-HUPhotoBrowser DemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97981A438D22C17C60DAD2EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A962A2954A15437EEDEDD01C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B0E9B81CB19068F4E9174942 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,19 +337,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E5535A326C93278E5A6337A9 /* Copy Pods Resources */ = {
+		E0F2C44E94EA75AA6F5357CA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -431,13 +487,13 @@
 		};
 		040623C11C7E9989005653C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 60269676670946AAB9275ECE /* Pods-HUPhotoBrowser Demo.debug.xcconfig */;
+			baseConfigurationReference = 5E779CEE89A1CB6936C03263 /* Pods-HUPhotoBrowser Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "HUPhotoBrowser Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hujewelz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,13 +503,13 @@
 		};
 		040623C21C7E9989005653C1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CB69F10DBAB449BE835D229 /* Pods-HUPhotoBrowser Demo.release.xcconfig */;
+			baseConfigurationReference = 3F903672B8A30024BEB85314 /* Pods-HUPhotoBrowser Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "HUPhotoBrowser Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hujewelz.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -463,6 +519,7 @@
 		};
 		040623C41C7E9989005653C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1491B717433294000E08563 /* Pods-HUPhotoBrowser DemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -483,6 +540,7 @@
 		};
 		040623C51C7E9989005653C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E46B2F0916D241B35A9BD18C /* Pods-HUPhotoBrowser DemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

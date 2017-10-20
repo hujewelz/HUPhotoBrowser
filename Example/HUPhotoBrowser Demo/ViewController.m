@@ -11,7 +11,7 @@
 #import "HUPhotoBrowser.h"
 #import <UIImageView+WebCache.h>
 #import <UIImageView+HUWebImage.h>
-#import "HUImagePickerViewController.h"
+#import <HUPhotoPicker/HUPhotoPicker.h>
 
 
 @interface ViewController ()<UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,HUImagePickerViewControllerDelegate,UINavigationControllerDelegate>
@@ -77,11 +77,11 @@
 }
 
 #pragma mark - HUImagePickerViewControllerDelegate
-
-- (void)imagePickerController:(HUImagePickerViewController *)picker didFinishPickingImagesWithInfo:(NSDictionary *)info{
-    NSLog(@"images info: %@", info);
-    _images = info[kHUImagePickerThumbnailImage];
-    _originalImages = info[kHUImagePickerOriginalImage];
+- (void)imagePickerViewController:(HUImagePickerViewController *)imagePickerViewController didFinishPickingImageWithImages:(NSArray<UIImage *> *)images assets:(NSArray<PHAsset *> *)assets {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    _images = images;
+    _originalImages = images;
     _localImage = YES;
     [self.collectionView reloadData];
 }
@@ -91,8 +91,6 @@
 - (IBAction)pickImage:(id)sender {
     HUImagePickerViewController *picker = [[HUImagePickerViewController alloc] init];
     picker.delegate = self;
-    picker.maxAllowedCount = 4;
-    picker.originalImageAllowed = YES; //想要获取高清图设置为YES,默认为NO
     [self presentViewController:picker animated:YES completion:nil];
 }
 
