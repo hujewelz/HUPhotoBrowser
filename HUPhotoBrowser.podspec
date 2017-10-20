@@ -14,9 +14,8 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author             = { "Jewelz Hu" => "https://github.com/hujewelz/HUPhotoBrowser" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => "1.2.4" }
+  s.source       = { :git => "https://github.com/hujewelz/HUPhotoBrowser.git", :tag => s.version.to_s }
   s.source_files  = "HUPhotoBrowser/**/*.{h,m}"
-  s.resources = "HUPhotoBrowser/HUPhotoPicker/*.png", "HUPhotoBrowser/HUPhotoPicker/*.xib"
   s.requires_arc = true
   s.frameworks = "UIKit", "Photos", "AssetsLibrary"
 

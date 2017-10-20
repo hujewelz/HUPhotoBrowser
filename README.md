@@ -2,7 +2,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/hujewelz/HUPhotoBrowser/master/LICENSE)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/HUPhotoBrowser.svg)](https://img.shields.io/cocoapods/v/HUPhotoBrowser.svg)
 
-⚠️最新的版本不再集成[HUPhotoPicker](https://github.com/hujewelz/HUPhotoPicker)了，需要使用的同学可以看[这里](https://github.com/hujewelz/HUPhotoPicker)
+⚠️最新的版本不再集成[HUPhotoPicker](https://github.com/hujewelz/HUPhotoPicker)了，需要使用的同学可以指定版本为 `1.2.5`，推荐单独使用[HUPhotoPicker](https://github.com/hujewelz/HUPhotoPicker)
 
 **HUPhotoBrowser** ios图片浏览器，支持浏览本地图片及网络图片，暂不支持浏览视频及gif,使用起来非常简单,只需要一行代码。
 **HUImagePickerViewController** 图片选择器，你可以像使用`UIImagePickerController`一样的使用它，支持图片多选。
