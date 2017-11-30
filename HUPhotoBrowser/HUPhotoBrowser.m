@@ -10,7 +10,7 @@
 #import "HUPhotoBrowserCell.h"
 #import "hu_const.h"
 #import "HUWebImage.h"
-#import <SVProgressHUD.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;
