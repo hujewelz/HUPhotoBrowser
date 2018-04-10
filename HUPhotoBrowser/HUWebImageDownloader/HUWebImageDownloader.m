@@ -203,6 +203,9 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
 
 - (nonnull NSString *)cacheFileForKey:(nonnull NSString *)key {
     const char *cStr = [key UTF8String];
+    if (cStr == NULL) {
+        return @"";
+    }
     unsigned char result[16];
     
     CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
