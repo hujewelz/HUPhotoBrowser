@@ -12,6 +12,8 @@
 
 @interface HUPhotoBrowserCell () <UIScrollViewDelegate>
 
+@property (nonatomic, strong, readwrite) UIActivityIndicatorView *indicatorView;
+@property (nonatomic, strong, readwrite) UIImageView *imageView;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UITapGestureRecognizer *doubleTap;
 @property (nonatomic,strong) UITapGestureRecognizer *singleTap;
@@ -32,21 +34,9 @@
 }
 
 - (void)setupView {
-    _scrollView = [[UIScrollView alloc] init];
-    _scrollView.backgroundColor = [UIColor blackColor];
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.maximumZoomScale = 4;
-    _scrollView.minimumZoomScale = 0.5;
-    _scrollView.delegate = self;
-
-    [self addSubview:_scrollView];
-    
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_scrollView addSubview:imageView];
-    _imageView = imageView;
-    
+    [self.scrollView addSubview:self.imageView];
+    [self addSubview:self.scrollView];
+    [self addSubview:self.indicatorView];
 }
 
 - (void)resetZoomingScale {
@@ -54,14 +44,22 @@
     if (self.scrollView.zoomScale !=1) {
          self.scrollView.zoomScale = 1;
     }
-   
+}
+
+- (void)startAnimating {
+    [self.indicatorView startAnimating];
+}
+
+- (void)stopAnimating {
+    [self.indicatorView stopAnimating];
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    _scrollView.frame = self.bounds;
-    _imageView.frame = _scrollView.bounds;
+    self.scrollView.frame = self.bounds;
+    self.imageView.frame = self.scrollView.bounds;
+    self.indicatorView.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -85,7 +83,7 @@
     if (self.scrollView.zoomScale <=1.0) {
         //CGFloat scaleX = p.x + self.scrollView.contentOffset.x;
         //CGFloat scaley = p.y + self.scrollView.contentOffset.y;
-        CGRect rect = [self zoomRectForScale:_scrollView.zoomScale*3 withCenter:p];
+        CGRect rect = [self zoomRectForScale:self.scrollView.zoomScale*3 withCenter:p];
         [self.scrollView zoomToRect:rect animated:YES];
     }
     else {
@@ -104,8 +102,8 @@
 
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
     CGRect zoomRect;
-    zoomRect.size.height = _scrollView.frame.size.height/scale;
-    zoomRect.size.width  = _scrollView.frame.size.width/scale;
+    zoomRect.size.height = self.scrollView.frame.size.height/scale;
+    zoomRect.size.width = self.scrollView.frame.size.width/scale;
     zoomRect.origin.x = center.x - (zoomRect.size.width/2.0);
     zoomRect.origin.y = center.y - (zoomRect.size.height/2.0);
     
@@ -124,6 +122,35 @@
 }
 
 #pragma mark - getter
+
+- (UIScrollView *)scrollView {
+    if (_scrollView == nil) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.backgroundColor = [UIColor blackColor];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.maximumZoomScale = 4;
+        _scrollView.minimumZoomScale = 0.5;
+        _scrollView.delegate = self;
+    }
+    return _scrollView;
+}
+
+- (UIImageView *)imageView {
+    if (_imageView == nil) {
+        _imageView = [[UIImageView alloc] init];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    return _imageView;
+}
+
+- (UIActivityIndicatorView *)indicatorView {
+    if (_indicatorView == nil) {
+        _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        _indicatorView.hidesWhenStopped = YES;
+    }
+    return _indicatorView;
+}
 
 - (UITapGestureRecognizer *)doubleTap {
     if (!_doubleTap) {

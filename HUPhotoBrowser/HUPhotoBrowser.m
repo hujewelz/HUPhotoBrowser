@@ -101,8 +101,7 @@
     NSInteger count = 0;
     if (self.URLStrings) {
         count = _URLStrings.count;
-    }
-    else if (self.images) {
+    }else if (self.images) {
         count = _images.count;
     }
     return count;
@@ -117,19 +116,33 @@
         [wself dismiss];
     };
     if (self.URLStrings) {
+        [cell startAnimating];
+        __weak __typeof(cell) weakCell = cell;
         NSURL *url = [NSURL URLWithString:self.URLStrings[indexPath.row]];
         if (indexPath.row != _index) {
-            [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage];
-        }
-        else {
+            if (_placeholderImage) {
+                [cell stopAnimating];
+                [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage];
+            } else {
+                [cell.imageView hu_setImageWithURL:url placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, NSURL * _Nullable imageUrl) {
+                    if (image) {
+                        __strong __typeof(weakCell) strongCell = weakCell;
+                        [strongCell stopAnimating];
+                    }
+                }];
+            }
+        } else {
             UIImage *placeHolder = _tmpImageView.image;
             [cell.imageView hu_setImageWithURL:url placeholderImage:placeHolder completed:^(UIImage *image, NSError *error, NSURL *imageUrl) {
-                if (!_imageDidLoaded) {
-                     _imageDidLoaded = YES;
-                    if (_animationCompleted) {
-                        self.collectionView.hidden = NO;
-                        [_tmpImageView removeFromSuperview];
-                        _animationCompleted = NO;
+                __strong __typeof(wself) strongSelf = wself;
+                __strong __typeof(weakCell) strongCell = weakCell;
+                [strongCell stopAnimating];
+                if (!strongSelf->_imageDidLoaded) {
+                     strongSelf->_imageDidLoaded = YES;
+                    if (strongSelf->_animationCompleted) {
+                        strongSelf.collectionView.hidden = NO;
+                        [strongSelf->_tmpImageView removeFromSuperview];
+                        strongSelf->_animationCompleted = NO;
                     }
                    
                 }
@@ -137,6 +150,7 @@
         }
     }
     else if (self.images) {
+        [cell stopAnimating];
         cell.imageView.image = self.images[indexPath.row];
     }
 

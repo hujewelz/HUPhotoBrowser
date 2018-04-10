@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "HUPhotoBrowser"
-  s.version      = "1.3.1"
+  s.version      = "1.4.0"
   s.summary      = "photo browser for ios, which can browse Photo library and web image"
   s.homepage     = "https://github.com/hujewelz/HUPhotoBrowser"
   s.license      = "MIT"
@@ -18,11 +18,6 @@ Pod::Spec.new do |s|
   s.source_files  = "HUPhotoBrowser/**/*.{h,m}"
   s.requires_arc = true
   s.frameworks = "UIKit", "Photos", "AssetsLibrary"
-
-
-
-
-  #s.exclude_files = "Classes/Exclude"
 
   s.public_header_files = "HUPhotoBrowser/HUPhotoBrowser.h", "HUPhotoBrowser/HUPhotoPicker/HUImagePickerViewController.h", "HUPhotoBrowser/HUWebImageDownloader/{UIImageView+HUWebImage,HUWebImageDownloader}.h"
   s.dependency "SVProgressHUD"

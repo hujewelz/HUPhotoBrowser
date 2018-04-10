@@ -14,15 +14,16 @@ static NSString * const kPhotoCellDidImageLoadedNotification = @"kPhotoCellDidIm
 
 @interface HUPhotoBrowserCell : UICollectionViewCell
 
-@property (nonatomic, weak) UIImageView *imageView;
-
-//@property (nonatomic, strong) UIImage *placeholderImage;
+@property (nonatomic, strong, readonly) UIActivityIndicatorView *indicatorView;
+@property (nonatomic, strong, readonly) UIImageView *imageView;
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
 - (void)resetZoomingScale;
 
-//- (void)configureCellWithURLStrings:(NSString *)URLStrings;
+- (void)startAnimating;
+
+- (void)stopAnimating;
 
 @property (nonatomic, copy) void(^tapActionBlock)(UITapGestureRecognizer *tapGesture);
 
