@@ -122,11 +122,15 @@
         if (indexPath.row != _index) {
             if (_placeholderImage) {
                 [cell stopAnimating];
-                [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage];
+                [cell.imageView hu_setImageWithURL:url placeholderImage:_placeholderImage completed:^(UIImage * _Nullable image, NSError * _Nullable error, NSURL * _Nullable imageUrl) {
+                    __strong __typeof(weakCell) strongCell = weakCell;
+                    [strongCell resizeImageView];
+                }];
             } else {
                 [cell.imageView hu_setImageWithURL:url placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, NSURL * _Nullable imageUrl) {
                     if (image) {
                         __strong __typeof(weakCell) strongCell = weakCell;
+                        [strongCell resizeImageView];
                         [strongCell stopAnimating];
                     }
                 }];
@@ -137,6 +141,7 @@
                 __strong __typeof(wself) strongSelf = wself;
                 __strong __typeof(weakCell) strongCell = weakCell;
                 [strongCell stopAnimating];
+                [strongCell resizeImageView];
                 if (!strongSelf->_imageDidLoaded) {
                      strongSelf->_imageDidLoaded = YES;
                     if (strongSelf->_animationCompleted) {
@@ -152,6 +157,7 @@
     else if (self.images) {
         [cell stopAnimating];
         cell.imageView.image = self.images[indexPath.row];
+        [cell resizeImageView];
     }
 
     return cell;

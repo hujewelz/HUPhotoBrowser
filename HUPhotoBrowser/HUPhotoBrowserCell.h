@@ -21,6 +21,8 @@ static NSString * const kPhotoCellDidImageLoadedNotification = @"kPhotoCellDidIm
 
 - (void)resetZoomingScale;
 
+- (void)resizeImageView;
+
 - (void)startAnimating;
 
 - (void)stopAnimating;

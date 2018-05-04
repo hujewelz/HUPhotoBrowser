@@ -46,6 +46,16 @@
     }
 }
 
+- (void)resizeImageView {
+    CGSize size = _imageView.image.size;
+    if (size.height > kScreenHeight * 2) {
+        CGFloat height = kScreenWidth * size.height / size.width;
+        _imageView.frame = CGRectMake(0, 0, kScreenWidth, height);
+    } else {
+        _imageView.frame = _scrollView.bounds;
+    }
+}
+
 - (void)startAnimating {
     [self.indicatorView startAnimating];
 }

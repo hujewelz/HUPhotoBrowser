@@ -56,7 +56,6 @@
         cell.imageView.image = self.images[indexPath.row];
     }
     else {
-        //[cell.imageView sd_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
       [cell.imageView hu_setImageWithURL:[NSURL URLWithString:_URLStrings[indexPath.row]]];
     }
     
