@@ -14,6 +14,7 @@
 @property (nonatomic, copy) HUWebImageDownloadCompltedBlock completedBlock;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, strong) NSURLSessionDownloadTask *downloadTask;
 @property (nonatomic, assign) BOOL myFinished;
 @property (nonatomic, assign) BOOL myExecuting;
 
@@ -29,27 +30,19 @@
     return self;
 }
 
-//- (void)main {
-//
-//    @autoreleasepool {
-//        if (self.isCancelled) {
-//            [self reset];
-//            return;
-//        }
-//
-//
-//        [self beginTask];
-//    }
-//
-//}
+- (void)resume {
+    if (self.isCancelled && !self.isFinished) {
+        self.myExecuting = YES;
+        [_downloadTask resume];
+    }
+}
 
 - (void)start {
     if (self.isCancelled) {
-        [self end];
         [self reset];
         return;
     }
-    _myExecuting = YES;
+    self.myExecuting = YES;
     [self beginTask];
 }
 
@@ -78,48 +71,66 @@
 }
 
 - (void)beginTask {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    self.session = [NSURLSession sessionWithConfiguration:configuration];
     
-    NSURLRequest *repuest = [NSURLRequest requestWithURL:_url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:_url];
     __weak __typeof(self) wself = self;
-    NSURLSessionDataTask *task = [_session dataTaskWithRequest:repuest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    
+    self.downloadTask = [self.session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         __strong __typeof(self) sself = wself;
+        
+        [sself end];
+        
         if (!sself.completedBlock) {
-            [sself end];
+            
             return ;
         }
         
+        
+        NSString *caches = [NSSearchPathForDirectoriesInDomains (NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *file = [caches stringByAppendingPathComponent:response.suggestedFilename];
+        [NSFileManager.defaultManager moveItemAtPath:location.path toPath:file error:nil];
+        
+        NSData *data = [NSData dataWithContentsOfFile:file];
+        
+        [NSFileManager.defaultManager removeItemAtPath:file error:nil];
+        
         if (data == nil) {
             sself.completedBlock(nil, nil, error);
-            [sself end];
             return ;
         }
         
         if (sself.isCancelled) {
-            [sself reset];
             return;
         }
-        
         UIImage *image = [UIImage hu_imageFromData:data];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             sself.completedBlock(image, data, nil);
-            [sself end];
         }];
         
     }];
-    [task resume];
+    
+    [_downloadTask resume];
 }
 
 - (void)reset {
+    [self end];
     self.completedBlock = nil;
     [[self.session dataTaskWithURL:_url] cancel];
-    [self end];
 }
 
 - (void)end {
-    _myExecuting = NO;
-    _myFinished = YES;
+    self.myExecuting = NO;
+    self.myFinished = YES;
 }
 
+- (NSURLSession *)session {
+    if (_session == nil) {
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        _session = [NSURLSession sessionWithConfiguration:configuration];
+    }
+    return _session;
+}
+
+
 @end
+

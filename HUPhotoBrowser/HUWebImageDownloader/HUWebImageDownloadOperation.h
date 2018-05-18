@@ -13,5 +13,6 @@ typedef void (^HUWebImageDownloadCompltedBlock) (UIImage * __nullable image, NSD
 @interface HUWebImageDownloadOperation : NSOperation
 
 - (nonnull instancetype)initWithURL:(nonnull NSURL *)url completed:(nullable HUWebImageDownloadCompltedBlock)completedBlock;
+- (void)resume;
 
 @end

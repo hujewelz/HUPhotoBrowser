@@ -157,6 +157,8 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
         
         [self.operationQueue addOperation:operation];
         [self.downloadOperations setValue:operation forKey:[self cacheKeyForURL:url]];
+    } else if (operation.isCancelled) {
+        [operation resume];
     }
     return operation;
 }

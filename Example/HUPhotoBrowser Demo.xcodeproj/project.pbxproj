@@ -17,6 +17,9 @@
 		040624021C7E9BB6005653C1 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040624011C7E9BB6005653C1 /* PhotoCell.m */; };
 		044D06501CD34623005BDFF2 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 044D064F1CD34623005BDFF2 /* placeholder.png */; };
 		BAE6B9A9C28D8D7FBAFBD61F /* libPods-HUPhotoBrowser DemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB702EF6466173C9049EA4E3 /* libPods-HUPhotoBrowser DemoTests.a */; };
+		C2CE112E20AE7956006DEB06 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C2CE112B20AE7956006DEB06 /* README.md */; };
+		C2CE112F20AE7956006DEB06 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = C2CE112C20AE7956006DEB06 /* LICENSE */; };
+		C2CE113020AE7956006DEB06 /* HUPhotoBrowser.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C2CE112D20AE7956006DEB06 /* HUPhotoBrowser.podspec */; };
 		F5D16FEE5AB714F5360AD713 /* libPods-HUPhotoBrowser Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3405AA6738D3B753050B7C /* libPods-HUPhotoBrowser Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,9 @@
 		0B3405AA6738D3B753050B7C /* libPods-HUPhotoBrowser Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F903672B8A30024BEB85314 /* Pods-HUPhotoBrowser Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.release.xcconfig"; sourceTree = "<group>"; };
 		5E779CEE89A1CB6936C03263 /* Pods-HUPhotoBrowser Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser Demo/Pods-HUPhotoBrowser Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		C2CE112B20AE7956006DEB06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		C2CE112C20AE7956006DEB06 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
+		C2CE112D20AE7956006DEB06 /* HUPhotoBrowser.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = HUPhotoBrowser.podspec; path = ../../HUPhotoBrowser.podspec; sourceTree = "<group>"; };
 		E46B2F0916D241B35A9BD18C /* Pods-HUPhotoBrowser DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser DemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser DemoTests/Pods-HUPhotoBrowser DemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		F1491B717433294000E08563 /* Pods-HUPhotoBrowser DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUPhotoBrowser DemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUPhotoBrowser DemoTests/Pods-HUPhotoBrowser DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB702EF6466173C9049EA4E3 /* libPods-HUPhotoBrowser DemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUPhotoBrowser DemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +84,7 @@
 		040623941C7E9989005653C1 = {
 			isa = PBXGroup;
 			children = (
+				C2CE112A20AE7939006DEB06 /* Podspec Metadata */,
 				0406239F1C7E9989005653C1 /* HUPhotoBrowser Demo */,
 				040623B91C7E9989005653C1 /* HUPhotoBrowser DemoTests */,
 				0406239E1C7E9989005653C1 /* Products */,
@@ -148,6 +155,16 @@
 				E46B2F0916D241B35A9BD18C /* Pods-HUPhotoBrowser DemoTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C2CE112A20AE7939006DEB06 /* Podspec Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				C2CE112D20AE7956006DEB06 /* HUPhotoBrowser.podspec */,
+				C2CE112C20AE7956006DEB06 /* LICENSE */,
+				C2CE112B20AE7956006DEB06 /* README.md */,
+			);
+			path = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		FAC6D30897335D2BCBFDD90B /* Frameworks */ = {
@@ -246,8 +263,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2CE113020AE7956006DEB06 /* HUPhotoBrowser.podspec in Resources */,
+				C2CE112F20AE7956006DEB06 /* LICENSE in Resources */,
 				044D06501CD34623005BDFF2 /* placeholder.png in Resources */,
 				040623AC1C7E9989005653C1 /* Main.storyboard in Resources */,
+				C2CE112E20AE7956006DEB06 /* README.md in Resources */,
 				040623B11C7E9989005653C1 /* LaunchScreen.xib in Resources */,
 				040623AE1C7E9989005653C1 /* Images.xcassets in Resources */,
 			);
