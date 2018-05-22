@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks = "UIKit", "Photos", "AssetsLibrary"
 
-  s.public_header_files = "HUPhotoBrowser/HUPhotoBrowser.h", "HUPhotoBrowser/**/HUWebImage.h",
+  s.public_header_files = "HUPhotoBrowser/HUPhotoBrowser.h","HUPhotoBrowser/HUWebImageDownloader/HUWebImage.h", "HUPhotoBrowser/HUWebImageDownloader/{UIImageView+HUWebImage,HUWebImageDownloader}.h"
   s.dependency "SVProgressHUD"
 
 
