@@ -16,4 +16,12 @@
 #define kScreenMidX CGRectGetMaxX(kScreenRect)
 #define kScreenMidY CGRectGetMaxY(kScreenRect)
 
+#define dispatch_async_main(block) if ([NSThread isMainThread]) { \
+    block;\
+} else { \
+    dispatch_async(dispatch_get_main_queue(), ^{ \
+        block; \
+    }); \
+} \
+
 #endif

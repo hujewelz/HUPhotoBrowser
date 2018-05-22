@@ -94,14 +94,11 @@
         
         [NSFileManager.defaultManager removeItemAtPath:file error:nil];
         
-        if (data == nil) {
+        if (data == nil || sself.isCancelled) {
             sself.completedBlock(nil, nil, error);
             return ;
         }
         
-        if (sself.isCancelled) {
-            return;
-        }
         UIImage *image = [UIImage hu_imageFromData:data];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             sself.completedBlock(image, data, nil);

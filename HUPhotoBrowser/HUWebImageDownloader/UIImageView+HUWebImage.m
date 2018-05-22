@@ -10,6 +10,8 @@
 #import "HUWebImageDownloadOperation.h"
 #import "HUWebImageDownloader.h"
 #import <objc/runtime.h>
+#import "hu_const.h"
+
 
 static char *loadOperationKey = "loadOperationKey";
 static char imageURLKey;
@@ -41,23 +43,28 @@ static char imageURLKey;
         if (![[sself hu_imageURL].absoluteString isEqualToString:url.absoluteString]) {
             return;
         }
-        if (image) {
-            sself.image = image;
-            [sself setNeedsLayout];
-        }
-        else {
-            sself.image = placeholder;
-            [sself setNeedsLayout];
-        }
-        if (completed) {
-            completed(image, error, imageUrl);
-        }
+        
+        dispatch_async_main({
+            if (image) {
+                sself.image = image;
+                [sself setNeedsLayout];
+            }
+            else {
+                sself.image = placeholder;
+                [sself setNeedsLayout];
+            }
+            if (completed) {
+                completed(image, error, imageUrl);
+            }
+        })
     }];
     if (operation) {
         [self hu_setImageDownloadOperation:operation forKey:@"downloadimage"];
     }
 
 }
+
+
 
 - (void)hu_setImageDownloadOperation:(id)operation forKey:(NSString *)key {
     if (key == nil) {

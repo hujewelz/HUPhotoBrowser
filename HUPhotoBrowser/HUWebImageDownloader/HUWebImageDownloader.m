@@ -9,6 +9,7 @@
 #import "HUWebImageDownloader.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "HUWebImageDownloadOperation.h"
+#import "hu_const.h"
 
 static NSString *const kDefaultDiskCachePath = @"com.huwebimagedownloader";
 
@@ -138,7 +139,9 @@ FOUNDATION_STATIC_INLINE NSUInteger HUCacheCostForImage(UIImage *image) {
             __strong __typeof(self) sself = wself;
             
             if (completeBlock) {
-                completeBlock(image, nil, url);
+                dispatch_async_main({
+                    completeBlock(image, nil, url);
+                })
             }
             
             if (image == nil)  return ;
