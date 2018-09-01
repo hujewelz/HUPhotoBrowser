@@ -47,14 +47,14 @@
 }
 
 - (void)resizeImageView {
-    CGSize size = _imageView.image.size;
+    CGSize size = self.imageView.image.size;
     CGFloat scale = size.height / size.width;
     BOOL flag = scale > kScreenHeight / kScreenWidth;
     if (size.height > kScreenHeight * 2 && flag) {
         CGFloat height = kScreenWidth * size.height / size.width;
-        _imageView.frame = CGRectMake(0, 0, kScreenWidth, height);
+        self.imageView.frame = CGRectMake(0, 0, kScreenWidth, height);
     } else {
-        _imageView.frame = _scrollView.bounds;
+        self.imageView.frame = self.scrollView.bounds;
     }
 }
 

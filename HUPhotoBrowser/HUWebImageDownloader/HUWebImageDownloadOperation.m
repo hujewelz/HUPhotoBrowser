@@ -9,7 +9,9 @@
 #import "HUWebImageDownloadOperation.h"
 #import "UIImage+HUExtension.h"
 
-@interface HUWebImageDownloadOperation ()
+@interface HUWebImageDownloadOperation () {
+    NSLock *_lock;
+}
 
 @property (nonatomic, copy) HUWebImageDownloadCompltedBlock completedBlock;
 @property (nonatomic, strong) NSURL *url;
@@ -26,13 +28,16 @@
     if (self = [super init]) {
         _url = url;
         _completedBlock = completedBlock;
+        _lock = [NSLock new];
     }
     return self;
 }
 
 - (void)resume {
     if (self.isCancelled && !self.isFinished) {
+        [_lock lock];
         self.myExecuting = YES;
+        [_lock unlock];
         [_downloadTask resume];
     }
 }
@@ -42,7 +47,9 @@
         [self reset];
         return;
     }
+    [_lock lock];
     self.myExecuting = YES;
+    [_lock unlock];
     [self beginTask];
 }
 
@@ -81,14 +88,16 @@
         [sself end];
         
         if (!sself.completedBlock) {
-            
+            sself.myFinished = YES;
             return ;
         }
         
         
         NSString *caches = [NSSearchPathForDirectoriesInDomains (NSCachesDirectory, NSUserDomainMask, YES) lastObject];
         NSString *file = [caches stringByAppendingPathComponent:response.suggestedFilename];
-        [NSFileManager.defaultManager moveItemAtPath:location.path toPath:file error:nil];
+        if (location.path) {
+            [NSFileManager.defaultManager moveItemAtPath:location.path toPath:file error:nil];
+        }
         
         NSData *data = [NSData dataWithContentsOfFile:file];
         
@@ -96,12 +105,14 @@
         
         if (data == nil || sself.isCancelled) {
             sself.completedBlock(nil, nil, error);
+            sself.myFinished = YES;
             return ;
         }
         
         UIImage *image = [UIImage hu_imageFromData:data];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             sself.completedBlock(image, data, nil);
+            sself.myFinished = YES;
         }];
         
     }];
