@@ -13,6 +13,13 @@ typedef void(^ __nullable DismissBlock)(UIImage * __nullable image, NSInteger in
 
 @interface HUPhotoBrowser : UIView
 
+@property (nonatomic, strong, readonly) UIButton *saveButton;
+
+/*
+ * 是否隐藏工具栏，默认不隐藏
+ */
+@property (nonatomic) BOOL didHideToolBar;
+
 /*
  * @param imageView    点击的imageView
  * @param URLStrings   加载的网络图片的urlString

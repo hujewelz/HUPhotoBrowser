@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "HUPhotoBrowser"
-  s.version      = "1.4.4"
+  s.version      = "1.4.5"
   s.summary      = "photo browser for ios, which can browse Photo library and web image"
   s.homepage     = "https://github.com/hujewelz/HUPhotoBrowser"
   s.license      = "MIT"

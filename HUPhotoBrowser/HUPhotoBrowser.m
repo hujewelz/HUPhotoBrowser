@@ -192,7 +192,12 @@
     _zoomingIndexPath = indexPath;
 }
 
-#pragma mark - getter
+#pragma mark - getter & setter
+
+- (void)setDidHideToolBar:(BOOL)didHideToolBar {
+    _didHideToolBar = didHideToolBar;
+    _toolBar.hidden = didHideToolBar;
+}
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
@@ -245,6 +250,7 @@
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     [saveBtn addTarget:self action:@selector(saveImae) forControlEvents:UIControlEventTouchUpInside];
     [_toolBar addSubview:saveBtn];
+    _saveButton = saveBtn;
     
 }
 
