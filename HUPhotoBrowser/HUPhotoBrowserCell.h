@@ -29,4 +29,6 @@ static NSString * const kPhotoCellDidImageLoadedNotification = @"kPhotoCellDidIm
 
 @property (nonatomic, copy) void(^tapActionBlock)(UITapGestureRecognizer *tapGesture);
 
+@property (nonatomic, copy) void(^longActionBlock)(UILongPressGestureRecognizer *longGesture);
+
 @end
