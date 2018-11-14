@@ -10,7 +10,6 @@
 #import "HUPhotoBrowserCell.h"
 #import "hu_const.h"
 #import "HUWebImage.h"
-#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface HUPhotoBrowser () <UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout> {
     CGRect _endTempFrame;
@@ -41,31 +40,12 @@
 }
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index dismiss:(DismissBlock)block {
-    HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:kScreenRect];
-    browser.imageView = imageView;
-    browser.URLStrings = URLStrings;
-    browser.imagesCount = URLStrings.count;
-    [browser resetCountLabWithIndex:index+1];
-    [browser configureBrowser];
-    [browser animateImageViewAtIndex:index];
-    browser.placeholderImage = image;
-    browser.dismissDlock = block;
-    
-    return browser;
+    return [self showFromImageView:imageView withURLStrings:URLStrings placeholderImage:image atIndex:index didSave:nil dismiss:block];
 }
 
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index dismiss:(DismissBlock)block {
-    HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:kScreenRect];
-    browser.imageView = imageView;
-    browser.images = images;
-    browser.imagesCount = images.count;
-    [browser resetCountLabWithIndex:index+1];
-    [browser configureBrowser];
-    [browser animateImageViewAtIndex:index];
-    browser.dismissDlock = block;
-    
-    return browser;
+    return [self showFromImageView:imageView withImages:images atIndex:index didSave:nil dismiss:block];
 }
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings atIndex:(NSInteger)index {
@@ -75,6 +55,43 @@
 
 + (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index {
     return [self showFromImageView:imageView withImages:images atIndex:index dismiss:nil];
+}
+
++ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index didSave:(DidSaveBlock)saveBlock {
+    return [self showFromImageView:imageView withImages:images atIndex:index didSave:saveBlock dismiss:nil];
+}
+
++ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index didSave:(DidSaveBlock)saveBlock {
+    return [self showFromImageView:imageView withURLStrings:URLStrings placeholderImage:image atIndex:index didSave:saveBlock dismiss:nil];
+}
+
++ (instancetype)showFromImageView:(UIImageView *)imageView withImages:(NSArray *)images atIndex:(NSInteger)index didSave:(DidSaveBlock)saveBlock dismiss:(DismissBlock)block {
+    HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:kScreenRect];
+    browser.imageView = imageView;
+    browser.images = images;
+    browser.imagesCount = images.count;
+    [browser resetCountLabWithIndex:index+1];
+    [browser configureBrowser];
+    [browser animateImageViewAtIndex:index];
+    browser.dismissDlock = block;
+    browser.didSaveBlock = saveBlock;
+    
+    return browser;
+}
+
++ (instancetype)showFromImageView:(UIImageView *)imageView withURLStrings:(NSArray *)URLStrings placeholderImage:(UIImage *)image atIndex:(NSInteger)index didSave:(DidSaveBlock)saveBlock dismiss:(DismissBlock)block {
+    HUPhotoBrowser *browser = [[HUPhotoBrowser alloc] initWithFrame:kScreenRect];
+    browser.imageView = imageView;
+    browser.URLStrings = URLStrings;
+    browser.imagesCount = URLStrings.count;
+    [browser resetCountLabWithIndex:index+1];
+    [browser configureBrowser];
+    [browser animateImageViewAtIndex:index];
+    browser.placeholderImage = image;
+    browser.dismissDlock = block;
+    browser.didSaveBlock = saveBlock;
+    
+    return browser;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -114,6 +131,15 @@
     __weak __typeof(self) wself = self;
     cell.tapActionBlock = ^(UITapGestureRecognizer *sender) {
         [wself dismiss];
+    };
+    cell.longActionBlock = ^(UILongPressGestureRecognizer *longGesture) {
+        if (self.longTapBlock){
+            HUPhotoBrowserCell *cell = (HUPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self->_currentPage inSection:0]];
+            UIImage *currImage = cell.imageView.image;
+            if (currImage) {
+                self.longTapBlock(currImage, self->_currentPage, longGesture);
+            }
+        }
     };
     if (self.URLStrings) {
         [cell startAnimating];
@@ -197,6 +223,11 @@
 - (void)setDidHideToolBar:(BOOL)didHideToolBar {
     _didHideToolBar = didHideToolBar;
     _toolBar.hidden = didHideToolBar;
+}
+
+- (void)setDidHideSaveButton:(BOOL)didHideSaveButton {
+    didHideSaveButton = didHideSaveButton;
+    _saveButton.hidden = didHideSaveButton;
 }
 
 - (UICollectionView *)collectionView {
@@ -302,12 +333,12 @@
         tempImageView.frame = endFrame;
         
     } completion:^(BOOL finished) {
-        _currentPage = index;
-        _animationCompleted = YES;
-        if (self.images || _imageDidLoaded || (self.URLStrings && !_imageDidLoaded)) {
+        self->_currentPage = index;
+        self->_animationCompleted = YES;
+        if (self.images || self->_imageDidLoaded || (self.URLStrings && !self->_imageDidLoaded)) {
             self.collectionView.hidden = NO;
             [tempImageView removeFromSuperview];
-            _animationCompleted = NO;
+            self->_animationCompleted = NO;
         }
         
     }];
@@ -375,17 +406,10 @@
 }
 
 - (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-  
-    NSString *msg = nil ;
-    if(error != nil){
-        msg = @"保存图片失败";
-        [SVProgressHUD showInfoWithStatus:msg];
-    }
-    else{
-        msg = @"保存图片成功";
-        [SVProgressHUD showSuccessWithStatus:msg];
-    }
     
+    if (self.didSaveBlock) {
+        self.didSaveBlock(image, error, contextInfo);
+     }
 }
 
 @end

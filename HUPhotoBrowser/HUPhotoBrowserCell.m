@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UITapGestureRecognizer *doubleTap;
 @property (nonatomic,strong) UITapGestureRecognizer *singleTap;
+@property (nonatomic,strong) UILongPressGestureRecognizer *longTap;
 
 @end
 
@@ -29,6 +30,7 @@
         [self setupView];
         [self addGestureRecognizer:self.singleTap];
         [self addGestureRecognizer:self.doubleTap];
+        [self addGestureRecognizer:self.longTap];
     }
     return self;
 }
@@ -110,6 +112,13 @@
     
 }
 
+- (void)longTapGestrueHandle:(UILongPressGestureRecognizer *)sender {
+    if (self.longActionBlock) {
+        self.longActionBlock(sender);
+    }
+    
+}
+
 #pragma mark - private
 
 - (CGRect)zoomRectForScale:(float)scale withCenter:(CGPoint)center {
@@ -181,6 +190,15 @@
         [_singleTap requireGestureRecognizerToFail:self.doubleTap];
     }
     return _singleTap;
+}
+
+- (UILongPressGestureRecognizer *)longTap {
+    if (!_longTap) {
+        _longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTapGestrueHandle:)];
+        _longTap.numberOfTouchesRequired = 1;
+        [_longTap requireGestureRecognizerToFail:self.singleTap];
+    }
+    return _longTap;
 }
 
 @end
